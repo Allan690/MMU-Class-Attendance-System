@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="usersdb" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=ALLAN-PC\SQLEXPRESS;Initial Catalog=usersdb;Integrated Security=True" SettingsObjectName="MMUSIS1.Properties.Settings" SettingsPropertyName="usersdbConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.StudAttendance" Member="StudAttendances">
+    <Type Name="StudAttendance">
+      <Column Name="StudID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="Geolocation" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="StudDate" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Unit" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Course" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Faculty" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="AdmNo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

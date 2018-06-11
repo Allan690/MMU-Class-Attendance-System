@@ -1,0 +1,60 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace MMUSIS1
+{
+    public partial class custom_dialog : Form
+    {
+        public custom_dialog(string _message)
+        {
+            InitializeComponent();
+            bunifuCustomLabel1.Text = _message;
+        }
+
+        private void custom_dialog_Load(object sender, EventArgs e)
+        {
+            bunifuFormFadeTransition1.ShowAsyc(this);
+        }
+
+        private void bunifuFormFadeTransition1_TransitionEnd(object sender, EventArgs e)
+        {
+            icon_delay.Start();
+            icon.Enabled = true;
+        }
+
+        private void icon_delay_Tick(object sender, EventArgs e)
+        {
+            icon.Enabled = false;
+            icon_delay.Stop();
+            metroButton1.Visible = true;
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        public static void showDialog(string message)
+        {
+            custom_dialog cd = new custom_dialog(message);
+            cd.ShowDialog();
+
+        }
+
+        private void bunifuCustomLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void icon_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}

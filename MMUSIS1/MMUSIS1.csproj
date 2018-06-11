@@ -1,0 +1,643 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E9FAE1CA-EB54-4584-AA41-9F74763B8F47}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MMUSIS1</RootNamespace>
+    <AssemblyName>MMUSIS1</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.1.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.8.1.3\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Bunifu_UI_v1.5.3">
+      <HintPath>..\..\..\..\..\Downloads\Bunifu_UI_v1.5.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.4.1\lib\net40\Common.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Excel, Version=2.1.2.3, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader-DevNet45.1.0.0.2\lib\net45\Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ExcelDataReader, Version=3.4.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.3.4.0\lib\net45\ExcelDataReader.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ExcelDataReader.DataSet, Version=3.4.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.DataSet.3.4.0\lib\net45\ExcelDataReader.DataSet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ExcelDataReader.Desktop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c7df2eb721e25c05, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader-DevNet45.1.0.0.2\lib\net45\ExcelDataReader.Desktop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ExcelDataReader.Portable, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e91ca9c684d5c64a, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader-DevNet45.1.0.0.2\lib\net45\ExcelDataReader.Portable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itext.barcodes, Version=7.1.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.2\lib\net40\itext.barcodes.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itext.forms, Version=7.1.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.2\lib\net40\itext.forms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itext.io, Version=7.1.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.2\lib\net40\itext.io.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itext.kernel, Version=7.1.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.2\lib\net40\itext.kernel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itext.layout, Version=7.1.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.2\lib\net40\itext.layout.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itext.pdfa, Version=7.1.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.2\lib\net40\itext.pdfa.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itext.sign, Version=7.1.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.2\lib\net40\itext.sign.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itext.styledxmlparser, Version=7.1.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.2\lib\net40\itext.styledxmlparser.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itext.svg, Version=7.1.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.2\lib\net40\itext.svg.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\..\..\Downloads\itextsharp-all-5.5.10\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader-DevNet45.1.0.0.2\lib\net45\Microsoft.Threading.Tasks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader-DevNet45.1.0.0.2\lib\net45\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop, Version=1.0.168.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader-DevNet45.1.0.0.2\lib\net45\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PCLStorage, Version=0.9.6.0, Culture=neutral, PublicKeyToken=286fe515a2c35b64, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader-DevNet45.1.0.0.2\lib\net45\PCLStorage.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PCLStorage.Abstractions, Version=0.9.6.0, Culture=neutral, PublicKeyToken=286fe515a2c35b64, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader-DevNet45.1.0.0.2\lib\net45\PCLStorage.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.6\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telerik.WinControls, Version=2017.3.1017.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
+    <Reference Include="Telerik.WinControls.GridView, Version=2017.3.1017.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.RadDiagram, Version=2017.3.1017.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.SpellChecker, Version=2017.3.1017.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.Breeze, Version=2017.3.1017.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.VisualStudio2012Dark, Version=2017.3.1017.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.UI, Version=2017.3.1017.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
+    <Reference Include="TelerikCommon, Version=2017.3.1017.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admins.cs" />
+    <Compile Include="AttendanceReport.cs" />
+    <Compile Include="correctForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="correctForm.Designer.cs">
+      <DependentUpon>correctForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="custom_dialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="custom_dialog.Designer.cs">
+      <DependentUpon>custom_dialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataClasses1.cs">
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DataClasses1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DGVPrinter.cs" />
+    <Compile Include="emailSent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="emailSent.Designer.cs">
+      <DependentUpon>emailSent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EntityStateStud.cs" />
+    <Compile Include="EntityStateUnits.cs" />
+    <Compile Include="errForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="errForm.Designer.cs">
+      <DependentUpon>errForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="errorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="errorForm.Designer.cs">
+      <DependentUpon>errorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HowManyLessons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HowManyLessons.Designer.cs">
+      <DependentUpon>HowManyLessons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Non-Threshold reachers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Non-Threshold reachers.Designer.cs">
+      <DependentUpon>Non-Threshold reachers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="studAttendancerpt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="studAttendancerpt.Designer.cs">
+      <DependentUpon>studAttendancerpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThresholdReachers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThresholdReachers.Designer.cs">
+      <DependentUpon>ThresholdReachers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Thresholdreport.cs" />
+    <Compile Include="Thresholdreportall.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Thresholdreportall.Designer.cs">
+      <DependentUpon>Thresholdreportall.cs</DependentUpon>
+    </Compile>
+    <Compile Include="txtSentSuccess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="txtSentSuccess.Designer.cs">
+      <DependentUpon>txtSentSuccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViaNettSMS.cs" />
+    <Compile Include="Waitfrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Waitfrm.Designer.cs">
+      <DependentUpon>Waitfrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportExcel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportExcel.Designer.cs">
+      <DependentUpon>ImportExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentAttendance.cs" />
+    <Compile Include="Students.cs" />
+    <Compile Include="Units.cs" />
+    <Compile Include="UserControls\addCourseUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\addCourseUC.Designer.cs">
+      <DependentUpon>addCourseUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\addUnitUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\addUnitUC.Designer.cs">
+      <DependentUpon>addUnitUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AdminAddStud.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AdminAddStud.Designer.cs">
+      <DependentUpon>AdminAddStud.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminDashboard.Designer.cs">
+      <DependentUpon>AdminDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminLogin.Designer.cs">
+      <DependentUpon>AdminLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdmUserFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdmUserFrm.Designer.cs">
+      <DependentUpon>AdmUserFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UserControls\AddStudUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AddStudUC.Designer.cs">
+      <DependentUpon>AddStudUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ChatUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ChatUC.Designer.cs">
+      <DependentUpon>ChatUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CheckStudUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CheckStudUC.Designer.cs">
+      <DependentUpon>CheckStudUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ImportCSV.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ImportCSV.Designer.cs">
+      <DependentUpon>ImportCSV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ReportsUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ReportsUC.Designer.cs">
+      <DependentUpon>ReportsUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SendEmailUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\SendEmailUC.Designer.cs">
+      <DependentUpon>SendEmailUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SettingsUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\SettingsUC.Designer.cs">
+      <DependentUpon>SettingsUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\StudCheckinUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\StudCheckinUC.Designer.cs">
+      <DependentUpon>StudCheckinUC.cs</DependentUpon>
+    </Compile>
+    <None Include="DataClasses1.dbml.layout">
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="correctForm.resx">
+      <DependentUpon>correctForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="custom_dialog.resx">
+      <DependentUpon>custom_dialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="emailSent.resx">
+      <DependentUpon>emailSent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="errForm.resx">
+      <DependentUpon>errForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="errorForm.resx">
+      <DependentUpon>errorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HowManyLessons.resx">
+      <DependentUpon>HowManyLessons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Non-Threshold reachers.resx">
+      <DependentUpon>Non-Threshold reachers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="studAttendancerpt.resx">
+      <DependentUpon>studAttendancerpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThresholdReachers.resx">
+      <DependentUpon>ThresholdReachers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Thresholdreportall.resx">
+      <DependentUpon>Thresholdreportall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="txtSentSuccess.resx">
+      <DependentUpon>txtSentSuccess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Waitfrm.resx">
+      <DependentUpon>Waitfrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportExcel.resx">
+      <DependentUpon>ImportExcel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\addCourseUC.resx">
+      <DependentUpon>addCourseUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\addUnitUC.resx">
+      <DependentUpon>addUnitUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\AdminAddStud.resx">
+      <DependentUpon>AdminAddStud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminDashboard.resx">
+      <DependentUpon>AdminDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminLogin.resx">
+      <DependentUpon>AdminLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdmUserFrm.resx">
+      <DependentUpon>AdmUserFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\AddStudUC.resx">
+      <DependentUpon>AddStudUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ChatUC.resx">
+      <DependentUpon>ChatUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\CheckStudUC.resx">
+      <DependentUpon>CheckStudUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ImportCSV.resx">
+      <DependentUpon>ImportCSV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ReportsUC.resx">
+      <DependentUpon>ReportsUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\SendEmailUC.resx">
+      <DependentUpon>SendEmailUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\SettingsUC.resx">
+      <DependentUpon>SettingsUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\StudCheckinUC.resx">
+      <DependentUpon>StudCheckinUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="DataClasses1.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\AttendanceReport.datasource" />
+    <None Include="Properties\DataSources\MMUSIS1.UserControls.addUnitUC.datasource" />
+    <None Include="Properties\DataSources\StudAttendance.datasource" />
+    <None Include="Properties\DataSources\StudentAttendance.datasource" />
+    <None Include="Properties\DataSources\Students.datasource" />
+    <None Include="Properties\DataSources\ThresholdReachers.datasource" />
+    <None Include="Properties\DataSources\Thresholdreport.datasource" />
+    <None Include="Properties\DataSources\Units.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User Lock.jpg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\worst-attendance-list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\studentlogo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\admin.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\student.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yellow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rose.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\admin1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\powerbtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rose1.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addstud.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add contact.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user1.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Student-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Student-321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Student-32%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\admin11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rose-32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rose-64x64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Unit-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Courses-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\correctbtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\errorbtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mmusas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Help_25px_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Help_25px_1.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
