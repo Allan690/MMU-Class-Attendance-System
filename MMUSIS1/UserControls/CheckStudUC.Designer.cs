@@ -40,6 +40,13 @@
             this.txtName = new MetroFramework.Controls.MetroTextBox();
             this.txtCourse = new MetroFramework.Controls.MetroTextBox();
             this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
+            this.admNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.courseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.facultyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentAttendanceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblDate = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblTime = new System.Windows.Forms.ToolStripStatusLabel();
@@ -67,21 +74,14 @@
             this.picCourse = new System.Windows.Forms.PictureBox();
             this.picName = new System.Windows.Forms.PictureBox();
             this.picAdmNo = new System.Windows.Forms.PictureBox();
-            this.studentAttendanceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.admNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.courseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.facultyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentAttendanceBindingSource)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picToDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFromDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCourse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAdmNo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentAttendanceBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblDob
@@ -116,6 +116,8 @@
             // 
             // txtAdmNo
             // 
+            this.txtAdmNo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtAdmNo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             // 
             // 
             // 
@@ -274,6 +276,46 @@
             this.metroGrid1.TabIndex = 13;
             this.metroGrid1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGrid1_CellContentClick);
             this.metroGrid1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGrid1_CellValueChanged);
+            // 
+            // admNoDataGridViewTextBoxColumn
+            // 
+            this.admNoDataGridViewTextBoxColumn.DataPropertyName = "AdmNo";
+            this.admNoDataGridViewTextBoxColumn.HeaderText = "AdmNo";
+            this.admNoDataGridViewTextBoxColumn.Name = "admNoDataGridViewTextBoxColumn";
+            // 
+            // FullName
+            // 
+            this.FullName.DataPropertyName = "FullName";
+            this.FullName.HeaderText = "FullName";
+            this.FullName.Name = "FullName";
+            // 
+            // studDateDataGridViewTextBoxColumn
+            // 
+            this.studDateDataGridViewTextBoxColumn.DataPropertyName = "StudDate";
+            this.studDateDataGridViewTextBoxColumn.HeaderText = "StudDate";
+            this.studDateDataGridViewTextBoxColumn.Name = "studDateDataGridViewTextBoxColumn";
+            // 
+            // unitDataGridViewTextBoxColumn
+            // 
+            this.unitDataGridViewTextBoxColumn.DataPropertyName = "Unit";
+            this.unitDataGridViewTextBoxColumn.HeaderText = "Unit";
+            this.unitDataGridViewTextBoxColumn.Name = "unitDataGridViewTextBoxColumn";
+            // 
+            // courseDataGridViewTextBoxColumn
+            // 
+            this.courseDataGridViewTextBoxColumn.DataPropertyName = "Course";
+            this.courseDataGridViewTextBoxColumn.HeaderText = "Course";
+            this.courseDataGridViewTextBoxColumn.Name = "courseDataGridViewTextBoxColumn";
+            // 
+            // facultyDataGridViewTextBoxColumn
+            // 
+            this.facultyDataGridViewTextBoxColumn.DataPropertyName = "Faculty";
+            this.facultyDataGridViewTextBoxColumn.HeaderText = "Faculty";
+            this.facultyDataGridViewTextBoxColumn.Name = "facultyDataGridViewTextBoxColumn";
+            // 
+            // studentAttendanceBindingSource
+            // 
+            this.studentAttendanceBindingSource.DataSource = typeof(MMUSIS1.StudentAttendance);
             // 
             // statusStrip1
             // 
@@ -571,46 +613,6 @@
             this.picAdmNo.TabIndex = 47;
             this.picAdmNo.TabStop = false;
             // 
-            // studentAttendanceBindingSource
-            // 
-            this.studentAttendanceBindingSource.DataSource = typeof(MMUSIS1.StudentAttendance);
-            // 
-            // admNoDataGridViewTextBoxColumn
-            // 
-            this.admNoDataGridViewTextBoxColumn.DataPropertyName = "AdmNo";
-            this.admNoDataGridViewTextBoxColumn.HeaderText = "AdmNo";
-            this.admNoDataGridViewTextBoxColumn.Name = "admNoDataGridViewTextBoxColumn";
-            // 
-            // FullName
-            // 
-            this.FullName.DataPropertyName = "FullName";
-            this.FullName.HeaderText = "FullName";
-            this.FullName.Name = "FullName";
-            // 
-            // studDateDataGridViewTextBoxColumn
-            // 
-            this.studDateDataGridViewTextBoxColumn.DataPropertyName = "StudDate";
-            this.studDateDataGridViewTextBoxColumn.HeaderText = "StudDate";
-            this.studDateDataGridViewTextBoxColumn.Name = "studDateDataGridViewTextBoxColumn";
-            // 
-            // unitDataGridViewTextBoxColumn
-            // 
-            this.unitDataGridViewTextBoxColumn.DataPropertyName = "Unit";
-            this.unitDataGridViewTextBoxColumn.HeaderText = "Unit";
-            this.unitDataGridViewTextBoxColumn.Name = "unitDataGridViewTextBoxColumn";
-            // 
-            // courseDataGridViewTextBoxColumn
-            // 
-            this.courseDataGridViewTextBoxColumn.DataPropertyName = "Course";
-            this.courseDataGridViewTextBoxColumn.HeaderText = "Course";
-            this.courseDataGridViewTextBoxColumn.Name = "courseDataGridViewTextBoxColumn";
-            // 
-            // facultyDataGridViewTextBoxColumn
-            // 
-            this.facultyDataGridViewTextBoxColumn.DataPropertyName = "Faculty";
-            this.facultyDataGridViewTextBoxColumn.HeaderText = "Faculty";
-            this.facultyDataGridViewTextBoxColumn.Name = "facultyDataGridViewTextBoxColumn";
-            // 
             // CheckStudUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -644,6 +646,7 @@
             this.Size = new System.Drawing.Size(805, 478);
             this.Load += new System.EventHandler(this.CheckStudUC_Load);
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentAttendanceBindingSource)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picToDate)).EndInit();
@@ -651,7 +654,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picCourse)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAdmNo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentAttendanceBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

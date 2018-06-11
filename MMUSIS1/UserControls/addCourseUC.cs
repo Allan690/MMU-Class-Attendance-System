@@ -26,12 +26,11 @@ namespace MMUSIS1.UserControls
                 MessageBox.Show("Some fields are empty. Please ensure all fields are filled before trying again.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-      
+       
 
         private void addCourseUC_Load(object sender, EventArgs e)
         {
-          metroGrid1.Visible = false;
+          //metroGrid1.Visible = false;
         }
 
         void verify()
@@ -59,8 +58,8 @@ namespace MMUSIS1.UserControls
                             db.Open();
                         DynamicParameters param = new DynamicParameters();
                         param.Add("@courseid", courseid);
-                        param.Add("@coursecode", txtCoursecode.Text.Trim());
-                        param.Add("@coursename", txtCoursename.Text.Trim());
+                        param.Add("@coursecode", txtCourseCode.Text.Trim());
+                        param.Add("@coursename", txtCourseName.Text.Trim());
                         param.Add("@faculty", txtFaculty.Text.Trim());
                         param.Add("@department", txtDepartment.Text.Trim());
 
@@ -104,16 +103,7 @@ namespace MMUSIS1.UserControls
 
         private void txtSearch_OnValueChanged(object sender, EventArgs e)
         {
-            FieldChecker.Text = "Search field edited.";
-            try
-            {
-                filldatagridview();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-          
+            
            
         }
         
@@ -125,8 +115,8 @@ namespace MMUSIS1.UserControls
                     db.Open();
                 DynamicParameters param = new DynamicParameters();
                 param.Add("@courseid", courseid);
-                param.Add("@coursecode", txtCoursecode.Text.Trim());
-                param.Add("@coursename", txtCoursename.Text.Trim());
+                param.Add("@coursecode", txtCourseCode.Text.Trim());
+                param.Add("@coursename", txtCourseName.Text.Trim());
                 param.Add("@faculty", txtFaculty.Text.Trim());
                 param.Add("@department", txtDepartment.Text.Trim());
 
@@ -134,10 +124,6 @@ namespace MMUSIS1.UserControls
                 db.Close();
                 metroGrid1.Visible = true;
                 filldatagridview();
-
-               
-
-
             }
         }
 
@@ -165,7 +151,7 @@ namespace MMUSIS1.UserControls
                     if (db.State == ConnectionState.Closed)
                         db.Open();
                     DynamicParameters param = new DynamicParameters();
-                    param.Add("@coursecode", txtCoursecode.Text);
+                    param.Add("@coursecode", txtCourseCode.Text);
                     
                     db.Execute("CourseDeletebyID", param, commandType: CommandType.StoredProcedure);
                     db.Close();
@@ -183,7 +169,7 @@ namespace MMUSIS1.UserControls
         }
         void ClearAll()
         {
-            txtCoursecode.Text = txtCoursename.Text = txtFaculty.Text = txtDepartment.Text = txtSearch.Text = "";
+            txtCourseCode.Text = txtCourseName.Text = txtFaculty.Text = txtDepartment.Text = txtSearch.Text = "";
             courseid = 0;
             picCourseCode.Image = picCourseName.Image = picDepartment.Image = picFaculty.Image = picSearch.Image = null;
             lblCoursecode.Text = lblCoursename.Text = lblDepartment.Text = lblFaculty.Text = lblSearch.Text = "";
@@ -193,7 +179,7 @@ namespace MMUSIS1.UserControls
         {
             FieldChecker.Text = "Course code field edited.";
         }
-        public void regexp(string re, BunifuMaterialTextbox tb, PictureBox pc, Label lbl, string s)
+        public void regexp(string re, MetroFramework.Controls.MetroTextBox tb, PictureBox pc, Label lbl, string s)
         {
            
             Regex regex = new Regex(re);
@@ -213,27 +199,27 @@ namespace MMUSIS1.UserControls
 
         private void txtCoursecode_Leave(object sender, EventArgs e)
         {
-            regexp(@"^(\s|\S)*(\S)+(\s|\S)*$", txtCoursecode, picCourseCode, lblCoursecode, "");
+            
         }
 
         private void txtCoursename_Leave(object sender, EventArgs e)
         {
-            regexp(@"^(\s|\S)*(\S)+(\s|\S)*$", txtCoursename, picCourseName, lblCoursename, "");
+           
         }
 
         private void txtFaculty_Leave(object sender, EventArgs e)
         {
-            regexp(@"^(\s|\S)*(\S)+(\s|\S)*$", txtFaculty, picFaculty, lblFaculty, "");
+           
         }
 
         private void txtDepartment_Leave(object sender, EventArgs e)
         {
-            regexp(@"^(\s|\S)*(\S)+(\s|\S)*$", txtDepartment, picDepartment, lblDepartment, "");
+            
         }
 
         private void txtSearch_Leave(object sender, EventArgs e)
         {
-            regexp(@"^(\s|\S)*(\S)+(\s|\S)*$", txtSearch,picSearch, lblSearch, "");
+           
         }
 
         private void txtCoursename_OnValueChanged(object sender, EventArgs e)
@@ -278,13 +264,55 @@ namespace MMUSIS1.UserControls
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = this.metroGrid1.Rows[e.RowIndex];
-                txtCoursecode.Text = row.Cells["CourseCode"].Value.ToString();
-                txtCoursename.Text = row.Cells["CourseName"].Value.ToString();
+                txtCourseCode.Text = row.Cells["CourseCode"].Value.ToString();
+                txtCourseName.Text = row.Cells["CourseName"].Value.ToString();
                 txtFaculty.Text = row.Cells["Faculty"].Value.ToString();
                 txtDepartment.Text = row.Cells["Department"].Value.ToString();
             }
         }
 
-       
+        private void txtCourseCode_Leave_1(object sender, EventArgs e)
+        {
+            regexp(@"^(\s|\S)*(\S)+(\s|\S)*$", txtCourseCode, picCourseCode, lblCoursecode, "");
+        }
+
+        private void txtCourseName_Leave_1(object sender, EventArgs e)
+        {
+            regexp(@"^(\s|\S)*(\S)+(\s|\S)*$", txtCourseName, picCourseName, lblCoursename, "");
+        }
+
+        private void txtFaculty_Leave_1(object sender, EventArgs e)
+        {
+            regexp(@"^(\s|\S)*(\S)+(\s|\S)*$", txtFaculty, picFaculty, lblFaculty, "");
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            FieldChecker.Text = "Search field edited.";
+            try
+            {
+                filldatagridview();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void txtDepartment_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void txtDepartment_Leave_1(object sender, EventArgs e)
+        {
+            regexp(@"^(\s|\S)*(\S)+(\s|\S)*$", txtDepartment, picDepartment, lblDepartment, "");
+        }
+
+        private void txtSearch_Leave_1(object sender, EventArgs e)
+        {
+            regexp(@"^(\s|\S)*(\S)+(\s|\S)*$", txtSearch, picSearch, lblSearch, "");
+        }
     }
 }

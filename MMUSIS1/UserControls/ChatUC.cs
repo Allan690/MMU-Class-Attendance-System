@@ -37,7 +37,9 @@ namespace MMUSIS1.UserControls
                 // Show Send SMS response
                 if (result.Success)
                 {
-                    MessageBox.Show("Message successfully sent!");
+                    txtSentSuccess txt = new txtSentSuccess();
+                    txt.ShowDialog();
+                   // MessageBox.Show("Message successfully sent!");
                 }
                 else
                 {

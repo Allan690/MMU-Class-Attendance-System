@@ -31,6 +31,44 @@ namespace MMUSIS1.UserControls
         {
 
         }
+        void AutoCompleteTxtAdmin()
+        {            
+            AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+            using (SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("Select AdmNo from StudAttendance", db);
+                db.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    coll.Add(reader.GetString(0));
+                }
+                txtAdmNo.AutoCompleteCustomSource = coll;
+
+            }
+                       
+            
+        }
+
+        void AutoCompleteTxtName()
+        {
+            AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+            using (SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("Select Name from StudAttendance", db);
+                db.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    coll.Add(reader.GetString(0));
+                }
+                txtAdmNo.AutoCompleteCustomSource = coll;
+
+            }
+
+
+        }
+
 
         private void CheckStudUC_Load(object sender, EventArgs e)
         {
@@ -50,6 +88,7 @@ namespace MMUSIS1.UserControls
             {
                 MetroFramework.MetroMessageBox.Show(this, ex.Message, "Message", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
+            AutoCompleteTxtAdmin();
         }
 
         private void metroTextBox1_Click(object sender, EventArgs e)
