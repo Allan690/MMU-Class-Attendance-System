@@ -52,5 +52,32 @@ namespace MMUSIS1.UserControls
                 Debug.WriteLine(ex.Message);
             }
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime date = DateTime.Now;
+            lblDate.Text = date.ToLongDateString();
+            lblTime.Text = date.ToLongTimeString();
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+            FieldChecker.Text = "User name text field modified";
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            FieldChecker.Text = "Password field modified";
+        }
+
+        private void txtReceiverNo_TextChanged(object sender, EventArgs e)
+        {
+            FieldChecker.Text = "Receiver Number field modified.";
+        }
+
+        private void txtMessage_TextChanged(object sender, EventArgs e)
+        {
+            FieldChecker.Text = "Text message body field modified.";
+        }
     }
 }

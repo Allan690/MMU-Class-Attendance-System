@@ -44,5 +44,37 @@ namespace MMUSIS1.UserControls
             Non_Threshold_reachers frm = new Non_Threshold_reachers();
             frm.ShowDialog();
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime date = DateTime.Now;
+            lblDate.Text = date.ToLongDateString();
+            lblTime.Text = date.ToLongTimeString();
+        }
+
+        private void bunifuFlatButton1_MouseEnter(object sender, EventArgs e)
+        {
+            FieldChecker.Text = "Generate Student Attendance Report";
+        }
+
+        private void bunifuFlatButton2_MouseEnter(object sender, EventArgs e)
+        {
+            FieldChecker.Text = "Generate Threshold reachers Report";
+        }
+
+        private void bunifuFlatButton2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuFlatButton3_MouseEnter(object sender, EventArgs e)
+        {
+            FieldChecker.Text = "Generate Non-Threshold reachers report";
+              }
+
+        private void bunifuFlatButton5_MouseEnter(object sender, EventArgs e)
+        {
+            FieldChecker.Text = "Generate Exam Card Report";
+        }
     }
 }

@@ -46,7 +46,9 @@ namespace MMUSIS1.UserControls
                 txtAdmNo.AutoCompleteCustomSource = coll;
 
             }
-                       
+            txtName.Enabled = false;
+            txtCourse.Enabled = false;
+                      
             
         }
 
@@ -55,7 +57,7 @@ namespace MMUSIS1.UserControls
             AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
             using (SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
             {
-                SqlCommand cmd = new SqlCommand("Select Name from StudAttendance", db);
+                SqlCommand cmd = new SqlCommand("Select DISTINCT Name from StudAttendance WHERE AdmNo = '"+txtAdmNo.Text+"'", db);
                 db.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -115,7 +117,14 @@ namespace MMUSIS1.UserControls
 
         private void metroGrid1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.metroGrid1.Rows[e.RowIndex];
+                txtAdmNo.Text = row.Cells[0].Value.ToString();
+                txtName.Text = row.Cells[1].Value.ToString();
+                txtCourse.Text = row.Cells[4].Value.ToString();
+              
+            }
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
@@ -160,6 +169,8 @@ namespace MMUSIS1.UserControls
                     studentAttendanceBindingSource.DataSource = db.Query<StudentAttendance>(query, commandType: CommandType.Text);
 
                 }
+              //  AutoCompleteTxtName();
+              
             }
         }
 

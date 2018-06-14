@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
 using Dapper;
+using DGVPrinterHelper;
 
 namespace MMUSIS1.UserControls
 {
@@ -37,7 +38,7 @@ namespace MMUSIS1.UserControls
             {
                 if (db.State == ConnectionState.Closed)
                     db.Open();
-                studentsBindingSource.DataSource = db.Query<Students>("Select * from Students", commandType: CommandType.Text);
+                studentsBindingSource.DataSource = db.Query<Students>("Select DISTINCT * from Students", commandType: CommandType.Text);
                 pContainer.Enabled = false;
 
             }
@@ -150,6 +151,17 @@ namespace MMUSIS1.UserControls
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
+            DGVPrinter printer = new DGVPrinter();
+            printer.Title = "MMU Students Available";
+            printer.SubTitle = string.Format("Date: {0}", DateTime.Now);
+            printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
+            printer.PageNumbers = true;
+            printer.PageNumberInHeader = false;
+            printer.PorportionalColumns = true;
+            printer.HeaderCellAlignment = StringAlignment.Near;
+            printer.Footer = "Multimedia University Class Attendance System (c) 2018";
+            printer.FooterSpacing = 15;
+            printer.PrintDataGridView(metroGrid1);
 
         }
 

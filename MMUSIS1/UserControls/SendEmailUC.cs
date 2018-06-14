@@ -65,5 +65,62 @@ namespace MMUSIS1.UserControls
                 txtPath2.Text = picPath;
             }
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime date = DateTime.Now;
+            lblDate.Text = date.ToLongDateString();
+            lblTime.Text = date.ToLongTimeString();
+        }
+
+        private void txtFrom_TextChanged(object sender, EventArgs e)
+        {
+            FieldChecker.Text = "Sender's email address field modified";
+        }
+
+        private void txtSubject_TextChanged(object sender, EventArgs e)
+        {
+            FieldChecker.Text = "Email subject field modified";
+        }
+
+        private void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+            FieldChecker.Text = "User name textfield modified";
+        }
+
+        private void txtBody_TextChanged(object sender, EventArgs e)
+        {
+            FieldChecker.Text = "Body of the email modified";
+        }
+
+        private void txtTo_TextChanged(object sender, EventArgs e)
+        {
+            FieldChecker.Text = "Receiver's address text field modified";
+        }
+
+        private void txtSmtp_Validated(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSmtp_TextChanged(object sender, EventArgs e)
+        {
+            FieldChecker.Text = "SMTP Server field modified";
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            FieldChecker.Text = "Password field modified";
+        }
+
+        private void txtPath1_OnValueChanged(object sender, EventArgs e)
+        {
+            FieldChecker.Text = "Object attached to the email";
+        }
+
+        private void txtPath2_OnValueChanged(object sender, EventArgs e)
+        {
+            FieldChecker.Text = "Object attached to the email";
+        }
     }
 }
