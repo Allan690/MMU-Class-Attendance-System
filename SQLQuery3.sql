@@ -1,0 +1,1 @@
+﻿insert into dbo.PhoneDetails(PhoneNo,[Name]) values(+254735746987, 'Allan') ,(+254790921870, 'Lorna'), (+254792605733, 'Abby')
