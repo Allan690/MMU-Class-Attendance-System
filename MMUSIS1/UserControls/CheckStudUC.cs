@@ -76,7 +76,6 @@ namespace MMUSIS1.UserControls
         {
             try
             {
-
                 using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
                 {
                     if (db.State == ConnectionState.Closed)

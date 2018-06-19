@@ -31,19 +31,68 @@ namespace MMUSIS1.UserControls
         {
 
         }
-
+       
         private void AddStudUC_Load(object sender, EventArgs e)
         {
+            richTextBox1.Visible = false;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
             {
                 if (db.State == ConnectionState.Closed)
                     db.Open();
                 studentsBindingSource.DataSource = db.Query<Students>("Select DISTINCT * from Students", commandType: CommandType.Text);
+                metroGrid1.Columns[5].Visible = false;
                 pContainer.Enabled = false;
 
+                Students obj = studentsBindingSource.Current as Students;
+                if (obj != null)
+                {
+                    if (!string.IsNullOrEmpty(obj.Imageurl))
+                    {
+                        picStudImage.Image = Image.FromFile(obj.Imageurl);
+                    }
+                }
             }
+            AutoCompleteTxtAdmin();
+
         }
 
+        void AutoCompleteTxtAdmin()
+        {
+            AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+            using (SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("Select AdmNo from dbo.Students", db);
+                db.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    coll.Add(reader.GetString(0));
+                }
+                txtAdmNo.AutoCompleteCustomSource = coll;
+
+            }
+            txtName.Enabled = false;
+            txtCourse.Enabled = false;
+
+
+        }
+        void AutoCompletetxtCOURSE()
+        {
+            AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+            using (SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("Select Course from dbo.Students", db);
+                db.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    coll.Add(reader.GetString(0));
+                }
+                txtAdmNo.AutoCompleteCustomSource = coll;
+
+            }
+           
+        }
         private void metroTextBox1_Click(object sender, EventArgs e)
         {
 
@@ -51,6 +100,7 @@ namespace MMUSIS1.UserControls
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
+           
             using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "JPEG|*.jpg|PNG|*.png", ValidateNames = true })
             {
                 if (ofd.ShowDialog() == DialogResult.OK)
@@ -60,23 +110,35 @@ namespace MMUSIS1.UserControls
                     if (obj != null)
                     {
                         obj.Imageurl = ofd.FileName;
-                    }
+                        using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+                        {
+                            if (db.State == ConnectionState.Closed)
+                                db.Open();
+                            db.Execute("UpdateImage", new { StudID = obj.StudID, AdmNo = obj.AdmNo, Imageurl = obj.Imageurl }, commandType: CommandType.StoredProcedure);
+                           
+                            UpdateSuccess up = new UpdateSuccess();
+                            up.ShowDialog();
+                        }
+                    }                   
                 }
             }
         }
         void ClearAll()
         {
-            txtAdmNo.Text = txtCourse.Text = txtName.Text =txtYear.Text = txtSearch.Text="";
+            if (pContainer.Enabled == true)
+            {
+                txtAdmNo.Text = txtCourse.Text = txtName.Text = txtYear.Text = txtSearch.Text = "";
 
-            picStudImage.Image = pictureBox2.Image = pictureBox3.Image = pictureBox4.Image = pictureBox5.Image=pictureBox6.Image= null;
-            lblAdmNo.Text = lblCourse.Text = lblDOB.Text = lblName.Text = lblYear.Text="";
-            metroCheckBox1.Checked = false;
-
-
+                picStudImage.Image = pictureBox2.Image = pictureBox3.Image = pictureBox4.Image = pictureBox5.Image = pictureBox6.Image = null;
+                lblAdmNo.Text = lblCourse.Text = lblDOB.Text = lblName.Text = lblYear.Text = "";
+                metroCheckBox1.Checked = false;
+            }            
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            txtCourse.Enabled = true;
+            txtName.Enabled = true;
             objstud = EntityStateStud.Added;
             picStudImage.Image = null;
             pContainer.Enabled = true;
@@ -84,17 +146,31 @@ namespace MMUSIS1.UserControls
             studentsBindingSource.MoveLast();
             txtAdmNo.Focus();
         }
-
+        void validate()
+        {
+            
+        }
         private void bunifuFlatButton4_Click(object sender, EventArgs e)
         {
-
+            if (pContainer.Enabled ==false)
+            {
+                richTextBox1.Text = txtAdmNo.Text + Environment.NewLine + txtName.Text + Environment.NewLine + metroDateTime1.Text + Environment.NewLine + txtCourse.Text + Environment.NewLine + txtYear.Text + Environment.NewLine;
+                QRCodeGenerator gen = new QRCodeGenerator(richTextBox1.Text);
+                gen.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please save the student details first, then proceed to produce the QR Code!");
+            }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
             objstud = EntityStateStud.Changed;
             pContainer.Enabled = true;
+            AutoCompleteTxtAdmin();
             txtAdmNo.Focus();
+
         }
 
         private void metroGrid1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -114,6 +190,16 @@ namespace MMUSIS1.UserControls
             catch (Exception ex)
             {
                 MetroFramework.MetroMessageBox.Show(this, ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.metroGrid1.Rows[e.RowIndex];
+                txtAdmNo.Text = row.Cells[0].Value.ToString();
+                txtName.Text = row.Cells[1].Value.ToString();
+                metroDateTime1.Value =Convert.ToDateTime( row.Cells[2].Value.ToString());
+                txtCourse.Text = row.Cells[3].Value.ToString();
+                metroCheckBox1.Checked = Convert.ToBoolean( row.Cells[4].Value.ToString());       
+                txtYear.Text = row.Cells[5].Value.ToString();
             }
         }
 
@@ -182,7 +268,7 @@ namespace MMUSIS1.UserControls
                         {
                             DynamicParameters p = new DynamicParameters();
                             p.Add("@StudID", dbType: DbType.Int32, direction: ParameterDirection.Output);
-                            p.AddDynamicParams(new { AdmNo = stud.AdmNo, FullName = stud.FullName, DOB = stud.DOB, Gender = stud.Gender, Course = stud.Course, Year = stud.Year, Imageurl=stud.Imageurl });
+                            p.AddDynamicParams(new { AdmNo = stud.AdmNo, FullName = stud.FullName, DOB = stud.DOB, Gender = stud.Gender, Course = stud.Course, Year = stud.Year, Imageurl = stud.Imageurl });
                             db.Execute("StudInsert", p, commandType: CommandType.StoredProcedure);
                             stud.StudID = p.Get<int>("@StudID");
                             MetroFramework.MetroMessageBox.Show(this, "Student was successfully added.", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -191,14 +277,14 @@ namespace MMUSIS1.UserControls
                     }
                     else if (objstud == EntityStateStud.Changed)
                     {
-                        db.Execute("UpdateUnits", new { StudID=stud.StudID,AdmNo = stud.AdmNo, FullName = stud.FullName, DOB = stud.DOB, Gender = stud.Gender, Course = stud.Course, Year = stud.Year, Imageurl=stud.Imageurl}, commandType: CommandType.StoredProcedure);
+                        db.Execute("StudUpdate", new { StudID = stud.StudID, AdmNo = stud.AdmNo, FullName = stud.FullName, DOB = stud.DOB, Gender = stud.Gender, Course = stud.Course, Year = stud.Year, Imageurl = stud.Imageurl }, commandType: CommandType.StoredProcedure);
                     }
                     metroGrid1.Refresh();
                     pContainer.Enabled = false;
                     objstud = EntityStateStud.Unchanged;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MetroFramework.MetroMessageBox.Show(this, ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -206,6 +292,7 @@ namespace MMUSIS1.UserControls
 
         private void txtAdmNo_TextChanged(object sender, EventArgs e)
         {
+          //  AutoCompleteTxtAdmin();
             FieldChecker.Text = "Admission Number text field modified";
         }
 
@@ -243,7 +330,7 @@ namespace MMUSIS1.UserControls
 
         private void metroCheckBox1_CheckStateChanged(object sender, EventArgs e)
         {
-            if(metroCheckBox1.CheckState==CheckState.Checked)
+            if (metroCheckBox1.CheckState == CheckState.Checked)
             {
                 metroCheckBox1.Text = "Female";
             }
@@ -260,6 +347,52 @@ namespace MMUSIS1.UserControls
         private void btnClear_Click(object sender, EventArgs e)
         {
             ClearAll();
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picStudImage_LoadCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            // studentsBindingSource.EndEdit();
+            Students stud = studentsBindingSource.Current as Students;
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+            {
+                if (db.State == ConnectionState.Closed)
+                    db.Open();
+                {
+                    db.Execute("UpdateImage", new { StudID = stud.StudID, AdmNo = stud.AdmNo, Imageurl = stud.Imageurl }, commandType: CommandType.StoredProcedure);
+
+                }
+            }
+        }
+        void filldatagridview()
+        {
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+            {
+                if (db.State == ConnectionState.Closed)
+                    db.Open();
+                DynamicParameters param = new DynamicParameters();
+                param.Add("@SearchText", txtSearch.Text.Trim());
+                List<Students> list = db.Query<Students>
+                    ("StudViewOrSearch", param, commandType: CommandType.StoredProcedure).ToList<Students>();
+                metroGrid1.DataSource = list;
+            }
+        }
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            FieldChecker.Text = "Search field edited.";
+            try
+            {
+                filldatagridview();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }

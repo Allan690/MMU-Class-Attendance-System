@@ -30,23 +30,30 @@ namespace MMUSIS1.UserControls
 
         private void addCourseUC_Load(object sender, EventArgs e)
         {
-          //metroGrid1.Visible = false;
+            filldatagridview();
+            AutoCompleteTxtCourseCode();
+            AutoCompleteTxtCourseName();
+            AutoCompleteFaculty();
+            AutoCompleteDepartment();
         }
 
         void verify()
         {
             if(lblCoursecode.Text=="Invalid" || lblCoursename.Text == "Invalid" || lblDepartment.Text == "Invalid" || lblFaculty.Text == "Invalid")
             {
-                btnAdd.Enabled = false;
+                               
+                return;
             }
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (lblCoursecode.Text == "" || lblCoursename.Text == "" || lblDepartment.Text == "" || lblFaculty.Text == "")
+            if (lblCoursecode.Text == "Invalid"|| lblCoursecode.Text ==""  || lblCoursename.Text == "Invalid"|| lblCoursename.Text == "" || lblDepartment.Text == "Invalid" || lblDepartment.Text==""|| lblFaculty.Text == "Invalid"|| lblFaculty.Text=="")
             {
-                MessageBox.Show("Please fill all the fields on the form.", "Error!", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                formError fm = new formError();
+                fm.ShowDialog();
+                return;
             }
             else
             {
@@ -69,7 +76,6 @@ namespace MMUSIS1.UserControls
                         filldatagridview();
                metroGrid1.Visible = true;
 
-
                     }
                 }
 
@@ -79,6 +85,76 @@ namespace MMUSIS1.UserControls
                 }
             }
         }
+        void AutoCompleteTxtCourseCode()
+        {
+            AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+            using (SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("Select CourseCode from dbo.Courses", db);
+                db.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    coll.Add(reader.GetString(0));
+                }
+                txtCourseCode.AutoCompleteCustomSource = coll;
+
+            }
+            
+
+        }
+        void AutoCompleteTxtCourseName()
+        {
+            AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+            using (SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("Select CourseName from dbo.Courses", db);
+                db.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    coll.Add(reader.GetString(0));
+                }
+                txtCourseName.AutoCompleteCustomSource = coll;
+
+            }
+           
+        }
+        void AutoCompleteFaculty()
+        {
+            AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+            using (SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("Select Faculty from dbo.Courses", db);
+                db.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    coll.Add(reader.GetString(0));
+                }
+                txtFaculty.AutoCompleteCustomSource = coll;
+
+            }
+           
+        }
+        void AutoCompleteDepartment()
+        {
+            AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+            using (SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("Select Department from dbo.Courses", db);
+                db.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    coll.Add(reader.GetString(0));
+                }
+                txtDepartment.AutoCompleteCustomSource = coll;
+
+            }
+
+        }
+
         void filldatagridview()
         {
             try
@@ -93,12 +169,21 @@ namespace MMUSIS1.UserControls
                     List<Courses> list = db.Query<Courses>
                         ("CoursesViewOrSearch", param, commandType: CommandType.StoredProcedure).ToList<Courses>();
                     metroGrid1.DataSource = list;
+                    metroGrid1.Columns[0].Visible = false;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+        void errortest(MetroFramework.Controls.MetroTextBox tb)
+        {
+            if(tb.Text==null|| tb.Text =="")
+            {
+                MessageBox.Show("Please fill all text boxes bef");
+            }
+                
         }
 
         private void txtSearch_OnValueChanged(object sender, EventArgs e)
@@ -313,6 +398,11 @@ namespace MMUSIS1.UserControls
         private void txtSearch_Leave_1(object sender, EventArgs e)
         {
             regexp(@"^(\s|\S)*(\S)+(\s|\S)*$", txtSearch, picSearch, lblSearch, "");
+        }
+
+        private void txtDepartment_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

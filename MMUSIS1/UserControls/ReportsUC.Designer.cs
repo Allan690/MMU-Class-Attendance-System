@@ -31,21 +31,21 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportsUC));
             this.label1 = new System.Windows.Forms.Label();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.lblDate = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblTime = new System.Windows.Forms.ToolStripStatusLabel();
+            this.FieldChecker = new System.Windows.Forms.ToolStripStatusLabel();
+            this.sysUser = new System.Windows.Forms.ToolStripStatusLabel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
+            this.toolStripSplitButton2 = new System.Windows.Forms.ToolStripSplitButton();
+            this.toolStripSplitButton3 = new System.Windows.Forms.ToolStripSplitButton();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bunifuFlatButton5 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton3 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton4 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.lblDate = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblTime = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
-            this.FieldChecker = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripSplitButton2 = new System.Windows.Forms.ToolStripSplitButton();
-            this.sysUser = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripSplitButton3 = new System.Windows.Forms.ToolStripSplitButton();
-            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,6 +60,90 @@
             this.label1.TabIndex = 34;
             this.label1.Text = "Report management gives you direct access of accounting overview based on the rep" +
     "ort you want to formulate";
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblDate,
+            this.lblTime,
+            this.toolStripSplitButton1,
+            this.FieldChecker,
+            this.toolStripSplitButton2,
+            this.sysUser,
+            this.toolStripSplitButton3});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 456);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(805, 22);
+            this.statusStrip1.TabIndex = 47;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // lblDate
+            // 
+            this.lblDate.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(141, 17);
+            this.lblDate.Text = "toolStripStatusLabel1";
+            // 
+            // lblTime
+            // 
+            this.lblTime.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(141, 17);
+            this.lblTime.Text = "toolStripStatusLabel1";
+            // 
+            // FieldChecker
+            // 
+            this.FieldChecker.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FieldChecker.Name = "FieldChecker";
+            this.FieldChecker.Size = new System.Drawing.Size(129, 17);
+            this.FieldChecker.Text = "No changes made";
+            // 
+            // sysUser
+            // 
+            this.sysUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sysUser.Name = "sysUser";
+            this.sysUser.Size = new System.Drawing.Size(178, 17);
+            this.sysUser.Text = "The Current System User is: ";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // toolStripSplitButton1
+            // 
+            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButton1.Image = global::MMUSIS1.Properties.Resources.studentlogo;
+            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 20);
+            this.toolStripSplitButton1.Text = "toolStripSplitButton1";
+            // 
+            // toolStripSplitButton2
+            // 
+            this.toolStripSplitButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButton2.Image = global::MMUSIS1.Properties.Resources.Student_321;
+            this.toolStripSplitButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton2.Name = "toolStripSplitButton2";
+            this.toolStripSplitButton2.Size = new System.Drawing.Size(32, 20);
+            this.toolStripSplitButton2.Text = "toolStripSplitButton2";
+            // 
+            // toolStripSplitButton3
+            // 
+            this.toolStripSplitButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.logOutToolStripMenuItem});
+            this.toolStripSplitButton3.Image = global::MMUSIS1.Properties.Resources.user;
+            this.toolStripSplitButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton3.Name = "toolStripSplitButton3";
+            this.toolStripSplitButton3.Size = new System.Drawing.Size(32, 20);
+            this.toolStripSplitButton3.Text = "toolStripSplitButton3";
+            // 
+            // logOutToolStripMenuItem
+            // 
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.logOutToolStripMenuItem.Text = "Log out";
             // 
             // bunifuFlatButton5
             // 
@@ -239,90 +323,6 @@
             this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuFlatButton1.Click += new System.EventHandler(this.bunifuFlatButton1_Click);
             this.bunifuFlatButton1.MouseEnter += new System.EventHandler(this.bunifuFlatButton1_MouseEnter);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblDate,
-            this.lblTime,
-            this.toolStripSplitButton1,
-            this.FieldChecker,
-            this.toolStripSplitButton2,
-            this.sysUser,
-            this.toolStripSplitButton3});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 456);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(805, 22);
-            this.statusStrip1.TabIndex = 47;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // lblDate
-            // 
-            this.lblDate.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(141, 17);
-            this.lblDate.Text = "toolStripStatusLabel1";
-            // 
-            // lblTime
-            // 
-            this.lblTime.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(141, 17);
-            this.lblTime.Text = "toolStripStatusLabel1";
-            // 
-            // toolStripSplitButton1
-            // 
-            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
-            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 20);
-            this.toolStripSplitButton1.Text = "toolStripSplitButton1";
-            // 
-            // FieldChecker
-            // 
-            this.FieldChecker.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FieldChecker.Name = "FieldChecker";
-            this.FieldChecker.Size = new System.Drawing.Size(129, 17);
-            this.FieldChecker.Text = "No changes made";
-            // 
-            // toolStripSplitButton2
-            // 
-            this.toolStripSplitButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton2.Image")));
-            this.toolStripSplitButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton2.Name = "toolStripSplitButton2";
-            this.toolStripSplitButton2.Size = new System.Drawing.Size(32, 20);
-            this.toolStripSplitButton2.Text = "toolStripSplitButton2";
-            // 
-            // sysUser
-            // 
-            this.sysUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sysUser.Name = "sysUser";
-            this.sysUser.Size = new System.Drawing.Size(178, 17);
-            this.sysUser.Text = "The Current System User is: ";
-            // 
-            // toolStripSplitButton3
-            // 
-            this.toolStripSplitButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.logOutToolStripMenuItem});
-            this.toolStripSplitButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton3.Image")));
-            this.toolStripSplitButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton3.Name = "toolStripSplitButton3";
-            this.toolStripSplitButton3.Size = new System.Drawing.Size(32, 20);
-            this.toolStripSplitButton3.Text = "toolStripSplitButton3";
-            // 
-            // logOutToolStripMenuItem
-            // 
-            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
-            this.logOutToolStripMenuItem.Text = "Log out";
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // ReportsUC
             // 

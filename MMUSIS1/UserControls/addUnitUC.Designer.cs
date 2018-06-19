@@ -32,7 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(addUnitUC));
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -40,18 +39,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.picCourse = new System.Windows.Forms.PictureBox();
-            this.picUnitCode = new System.Windows.Forms.PictureBox();
-            this.picSearch = new System.Windows.Forms.PictureBox();
             this.lblUnitCode = new System.Windows.Forms.Label();
-            this.picUnitName = new System.Windows.Forms.PictureBox();
             this.lblUnitName = new System.Windows.Forms.Label();
             this.lblCourse = new System.Windows.Forms.Label();
             this.pContainer = new System.Windows.Forms.Panel();
             this.lblSearch1 = new System.Windows.Forms.Label();
             this.txtSearch = new MetroFramework.Controls.MetroTextBox();
             this.txtCourse = new MetroFramework.Controls.MetroTextBox();
-            this.unitsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtUnitName = new MetroFramework.Controls.MetroTextBox();
             this.txtUnitCode = new MetroFramework.Controls.MetroTextBox();
             this.btnClear = new System.Windows.Forms.Button();
@@ -60,24 +54,29 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblDate = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblTime = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
             this.FieldChecker = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripSplitButton2 = new System.Windows.Forms.ToolStripSplitButton();
             this.sysUser = new System.Windows.Forms.ToolStripStatusLabel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
+            this.toolStripSplitButton2 = new System.Windows.Forms.ToolStripSplitButton();
             this.toolStripSplitButton3 = new System.Windows.Forms.ToolStripSplitButton();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.picUnitName = new System.Windows.Forms.PictureBox();
+            this.picSearch = new System.Windows.Forms.PictureBox();
+            this.picUnitCode = new System.Windows.Forms.PictureBox();
+            this.picCourse = new System.Windows.Forms.PictureBox();
             this.unitCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.courseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.picCourse)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picUnitCode)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picSearch)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picUnitName)).BeginInit();
+            this.unitsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.unitsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picUnitName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUnitCode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCourse)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.unitsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDelete
@@ -163,34 +162,6 @@
             this.label1.TabIndex = 21;
             this.label1.Text = "Unit Name:";
             // 
-            // picCourse
-            // 
-            this.picCourse.Location = new System.Drawing.Point(611, 32);
-            this.picCourse.Name = "picCourse";
-            this.picCourse.Size = new System.Drawing.Size(29, 25);
-            this.picCourse.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picCourse.TabIndex = 32;
-            this.picCourse.TabStop = false;
-            this.picCourse.Click += new System.EventHandler(this.picCourse_Click);
-            // 
-            // picUnitCode
-            // 
-            this.picUnitCode.Location = new System.Drawing.Point(300, 28);
-            this.picUnitCode.Name = "picUnitCode";
-            this.picUnitCode.Size = new System.Drawing.Size(29, 25);
-            this.picUnitCode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picUnitCode.TabIndex = 32;
-            this.picUnitCode.TabStop = false;
-            // 
-            // picSearch
-            // 
-            this.picSearch.Location = new System.Drawing.Point(611, 92);
-            this.picSearch.Name = "picSearch";
-            this.picSearch.Size = new System.Drawing.Size(29, 25);
-            this.picSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picSearch.TabIndex = 32;
-            this.picSearch.TabStop = false;
-            // 
             // lblUnitCode
             // 
             this.lblUnitCode.AutoSize = true;
@@ -199,15 +170,6 @@
             this.lblUnitCode.Name = "lblUnitCode";
             this.lblUnitCode.Size = new System.Drawing.Size(0, 17);
             this.lblUnitCode.TabIndex = 33;
-            // 
-            // picUnitName
-            // 
-            this.picUnitName.Location = new System.Drawing.Point(300, 87);
-            this.picUnitName.Name = "picUnitName";
-            this.picUnitName.Size = new System.Drawing.Size(29, 25);
-            this.picUnitName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picUnitName.TabIndex = 32;
-            this.picUnitName.TabStop = false;
             // 
             // lblUnitName
             // 
@@ -325,11 +287,6 @@
             this.txtCourse.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtCourse.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.txtCourse.Leave += new System.EventHandler(this.txtCourse_Leave);
-            // 
-            // unitsBindingSource
-            // 
-            this.unitsBindingSource.DataSource = typeof(MMUSIS1.Units);
-            this.unitsBindingSource.CurrentChanged += new System.EventHandler(this.unitsBindingSource_CurrentChanged);
             // 
             // txtUnitName
             // 
@@ -504,30 +461,12 @@
             this.lblTime.Size = new System.Drawing.Size(141, 17);
             this.lblTime.Text = "toolStripStatusLabel1";
             // 
-            // toolStripSplitButton1
-            // 
-            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
-            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 20);
-            this.toolStripSplitButton1.Text = "toolStripSplitButton1";
-            // 
             // FieldChecker
             // 
             this.FieldChecker.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FieldChecker.Name = "FieldChecker";
             this.FieldChecker.Size = new System.Drawing.Size(129, 17);
             this.FieldChecker.Text = "No changes made";
-            // 
-            // toolStripSplitButton2
-            // 
-            this.toolStripSplitButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton2.Image")));
-            this.toolStripSplitButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton2.Name = "toolStripSplitButton2";
-            this.toolStripSplitButton2.Size = new System.Drawing.Size(32, 20);
-            this.toolStripSplitButton2.Text = "toolStripSplitButton2";
             // 
             // sysUser
             // 
@@ -536,12 +475,35 @@
             this.sysUser.Size = new System.Drawing.Size(178, 17);
             this.sysUser.Text = "The Current System User is: ";
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // toolStripSplitButton1
+            // 
+            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButton1.Image = global::MMUSIS1.Properties.Resources.studentlogo;
+            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 20);
+            this.toolStripSplitButton1.Text = "toolStripSplitButton1";
+            // 
+            // toolStripSplitButton2
+            // 
+            this.toolStripSplitButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButton2.Image = global::MMUSIS1.Properties.Resources.Student_321;
+            this.toolStripSplitButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton2.Name = "toolStripSplitButton2";
+            this.toolStripSplitButton2.Size = new System.Drawing.Size(32, 20);
+            this.toolStripSplitButton2.Text = "toolStripSplitButton2";
+            // 
             // toolStripSplitButton3
             // 
             this.toolStripSplitButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripSplitButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.logOutToolStripMenuItem});
-            this.toolStripSplitButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton3.Image")));
+            this.toolStripSplitButton3.Image = global::MMUSIS1.Properties.Resources.user;
             this.toolStripSplitButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton3.Name = "toolStripSplitButton3";
             this.toolStripSplitButton3.Size = new System.Drawing.Size(32, 20);
@@ -550,14 +512,46 @@
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.logOutToolStripMenuItem.Text = "Log out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
-            // timer1
+            // picUnitName
             // 
-            this.timer1.Enabled = true;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.picUnitName.Location = new System.Drawing.Point(300, 87);
+            this.picUnitName.Name = "picUnitName";
+            this.picUnitName.Size = new System.Drawing.Size(29, 25);
+            this.picUnitName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picUnitName.TabIndex = 32;
+            this.picUnitName.TabStop = false;
+            // 
+            // picSearch
+            // 
+            this.picSearch.Location = new System.Drawing.Point(611, 92);
+            this.picSearch.Name = "picSearch";
+            this.picSearch.Size = new System.Drawing.Size(29, 25);
+            this.picSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picSearch.TabIndex = 32;
+            this.picSearch.TabStop = false;
+            // 
+            // picUnitCode
+            // 
+            this.picUnitCode.Location = new System.Drawing.Point(300, 28);
+            this.picUnitCode.Name = "picUnitCode";
+            this.picUnitCode.Size = new System.Drawing.Size(29, 25);
+            this.picUnitCode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picUnitCode.TabIndex = 32;
+            this.picUnitCode.TabStop = false;
+            // 
+            // picCourse
+            // 
+            this.picCourse.Location = new System.Drawing.Point(611, 32);
+            this.picCourse.Name = "picCourse";
+            this.picCourse.Size = new System.Drawing.Size(29, 25);
+            this.picCourse.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picCourse.TabIndex = 32;
+            this.picCourse.TabStop = false;
+            this.picCourse.Click += new System.EventHandler(this.picCourse_Click);
             // 
             // unitCodeDataGridViewTextBoxColumn
             // 
@@ -577,6 +571,11 @@
             this.courseDataGridViewTextBoxColumn.HeaderText = "Course";
             this.courseDataGridViewTextBoxColumn.Name = "courseDataGridViewTextBoxColumn";
             // 
+            // unitsBindingSource
+            // 
+            this.unitsBindingSource.DataSource = typeof(MMUSIS1.Units);
+            this.unitsBindingSource.CurrentChanged += new System.EventHandler(this.unitsBindingSource_CurrentChanged);
+            // 
             // addUnitUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -592,16 +591,16 @@
             this.Name = "addUnitUC";
             this.Size = new System.Drawing.Size(812, 486);
             this.Load += new System.EventHandler(this.addUnitUC_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.picCourse)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picUnitCode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picSearch)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picUnitName)).EndInit();
             this.pContainer.ResumeLayout(false);
             this.pContainer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.unitsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picUnitName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUnitCode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCourse)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.unitsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

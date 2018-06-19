@@ -29,19 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(btnClearForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(btnClearForm));
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.btnQRCode = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btnClear = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btnAdd = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.picStudImage = new System.Windows.Forms.PictureBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
+            this.Year = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnBrowse = new System.Windows.Forms.Button();
             this.txtSearch = new MetroFramework.Controls.MetroTextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -52,11 +49,6 @@
             this.lblDOB = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblAdmNo = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txtYear = new MetroFramework.Controls.MetroTextBox();
             this.txtCourse = new MetroFramework.Controls.MetroTextBox();
             this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
@@ -71,28 +63,38 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblDate = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblTime = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
             this.FieldChecker = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripSplitButton2 = new System.Windows.Forms.ToolStripSplitButton();
             this.sysUser = new System.Windows.Forms.ToolStripStatusLabel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
+            this.toolStripSplitButton2 = new System.Windows.Forms.ToolStripSplitButton();
             this.toolStripSplitButton3 = new System.Windows.Forms.ToolStripSplitButton();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnQRCode = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnClear = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnAdd = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.picStudImage = new System.Windows.Forms.PictureBox();
             this.studentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.admNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dOBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.courseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.genderDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.picStudImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
             this.pContainer.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picStudImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -138,121 +140,6 @@
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // btnQRCode
-            // 
-            this.btnQRCode.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btnQRCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btnQRCode.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnQRCode.BorderRadius = 0;
-            this.btnQRCode.ButtonText = "Create QR Code";
-            this.btnQRCode.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnQRCode.DisabledColor = System.Drawing.Color.Gray;
-            this.btnQRCode.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnQRCode.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnQRCode.Iconimage")));
-            this.btnQRCode.Iconimage_right = null;
-            this.btnQRCode.Iconimage_right_Selected = null;
-            this.btnQRCode.Iconimage_Selected = null;
-            this.btnQRCode.IconMarginLeft = 0;
-            this.btnQRCode.IconMarginRight = 0;
-            this.btnQRCode.IconRightVisible = true;
-            this.btnQRCode.IconRightZoom = 0D;
-            this.btnQRCode.IconVisible = true;
-            this.btnQRCode.IconZoom = 90D;
-            this.btnQRCode.IsTab = false;
-            this.btnQRCode.Location = new System.Drawing.Point(630, 64);
-            this.btnQRCode.Name = "btnQRCode";
-            this.btnQRCode.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btnQRCode.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.btnQRCode.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnQRCode.selected = false;
-            this.btnQRCode.Size = new System.Drawing.Size(161, 50);
-            this.btnQRCode.TabIndex = 19;
-            this.btnQRCode.Text = "Create QR Code";
-            this.btnQRCode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQRCode.Textcolor = System.Drawing.Color.White;
-            this.btnQRCode.TextFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQRCode.Click += new System.EventHandler(this.bunifuFlatButton4_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnClear.BorderRadius = 0;
-            this.btnClear.ButtonText = "Clear Form";
-            this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClear.DisabledColor = System.Drawing.Color.Gray;
-            this.btnClear.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnClear.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnClear.Iconimage")));
-            this.btnClear.Iconimage_right = null;
-            this.btnClear.Iconimage_right_Selected = null;
-            this.btnClear.Iconimage_Selected = null;
-            this.btnClear.IconMarginLeft = 0;
-            this.btnClear.IconMarginRight = 0;
-            this.btnClear.IconRightVisible = true;
-            this.btnClear.IconRightZoom = 0D;
-            this.btnClear.IconVisible = true;
-            this.btnClear.IconZoom = 90D;
-            this.btnClear.IsTab = false;
-            this.btnClear.Location = new System.Drawing.Point(630, 124);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnClear.OnHovercolor = System.Drawing.Color.Olive;
-            this.btnClear.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnClear.selected = false;
-            this.btnClear.Size = new System.Drawing.Size(161, 48);
-            this.btnClear.TabIndex = 18;
-            this.btnClear.Text = "Clear Form";
-            this.btnClear.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClear.Textcolor = System.Drawing.Color.White;
-            this.btnClear.TextFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAdd.BorderRadius = 0;
-            this.btnAdd.ButtonText = "Add Student";
-            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAdd.DisabledColor = System.Drawing.Color.Gray;
-            this.btnAdd.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnAdd.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnAdd.Iconimage")));
-            this.btnAdd.Iconimage_right = null;
-            this.btnAdd.Iconimage_right_Selected = null;
-            this.btnAdd.Iconimage_Selected = null;
-            this.btnAdd.IconMarginLeft = 0;
-            this.btnAdd.IconMarginRight = 0;
-            this.btnAdd.IconRightVisible = true;
-            this.btnAdd.IconRightZoom = 0D;
-            this.btnAdd.IconVisible = true;
-            this.btnAdd.IconZoom = 90D;
-            this.btnAdd.IsTab = false;
-            this.btnAdd.Location = new System.Drawing.Point(630, 12);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnAdd.OnHovercolor = System.Drawing.Color.Olive;
-            this.btnAdd.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnAdd.selected = false;
-            this.btnAdd.Size = new System.Drawing.Size(161, 46);
-            this.btnAdd.TabIndex = 13;
-            this.btnAdd.Text = "Add Student";
-            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.Textcolor = System.Drawing.Color.White;
-            this.btnAdd.TextFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // picStudImage
-            // 
-            this.picStudImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picStudImage.Location = new System.Drawing.Point(402, 12);
-            this.picStudImage.Name = "picStudImage";
-            this.picStudImage.Size = new System.Drawing.Size(187, 157);
-            this.picStudImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picStudImage.TabIndex = 6;
-            this.picStudImage.TabStop = false;
-            // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.DarkSeaGreen;
@@ -289,7 +176,8 @@
             this.fullNameDataGridViewTextBoxColumn,
             this.dOBDataGridViewTextBoxColumn,
             this.courseDataGridViewTextBoxColumn,
-            this.genderDataGridViewCheckBoxColumn});
+            this.genderDataGridViewCheckBoxColumn,
+            this.Year});
             this.metroGrid1.DataSource = this.studentsBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -319,6 +207,12 @@
             this.metroGrid1.TabIndex = 26;
             this.metroGrid1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGrid1_CellContentClick);
             // 
+            // Year
+            // 
+            this.Year.DataPropertyName = "Year";
+            this.Year.HeaderText = "Year";
+            this.Year.Name = "Year";
+            // 
             // btnBrowse
             // 
             this.btnBrowse.BackColor = System.Drawing.Color.CadetBlue;
@@ -339,7 +233,7 @@
             // 
             // 
             this.txtSearch.CustomButton.Image = null;
-            this.txtSearch.CustomButton.Location = new System.Drawing.Point(137, 1);
+            this.txtSearch.CustomButton.Location = new System.Drawing.Point(204, 1);
             this.txtSearch.CustomButton.Name = "";
             this.txtSearch.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtSearch.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -352,18 +246,19 @@
             this.txtSearch.MaxLength = 32767;
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PasswordChar = '\0';
-            this.txtSearch.PromptText = "Search a student";
+            this.txtSearch.PromptText = "Search a student by admission number";
             this.txtSearch.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtSearch.SelectedText = "";
             this.txtSearch.SelectionLength = 0;
             this.txtSearch.SelectionStart = 0;
             this.txtSearch.ShortcutsEnabled = true;
-            this.txtSearch.Size = new System.Drawing.Size(159, 23);
+            this.txtSearch.Size = new System.Drawing.Size(226, 23);
             this.txtSearch.TabIndex = 34;
             this.txtSearch.UseSelectable = true;
-            this.txtSearch.WaterMark = "Search a student";
+            this.txtSearch.WaterMark = "Search a student by admission number";
             this.txtSearch.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtSearch.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             this.txtSearch.Click += new System.EventHandler(this.metroTextBox1_Click);
             // 
             // label7
@@ -375,6 +270,7 @@
             this.label7.Size = new System.Drawing.Size(64, 20);
             this.label7.TabIndex = 33;
             this.label7.Text = "Search:";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // pContainer
             // 
@@ -462,50 +358,6 @@
             this.lblAdmNo.Name = "lblAdmNo";
             this.lblAdmNo.Size = new System.Drawing.Size(0, 17);
             this.lblAdmNo.TabIndex = 48;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Location = new System.Drawing.Point(289, 183);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(31, 20);
-            this.pictureBox5.TabIndex = 46;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Location = new System.Drawing.Point(289, 93);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(31, 20);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 45;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Location = new System.Drawing.Point(289, 137);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(31, 20);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 44;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Location = new System.Drawing.Point(289, 48);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(31, 20);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 47;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(289, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(31, 20);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 43;
-            this.pictureBox2.TabStop = false;
             // 
             // txtYear
             // 
@@ -621,6 +473,8 @@
             // 
             // txtAdmNo
             // 
+            this.txtAdmNo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtAdmNo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             // 
             // 
             // 
@@ -743,30 +597,12 @@
             this.lblTime.Size = new System.Drawing.Size(141, 17);
             this.lblTime.Text = "toolStripStatusLabel1";
             // 
-            // toolStripSplitButton1
-            // 
-            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
-            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 20);
-            this.toolStripSplitButton1.Text = "toolStripSplitButton1";
-            // 
             // FieldChecker
             // 
             this.FieldChecker.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FieldChecker.Name = "FieldChecker";
             this.FieldChecker.Size = new System.Drawing.Size(129, 17);
             this.FieldChecker.Text = "No changes made";
-            // 
-            // toolStripSplitButton2
-            // 
-            this.toolStripSplitButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton2.Image")));
-            this.toolStripSplitButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton2.Name = "toolStripSplitButton2";
-            this.toolStripSplitButton2.Size = new System.Drawing.Size(32, 20);
-            this.toolStripSplitButton2.Text = "toolStripSplitButton2";
             // 
             // sysUser
             // 
@@ -775,12 +611,43 @@
             this.sysUser.Size = new System.Drawing.Size(178, 17);
             this.sysUser.Text = "The Current System User is: ";
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(605, 339);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(229, 133);
+            this.richTextBox1.TabIndex = 47;
+            this.richTextBox1.Text = "";
+            // 
+            // toolStripSplitButton1
+            // 
+            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButton1.Image = global::MMUSIS1.Properties.Resources.studentlogo;
+            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 20);
+            this.toolStripSplitButton1.Text = "toolStripSplitButton1";
+            // 
+            // toolStripSplitButton2
+            // 
+            this.toolStripSplitButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButton2.Image = global::MMUSIS1.Properties.Resources.Student_32_1_;
+            this.toolStripSplitButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton2.Name = "toolStripSplitButton2";
+            this.toolStripSplitButton2.Size = new System.Drawing.Size(32, 20);
+            this.toolStripSplitButton2.Text = "toolStripSplitButton2";
+            // 
             // toolStripSplitButton3
             // 
             this.toolStripSplitButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripSplitButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.logOutToolStripMenuItem});
-            this.toolStripSplitButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton3.Image")));
+            this.toolStripSplitButton3.Image = global::MMUSIS1.Properties.Resources.user;
             this.toolStripSplitButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton3.Name = "toolStripSplitButton3";
             this.toolStripSplitButton3.Size = new System.Drawing.Size(32, 20);
@@ -789,13 +656,169 @@
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.logOutToolStripMenuItem.Text = "Log out";
             // 
-            // timer1
+            // pictureBox5
             // 
-            this.timer1.Enabled = true;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.pictureBox5.Location = new System.Drawing.Point(289, 183);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(31, 20);
+            this.pictureBox5.TabIndex = 46;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Location = new System.Drawing.Point(289, 93);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(31, 20);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 45;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Location = new System.Drawing.Point(289, 137);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(31, 20);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 44;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Location = new System.Drawing.Point(289, 48);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(31, 20);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 47;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(289, 2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(31, 20);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 43;
+            this.pictureBox2.TabStop = false;
+            // 
+            // btnQRCode
+            // 
+            this.btnQRCode.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnQRCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnQRCode.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnQRCode.BorderRadius = 0;
+            this.btnQRCode.ButtonText = "Create QR Code";
+            this.btnQRCode.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnQRCode.DisabledColor = System.Drawing.Color.Gray;
+            this.btnQRCode.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnQRCode.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnQRCode.Iconimage")));
+            this.btnQRCode.Iconimage_right = null;
+            this.btnQRCode.Iconimage_right_Selected = null;
+            this.btnQRCode.Iconimage_Selected = null;
+            this.btnQRCode.IconMarginLeft = 0;
+            this.btnQRCode.IconMarginRight = 0;
+            this.btnQRCode.IconRightVisible = true;
+            this.btnQRCode.IconRightZoom = 0D;
+            this.btnQRCode.IconVisible = true;
+            this.btnQRCode.IconZoom = 90D;
+            this.btnQRCode.IsTab = false;
+            this.btnQRCode.Location = new System.Drawing.Point(630, 64);
+            this.btnQRCode.Name = "btnQRCode";
+            this.btnQRCode.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnQRCode.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.btnQRCode.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnQRCode.selected = false;
+            this.btnQRCode.Size = new System.Drawing.Size(161, 50);
+            this.btnQRCode.TabIndex = 19;
+            this.btnQRCode.Text = "Create QR Code";
+            this.btnQRCode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnQRCode.Textcolor = System.Drawing.Color.White;
+            this.btnQRCode.TextFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQRCode.Click += new System.EventHandler(this.bunifuFlatButton4_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnClear.BorderRadius = 0;
+            this.btnClear.ButtonText = "Clear Form";
+            this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClear.DisabledColor = System.Drawing.Color.Gray;
+            this.btnClear.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnClear.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnClear.Iconimage")));
+            this.btnClear.Iconimage_right = null;
+            this.btnClear.Iconimage_right_Selected = null;
+            this.btnClear.Iconimage_Selected = null;
+            this.btnClear.IconMarginLeft = 0;
+            this.btnClear.IconMarginRight = 0;
+            this.btnClear.IconRightVisible = true;
+            this.btnClear.IconRightZoom = 0D;
+            this.btnClear.IconVisible = true;
+            this.btnClear.IconZoom = 90D;
+            this.btnClear.IsTab = false;
+            this.btnClear.Location = new System.Drawing.Point(630, 124);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnClear.OnHovercolor = System.Drawing.Color.Olive;
+            this.btnClear.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnClear.selected = false;
+            this.btnClear.Size = new System.Drawing.Size(161, 48);
+            this.btnClear.TabIndex = 18;
+            this.btnClear.Text = "Clear Form";
+            this.btnClear.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClear.Textcolor = System.Drawing.Color.White;
+            this.btnClear.TextFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAdd.BorderRadius = 0;
+            this.btnAdd.ButtonText = "Add Student";
+            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdd.DisabledColor = System.Drawing.Color.Gray;
+            this.btnAdd.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnAdd.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnAdd.Iconimage")));
+            this.btnAdd.Iconimage_right = null;
+            this.btnAdd.Iconimage_right_Selected = null;
+            this.btnAdd.Iconimage_Selected = null;
+            this.btnAdd.IconMarginLeft = 0;
+            this.btnAdd.IconMarginRight = 0;
+            this.btnAdd.IconRightVisible = true;
+            this.btnAdd.IconRightZoom = 0D;
+            this.btnAdd.IconVisible = true;
+            this.btnAdd.IconZoom = 90D;
+            this.btnAdd.IsTab = false;
+            this.btnAdd.Location = new System.Drawing.Point(630, 12);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnAdd.OnHovercolor = System.Drawing.Color.Olive;
+            this.btnAdd.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnAdd.selected = false;
+            this.btnAdd.Size = new System.Drawing.Size(161, 46);
+            this.btnAdd.TabIndex = 13;
+            this.btnAdd.Text = "Add Student";
+            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdd.Textcolor = System.Drawing.Color.White;
+            this.btnAdd.TextFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // picStudImage
+            // 
+            this.picStudImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picStudImage.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.studentsBindingSource, "Imageurl", true));
+            this.picStudImage.Location = new System.Drawing.Point(402, 12);
+            this.picStudImage.Name = "picStudImage";
+            this.picStudImage.Size = new System.Drawing.Size(187, 157);
+            this.picStudImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picStudImage.TabIndex = 6;
+            this.picStudImage.TabStop = false;
+            this.picStudImage.LoadCompleted += new System.ComponentModel.AsyncCompletedEventHandler(this.picStudImage_LoadCompleted);
             // 
             // studentsBindingSource
             // 
@@ -835,6 +858,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.pContainer);
             this.Controls.Add(this.txtSearch);
@@ -852,17 +876,17 @@
             this.Name = "btnClearForm";
             this.Size = new System.Drawing.Size(822, 497);
             this.Load += new System.EventHandler(this.AddStudUC_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.picStudImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
             this.pContainer.ResumeLayout(false);
             this.pContainer.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picStudImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -916,10 +940,12 @@
         private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton3;
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn admNoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dOBDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn courseDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn genderDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Year;
     }
 }

@@ -65,6 +65,7 @@
             this.bunifuCustomLabel1.Size = new System.Drawing.Size(234, 17);
             this.bunifuCustomLabel1.TabIndex = 4;
             this.bunifuCustomLabel1.Text = "Do you want to exit MMUSAS V 1.0?";
+            this.bunifuCustomLabel1.Click += new System.EventHandler(this.bunifuCustomLabel1_Click);
             // 
             // icon
             // 

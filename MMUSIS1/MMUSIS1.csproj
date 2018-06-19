@@ -163,6 +163,10 @@
       <HintPath>..\packages\ExcelDataReader-DevNet45.1.0.0.2\lib\net45\PCLStorage.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Spire.Barcode, Version=2.3.0.11040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MMUHRS\MMUHRS\publish\Application Files\MMUHRS_1_0_0_0\Spire.Barcode.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.configuration" />
@@ -196,6 +200,7 @@
     <Reference Include="TelerikCommon, Version=2017.3.1017.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminCS.cs" />
     <Compile Include="Admins.cs" />
     <Compile Include="AttendanceReport.cs" />
     <Compile Include="correctForm.cs">
@@ -239,6 +244,12 @@
     <Compile Include="errorForm.Designer.cs">
       <DependentUpon>errorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="formError.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formError.Designer.cs">
+      <DependentUpon>formError.cs</DependentUpon>
+    </Compile>
     <Compile Include="HowManyLessons.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,6 +261,12 @@
     </Compile>
     <Compile Include="Non-Threshold reachers.Designer.cs">
       <DependentUpon>Non-Threshold reachers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QRCodeGenerator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QRCodeGenerator.Designer.cs">
+      <DependentUpon>QRCodeGenerator.cs</DependentUpon>
     </Compile>
     <Compile Include="SplashScreen.cs">
       <SubType>Form</SubType>
@@ -281,6 +298,12 @@
     </Compile>
     <Compile Include="txtSentSuccess.Designer.cs">
       <DependentUpon>txtSentSuccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateSuccess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateSuccess.Designer.cs">
+      <DependentUpon>UpdateSuccess.cs</DependentUpon>
     </Compile>
     <Compile Include="ViaNettSMS.cs" />
     <Compile Include="Waitfrm.cs">
@@ -420,11 +443,17 @@
     <EmbeddedResource Include="errorForm.resx">
       <DependentUpon>errorForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formError.resx">
+      <DependentUpon>formError.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HowManyLessons.resx">
       <DependentUpon>HowManyLessons.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Non-Threshold reachers.resx">
       <DependentUpon>Non-Threshold reachers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QRCodeGenerator.resx">
+      <DependentUpon>QRCodeGenerator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen.resx">
       <DependentUpon>SplashScreen.cs</DependentUpon>
@@ -440,6 +469,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="txtSentSuccess.resx">
       <DependentUpon>txtSentSuccess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateSuccess.resx">
+      <DependentUpon>UpdateSuccess.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Waitfrm.resx">
       <DependentUpon>Waitfrm.cs</DependentUpon>
@@ -507,6 +539,8 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\AdminCS.datasource" />
+    <None Include="Properties\DataSources\Admins.datasource" />
     <None Include="Properties\DataSources\AttendanceReport.datasource" />
     <None Include="Properties\DataSources\MMUSIS1.UserControls.addUnitUC.datasource" />
     <None Include="Properties\DataSources\StudAttendance.datasource" />
@@ -570,7 +604,7 @@
     <None Include="Resources\add contact.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\user1.PNG" />
+    <EmbeddedResource Include="Resources\user1.PNG" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Student-32.png" />
@@ -632,6 +666,7 @@
   <ItemGroup>
     <None Include="Resources\Help_25px_1.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

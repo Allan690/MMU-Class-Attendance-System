@@ -1,0 +1,1 @@
+﻿Select AdmNo from Students

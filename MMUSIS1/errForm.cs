@@ -52,5 +52,10 @@ namespace MMUSIS1
         {
             this.Close();
         }
+
+        private void bunifuCustomLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

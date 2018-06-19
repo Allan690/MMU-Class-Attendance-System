@@ -14,7 +14,6 @@ namespace MMUSIS1
     {
         public AdminDashboard()
         {
-            
             InitializeComponent();
             addStudUC1.BringToFront();
             lblAddStud.Text = "Add Student";
