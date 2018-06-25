@@ -99,3 +99,4 @@ C:\Users\FRED\Documents\Visual Studio 2015\Projects\MMUSIS1\MMUSIS1\obj\Debug\MM
 C:\Users\FRED\Documents\Visual Studio 2015\Projects\MMUSIS1\MMUSIS1\obj\Debug\MMUSIS1.pdb
 C:\Users\FRED\Documents\Visual Studio 2015\Projects\MMUSIS1\MMUSIS1\obj\Debug\MMUSIS1.csprojResolveAssemblyReference.cache
 C:\Users\FRED\Documents\Visual Studio 2015\Projects\MMUSIS1\MMUSIS1\obj\Debug\MMUSIS1.formError.resources
+C:\Users\FRED\Documents\Visual Studio 2015\Projects\MMUSIS1\MMUSIS1\obj\Debug\MMUSIS1.duplicateRecords.resources

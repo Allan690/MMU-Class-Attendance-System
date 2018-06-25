@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MMUSIS1.UserControls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,12 +17,14 @@ namespace MMUSIS1
         {
             InitializeComponent();
             addStudUC1.BringToFront();
-            lblAddStud.Text = "Add Student";
+           
         }
+        public string MyProperty { get; set; }
 
         private void AdminDashboard_Load(object sender, EventArgs e)
         {
-
+           
+           // MessageBox.Show(addCourseUC1.MyProperty);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -46,50 +49,83 @@ namespace MMUSIS1
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            
+            if (addStudUC1 != null)
+            {
+                addStudUC1.MyProperty = "The Current System User is: "+ this.MyProperty;
+            }
             addStudUC1.BringToFront();
+
             lblAddStud.Text = "Add Student";
             
         }
 
         private void button16_Click(object sender, EventArgs e)
         {
+            if (addUnitUC1 != null)
+            {
+                addUnitUC1.MyProperty = "The Current System User is: " + this.MyProperty;
+            }
             addUnitUC1.BringToFront();
             lblAddStud.Text = "Add Unit";
         }
 
         private void button15_Click(object sender, EventArgs e)
         {
+            if (addCourseUC1 != null)
+            {
+               addCourseUC1.MyProperty = "The Current System User is: " + this.MyProperty;
+            }
             addCourseUC1.BringToFront();
+         //   addCourseUC1.MyProperty = this.MyProperty;
             lblAddStud.Text = "Add Course";
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            if (checkStudUC1 != null)
+            {
+                checkStudUC1.MyProperty = "The Current System User is: " + this.MyProperty;
+            }
             checkStudUC1.BringToFront();
             lblAddStud.Text = "Check Student Attendance";
         }
 
         private void button4_Click(object sender, EventArgs e)
-        {
+       {
+            if (sendEmailUC1 != null)
+            {
+                sendEmailUC1.MyProperty = "The Current System User is: " + this.MyProperty;
+            }
             sendEmailUC1.BringToFront();
             lblAddStud.Text = "Send Email";
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
+            if (reportsUC1 != null)
+            {
+               reportsUC1.MyProperty = "The Current System User is: " + this.MyProperty;
+            }
             reportsUC1.BringToFront();
             lblAddStud.Text = "View your reports";
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
+            if (settingsUC1 != null)
+            {
+               settingsUC1.MyProperty = "The Current System User is: " + this.MyProperty;
+            }
             settingsUC1.BringToFront();
             lblAddStud.Text = "Settings";
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
+            if (importCSV1 != null)
+            {
+                importCSV1.MyProperty = "The Current System User is: " + this.MyProperty;
+            }
             importCSV1.BringToFront();
             lblAddStud.Text = "Import Files";
             
@@ -137,6 +173,10 @@ namespace MMUSIS1
 
         private void button5_Click(object sender, EventArgs e)
         {
+            if (chatUC1 != null)
+            {
+               chatUC1.MyProperty = "The Current System User is: " + this.MyProperty;
+            }
             chatUC1.BringToFront();
             lblAddStud.Text = "Send Text Message";
         }

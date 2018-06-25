@@ -31,7 +31,11 @@ namespace MMUSIS1.UserControls
         {
 
         }
-       
+       public string MyProperty
+        {
+            get { return sysUser.Text; }
+            set { sysUser.Text = value; }
+        }
         private void AddStudUC_Load(object sender, EventArgs e)
         {
             richTextBox1.Visible = false;

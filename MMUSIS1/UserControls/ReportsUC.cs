@@ -33,6 +33,11 @@ namespace MMUSIS1.UserControls
 
         }
 
+        public string MyProperty
+        {
+            get { return sysUser.Text; }
+            set { sysUser.Text = value; }
+        }
         private void bunifuFlatButton2_Click(object sender, EventArgs e)
         {
             ThresholdReachers tr = new ThresholdReachers();

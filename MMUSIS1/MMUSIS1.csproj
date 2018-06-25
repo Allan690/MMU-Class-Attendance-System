@@ -224,6 +224,12 @@
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </Compile>
     <Compile Include="DGVPrinter.cs" />
+    <Compile Include="duplicateRecords.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="duplicateRecords.Designer.cs">
+      <DependentUpon>duplicateRecords.cs</DependentUpon>
+    </Compile>
     <Compile Include="emailSent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -433,6 +439,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="custom_dialog.resx">
       <DependentUpon>custom_dialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="duplicateRecords.resx">
+      <DependentUpon>duplicateRecords.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="emailSent.resx">
       <DependentUpon>emailSent.cs</DependentUpon>

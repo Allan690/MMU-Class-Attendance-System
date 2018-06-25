@@ -70,7 +70,11 @@ namespace MMUSIS1.UserControls
 
 
         }
-
+        public string MyProperty
+        {
+            get { return sysUser.Text; }
+            set { sysUser.Text = value; }
+        }
 
         private void CheckStudUC_Load(object sender, EventArgs e)
         {

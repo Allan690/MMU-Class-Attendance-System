@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MMUSIS1.UserControls;
 
 namespace MMUSIS1
 {
@@ -67,6 +68,7 @@ namespace MMUSIS1
                                 using (AdminDashboard form2 = new AdminDashboard())
                                 {                                   
                                     this.Hide();
+                                    form2.MyProperty = txtUserName.Text;
                                     form2.ShowDialog();
                                 }
                             }
@@ -86,6 +88,7 @@ namespace MMUSIS1
                     MetroFramework.MetroMessageBox.Show(this, ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
+               
             }
             
            

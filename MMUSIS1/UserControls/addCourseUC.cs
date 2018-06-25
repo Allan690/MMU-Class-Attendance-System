@@ -17,6 +17,7 @@ namespace MMUSIS1.UserControls
         public addCourseUC()
         {
             InitializeComponent();
+            sysUser.Text = "The Current System User is: "  + this.MyProperty ;
         }
         class EmptyField : ApplicationException
         {
@@ -26,15 +27,20 @@ namespace MMUSIS1.UserControls
                 MessageBox.Show("Some fields are empty. Please ensure all fields are filled before trying again.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-       
-
+        public string MyProperty
+        {
+            get { return sysUser.Text; }
+            set { sysUser.Text = value; }
+        }
         private void addCourseUC_Load(object sender, EventArgs e)
         {
+           // MessageBox.Show(MyProperty);
             filldatagridview();
             AutoCompleteTxtCourseCode();
             AutoCompleteTxtCourseName();
             AutoCompleteFaculty();
             AutoCompleteDepartment();
+            
         }
 
         void verify()
@@ -79,9 +85,13 @@ namespace MMUSIS1.UserControls
                     }
                 }
 
-                catch (Exception ex)
+                catch (SqlException ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    if (ex.Number == 2627)
+                    {
+                        duplicateRecords dp = new duplicateRecords();
+                        dp.ShowDialog();
+                    }
                 }
             }
         }

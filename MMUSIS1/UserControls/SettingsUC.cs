@@ -62,7 +62,11 @@ namespace MMUSIS1.UserControls
                 up.ShowDialog();
             }
         }
-
+        public string MyProperty
+        {
+            get { return sysUser.Text; }
+            set { sysUser.Text = value; }
+        }
         private void SettingsUC_Load(object sender, EventArgs e)
         {
             txtOldUser.Enabled = txtPass1.Enabled= false;

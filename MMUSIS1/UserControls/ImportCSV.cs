@@ -23,7 +23,11 @@ namespace MMUSIS1.UserControls
         {
 
         }
-
+        public string MyProperty
+        {
+            get { return sysUser.Text; }
+            set { sysUser.Text = value; }
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog opn = new OpenFileDialog();

@@ -59,7 +59,11 @@ namespace MMUSIS1.UserControls
                 lbl.Text = s + "Invalid";
             }
         }
-
+        public string MyProperty
+        {
+            get { return sysUser.Text; }
+            set { sysUser.Text = value; }
+        }
         private void addUnitUC_Load(object sender, EventArgs e)
         {
             try
