@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace MMUSIS1.UserControls
 {
@@ -80,6 +81,38 @@ namespace MMUSIS1.UserControls
         private void bunifuFlatButton5_MouseEnter(object sender, EventArgs e)
         {
             FieldChecker.Text = "Generate Exam Card Report";
+        }
+        void logout()
+        {
+            for (int i = 0; i <= 100; i++)
+            {
+                Thread.Sleep(100);
+
+                //save data
+            }
+        }
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("Are you sure you want to log out?", "Log out", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                using (var waitingForm = new Waitfrm(logout))
+                {
+                    waitingForm.ShowDialog(this);
+                    Form tmp = this.FindForm();
+                    tmp.Close();
+                    tmp.Dispose();
+                    AdminLogin adm = new AdminLogin();
+                    adm.Show();
+                }
+
+            }
+        }
+
+        private void bunifuFlatButton4_Click(object sender, EventArgs e)
+        {
+            Defaulters_Report rpt = new Defaulters_Report();
+            rpt.ShowDialog();
         }
     }
 }

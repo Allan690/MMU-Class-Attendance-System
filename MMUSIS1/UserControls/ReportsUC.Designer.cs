@@ -31,14 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportsUC));
             this.label1 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblDate = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblTime = new System.Windows.Forms.ToolStripStatusLabel();
-            this.FieldChecker = new System.Windows.Forms.ToolStripStatusLabel();
-            this.sysUser = new System.Windows.Forms.ToolStripStatusLabel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
+            this.FieldChecker = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripSplitButton2 = new System.Windows.Forms.ToolStripSplitButton();
+            this.sysUser = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripSplitButton3 = new System.Windows.Forms.ToolStripSplitButton();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bunifuFlatButton5 = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -60,6 +60,11 @@
             this.label1.TabIndex = 34;
             this.label1.Text = "Report management gives you direct access of accounting overview based on the rep" +
     "ort you want to formulate";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // statusStrip1
             // 
@@ -91,25 +96,6 @@
             this.lblTime.Size = new System.Drawing.Size(141, 17);
             this.lblTime.Text = "toolStripStatusLabel1";
             // 
-            // FieldChecker
-            // 
-            this.FieldChecker.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FieldChecker.Name = "FieldChecker";
-            this.FieldChecker.Size = new System.Drawing.Size(129, 17);
-            this.FieldChecker.Text = "No changes made";
-            // 
-            // sysUser
-            // 
-            this.sysUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sysUser.Name = "sysUser";
-            this.sysUser.Size = new System.Drawing.Size(178, 17);
-            this.sysUser.Text = "The Current System User is: ";
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // toolStripSplitButton1
             // 
             this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -119,14 +105,27 @@
             this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 20);
             this.toolStripSplitButton1.Text = "toolStripSplitButton1";
             // 
+            // FieldChecker
+            // 
+            this.FieldChecker.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FieldChecker.Name = "FieldChecker";
+            this.FieldChecker.Size = new System.Drawing.Size(129, 17);
+            this.FieldChecker.Text = "No changes made";
+            // 
             // toolStripSplitButton2
             // 
             this.toolStripSplitButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton2.Image = global::MMUSIS1.Properties.Resources.Student_321;
+            this.toolStripSplitButton2.Image = global::MMUSIS1.Properties.Resources.Student_32;
             this.toolStripSplitButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton2.Name = "toolStripSplitButton2";
             this.toolStripSplitButton2.Size = new System.Drawing.Size(32, 20);
             this.toolStripSplitButton2.Text = "toolStripSplitButton2";
+            // 
+            // sysUser
+            // 
+            this.sysUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sysUser.Name = "sysUser";
+            this.sysUser.Size = new System.Drawing.Size(0, 17);
             // 
             // toolStripSplitButton3
             // 
@@ -142,8 +141,9 @@
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.logOutToolStripMenuItem.Text = "Log out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // bunifuFlatButton5
             // 
@@ -260,7 +260,7 @@
             this.bunifuFlatButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
             this.bunifuFlatButton4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bunifuFlatButton4.BorderRadius = 0;
-            this.bunifuFlatButton4.ButtonText = "Lessons taught Report";
+            this.bunifuFlatButton4.ButtonText = "Defaulters Report";
             this.bunifuFlatButton4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bunifuFlatButton4.DisabledColor = System.Drawing.Color.Gray;
             this.bunifuFlatButton4.Iconcolor = System.Drawing.Color.Transparent;
@@ -283,10 +283,11 @@
             this.bunifuFlatButton4.selected = false;
             this.bunifuFlatButton4.Size = new System.Drawing.Size(185, 52);
             this.bunifuFlatButton4.TabIndex = 30;
-            this.bunifuFlatButton4.Text = "Lessons taught Report";
+            this.bunifuFlatButton4.Text = "Defaulters Report";
             this.bunifuFlatButton4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bunifuFlatButton4.Textcolor = System.Drawing.Color.White;
             this.bunifuFlatButton4.TextFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButton4.Click += new System.EventHandler(this.bunifuFlatButton4_Click);
             // 
             // bunifuFlatButton1
             // 
@@ -352,6 +353,7 @@
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton4;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton5;
+        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblDate;
         private System.Windows.Forms.ToolStripStatusLabel lblTime;
@@ -361,6 +363,5 @@
         private System.Windows.Forms.ToolStripStatusLabel sysUser;
         private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton3;
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
-        private System.Windows.Forms.Timer timer1;
     }
 }

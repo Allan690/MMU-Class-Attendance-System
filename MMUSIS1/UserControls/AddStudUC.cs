@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using Dapper;
 using DGVPrinterHelper;
+using System.Threading;
 
 namespace MMUSIS1.UserControls
 {
@@ -44,6 +45,7 @@ namespace MMUSIS1.UserControls
                 if (db.State == ConnectionState.Closed)
                     db.Open();
                 studentsBindingSource.DataSource = db.Query<Students>("Select DISTINCT * from Students", commandType: CommandType.Text);
+                //metroGrid1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 metroGrid1.Columns[5].Visible = false;
                 pContainer.Enabled = false;
 
@@ -397,6 +399,38 @@ namespace MMUSIS1.UserControls
                 MessageBox.Show(ex.Message);
             }
 
+        }
+        void logout()
+        {
+            for (int i = 0; i <= 100; i++)
+            {
+                Thread.Sleep(100);
+
+                //save data
+            }
+        }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("Are you sure you want to log out?", "Log out", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                using (var waitingForm = new Waitfrm(logout))
+                {
+                    waitingForm.ShowDialog(this);
+                    Form tmp = this.FindForm();
+                    tmp.Close();
+                    tmp.Dispose();
+                    AdminLogin adm = new AdminLogin();
+                    adm.Show();
+                }
+
+            }
+            else if (dialog == DialogResult.No)
+            {
+                this.Show();
+
+            }
         }
     }
 }

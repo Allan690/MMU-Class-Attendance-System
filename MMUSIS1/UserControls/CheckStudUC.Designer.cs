@@ -40,12 +40,22 @@
             this.txtName = new MetroFramework.Controls.MetroTextBox();
             this.txtCourse = new MetroFramework.Controls.MetroTextBox();
             this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
+            this.admNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.courseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.facultyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentAttendanceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblDate = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblTime = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
             this.FieldChecker = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripSplitButton2 = new System.Windows.Forms.ToolStripSplitButton();
             this.sysUser = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripSplitButton3 = new System.Windows.Forms.ToolStripSplitButton();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btnLoad = new MetroFramework.Controls.MetroButton();
@@ -64,24 +74,14 @@
             this.picCourse = new System.Windows.Forms.PictureBox();
             this.picName = new System.Windows.Forms.PictureBox();
             this.picAdmNo = new System.Windows.Forms.PictureBox();
-            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
-            this.toolStripSplitButton2 = new System.Windows.Forms.ToolStripSplitButton();
-            this.toolStripSplitButton3 = new System.Windows.Forms.ToolStripSplitButton();
-            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.admNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.courseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.facultyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentAttendanceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentAttendanceBindingSource)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picToDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFromDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCourse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAdmNo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentAttendanceBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblDob
@@ -277,11 +277,45 @@
             this.metroGrid1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGrid1_CellContentClick);
             this.metroGrid1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGrid1_CellValueChanged);
             // 
+            // admNoDataGridViewTextBoxColumn
+            // 
+            this.admNoDataGridViewTextBoxColumn.DataPropertyName = "AdmNo";
+            this.admNoDataGridViewTextBoxColumn.HeaderText = "AdmNo";
+            this.admNoDataGridViewTextBoxColumn.Name = "admNoDataGridViewTextBoxColumn";
+            // 
             // FullName
             // 
             this.FullName.DataPropertyName = "FullName";
             this.FullName.HeaderText = "FullName";
             this.FullName.Name = "FullName";
+            // 
+            // studDateDataGridViewTextBoxColumn
+            // 
+            this.studDateDataGridViewTextBoxColumn.DataPropertyName = "StudDate";
+            this.studDateDataGridViewTextBoxColumn.HeaderText = "StudDate";
+            this.studDateDataGridViewTextBoxColumn.Name = "studDateDataGridViewTextBoxColumn";
+            // 
+            // unitDataGridViewTextBoxColumn
+            // 
+            this.unitDataGridViewTextBoxColumn.DataPropertyName = "Unit";
+            this.unitDataGridViewTextBoxColumn.HeaderText = "Unit";
+            this.unitDataGridViewTextBoxColumn.Name = "unitDataGridViewTextBoxColumn";
+            // 
+            // courseDataGridViewTextBoxColumn
+            // 
+            this.courseDataGridViewTextBoxColumn.DataPropertyName = "Course";
+            this.courseDataGridViewTextBoxColumn.HeaderText = "Course";
+            this.courseDataGridViewTextBoxColumn.Name = "courseDataGridViewTextBoxColumn";
+            // 
+            // facultyDataGridViewTextBoxColumn
+            // 
+            this.facultyDataGridViewTextBoxColumn.DataPropertyName = "Faculty";
+            this.facultyDataGridViewTextBoxColumn.HeaderText = "Faculty";
+            this.facultyDataGridViewTextBoxColumn.Name = "facultyDataGridViewTextBoxColumn";
+            // 
+            // studentAttendanceBindingSource
+            // 
+            this.studentAttendanceBindingSource.DataSource = typeof(MMUSIS1.StudentAttendance);
             // 
             // statusStrip1
             // 
@@ -313,6 +347,15 @@
             this.lblTime.Size = new System.Drawing.Size(141, 17);
             this.lblTime.Text = "toolStripStatusLabel1";
             // 
+            // toolStripSplitButton1
+            // 
+            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButton1.Image = global::MMUSIS1.Properties.Resources.studentlogo;
+            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 20);
+            this.toolStripSplitButton1.Text = "toolStripSplitButton1";
+            // 
             // FieldChecker
             // 
             this.FieldChecker.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -320,12 +363,39 @@
             this.FieldChecker.Size = new System.Drawing.Size(129, 17);
             this.FieldChecker.Text = "No changes made";
             // 
+            // toolStripSplitButton2
+            // 
+            this.toolStripSplitButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButton2.Image = global::MMUSIS1.Properties.Resources.Student_321;
+            this.toolStripSplitButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton2.Name = "toolStripSplitButton2";
+            this.toolStripSplitButton2.Size = new System.Drawing.Size(32, 20);
+            this.toolStripSplitButton2.Text = "toolStripSplitButton2";
+            // 
             // sysUser
             // 
             this.sysUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sysUser.Name = "sysUser";
             this.sysUser.Size = new System.Drawing.Size(178, 17);
             this.sysUser.Text = "The Current System User is: ";
+            // 
+            // toolStripSplitButton3
+            // 
+            this.toolStripSplitButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.logOutToolStripMenuItem});
+            this.toolStripSplitButton3.Image = global::MMUSIS1.Properties.Resources.user;
+            this.toolStripSplitButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton3.Name = "toolStripSplitButton3";
+            this.toolStripSplitButton3.Size = new System.Drawing.Size(32, 20);
+            this.toolStripSplitButton3.Text = "toolStripSplitButton3";
+            // 
+            // logOutToolStripMenuItem
+            // 
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.logOutToolStripMenuItem.Text = "Log out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // bunifuCustomLabel4
             // 
@@ -544,75 +614,6 @@
             this.picAdmNo.TabIndex = 47;
             this.picAdmNo.TabStop = false;
             // 
-            // toolStripSplitButton1
-            // 
-            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton1.Image = global::MMUSIS1.Properties.Resources.studentlogo;
-            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 20);
-            this.toolStripSplitButton1.Text = "toolStripSplitButton1";
-            // 
-            // toolStripSplitButton2
-            // 
-            this.toolStripSplitButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton2.Image = global::MMUSIS1.Properties.Resources.Student_321;
-            this.toolStripSplitButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton2.Name = "toolStripSplitButton2";
-            this.toolStripSplitButton2.Size = new System.Drawing.Size(32, 20);
-            this.toolStripSplitButton2.Text = "toolStripSplitButton2";
-            // 
-            // toolStripSplitButton3
-            // 
-            this.toolStripSplitButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.logOutToolStripMenuItem});
-            this.toolStripSplitButton3.Image = global::MMUSIS1.Properties.Resources.user;
-            this.toolStripSplitButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton3.Name = "toolStripSplitButton3";
-            this.toolStripSplitButton3.Size = new System.Drawing.Size(32, 20);
-            this.toolStripSplitButton3.Text = "toolStripSplitButton3";
-            // 
-            // logOutToolStripMenuItem
-            // 
-            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.logOutToolStripMenuItem.Text = "Log out";
-            // 
-            // admNoDataGridViewTextBoxColumn
-            // 
-            this.admNoDataGridViewTextBoxColumn.DataPropertyName = "AdmNo";
-            this.admNoDataGridViewTextBoxColumn.HeaderText = "AdmNo";
-            this.admNoDataGridViewTextBoxColumn.Name = "admNoDataGridViewTextBoxColumn";
-            // 
-            // studDateDataGridViewTextBoxColumn
-            // 
-            this.studDateDataGridViewTextBoxColumn.DataPropertyName = "StudDate";
-            this.studDateDataGridViewTextBoxColumn.HeaderText = "StudDate";
-            this.studDateDataGridViewTextBoxColumn.Name = "studDateDataGridViewTextBoxColumn";
-            // 
-            // unitDataGridViewTextBoxColumn
-            // 
-            this.unitDataGridViewTextBoxColumn.DataPropertyName = "Unit";
-            this.unitDataGridViewTextBoxColumn.HeaderText = "Unit";
-            this.unitDataGridViewTextBoxColumn.Name = "unitDataGridViewTextBoxColumn";
-            // 
-            // courseDataGridViewTextBoxColumn
-            // 
-            this.courseDataGridViewTextBoxColumn.DataPropertyName = "Course";
-            this.courseDataGridViewTextBoxColumn.HeaderText = "Course";
-            this.courseDataGridViewTextBoxColumn.Name = "courseDataGridViewTextBoxColumn";
-            // 
-            // facultyDataGridViewTextBoxColumn
-            // 
-            this.facultyDataGridViewTextBoxColumn.DataPropertyName = "Faculty";
-            this.facultyDataGridViewTextBoxColumn.HeaderText = "Faculty";
-            this.facultyDataGridViewTextBoxColumn.Name = "facultyDataGridViewTextBoxColumn";
-            // 
-            // studentAttendanceBindingSource
-            // 
-            this.studentAttendanceBindingSource.DataSource = typeof(MMUSIS1.StudentAttendance);
-            // 
             // CheckStudUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -646,6 +647,7 @@
             this.Size = new System.Drawing.Size(805, 478);
             this.Load += new System.EventHandler(this.CheckStudUC_Load);
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentAttendanceBindingSource)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picToDate)).EndInit();
@@ -653,7 +655,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picCourse)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAdmNo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentAttendanceBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

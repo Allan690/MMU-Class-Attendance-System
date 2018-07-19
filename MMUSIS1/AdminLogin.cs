@@ -117,6 +117,14 @@ namespace MMUSIS1
 
         }
 
-       
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            MetroFramework.MetroMessageBox.Show(this, "Please contact the System Admin: \nAllan Mogusu: +254703712653");
+        }
+
+        private void AdminLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+           
+        }
     }
 }

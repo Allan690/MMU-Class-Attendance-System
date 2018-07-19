@@ -44,18 +44,24 @@
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txtPassword = new MetroFramework.Controls.MetroTextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lblUserName = new System.Windows.Forms.Label();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.lblReceiverNo = new System.Windows.Forms.Label();
+            this.lblText = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picReceiver = new System.Windows.Forms.PictureBox();
+            this.picPassword = new System.Windows.Forms.PictureBox();
+            this.picUserName = new System.Windows.Forms.PictureBox();
             this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
             this.toolStripSplitButton2 = new System.Windows.Forms.ToolStripSplitButton();
             this.toolStripSplitButton3 = new System.Windows.Forms.ToolStripSplitButton();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picReceiver)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPassword)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUserName)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuCustomLabel1
@@ -119,7 +125,9 @@
             this.txtReceiverNo.WaterMark = "Enter the receiver\'s phone number";
             this.txtReceiverNo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtReceiverNo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtReceiverNo.LocationChanged += new System.EventHandler(this.txtReceiverNo_LocationChanged);
             this.txtReceiverNo.TextChanged += new System.EventHandler(this.txtReceiverNo_TextChanged);
+            this.txtReceiverNo.Leave += new System.EventHandler(this.txtReceiverNo_Leave);
             // 
             // txtMessage
             // 
@@ -127,7 +135,7 @@
             // 
             // 
             this.txtMessage.CustomButton.Image = null;
-            this.txtMessage.CustomButton.Location = new System.Drawing.Point(318, 2);
+            this.txtMessage.CustomButton.Location = new System.Drawing.Point(304, 2);
             this.txtMessage.CustomButton.Name = "";
             this.txtMessage.CustomButton.Size = new System.Drawing.Size(119, 119);
             this.txtMessage.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -147,13 +155,14 @@
             this.txtMessage.SelectionLength = 0;
             this.txtMessage.SelectionStart = 0;
             this.txtMessage.ShortcutsEnabled = true;
-            this.txtMessage.Size = new System.Drawing.Size(440, 124);
+            this.txtMessage.Size = new System.Drawing.Size(426, 124);
             this.txtMessage.TabIndex = 30;
             this.txtMessage.UseSelectable = true;
             this.txtMessage.WaterMark = "Type the message to be sent..";
             this.txtMessage.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtMessage.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.txtMessage.TextChanged += new System.EventHandler(this.txtMessage_TextChanged);
+            this.txtMessage.Leave += new System.EventHandler(this.txtMessage_Leave);
             // 
             // txtName
             // 
@@ -187,6 +196,7 @@
             this.txtName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
+            this.txtName.Leave += new System.EventHandler(this.txtName_Leave);
             // 
             // statusStrip1
             // 
@@ -274,38 +284,84 @@
             this.txtPassword.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtPassword.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
+            this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // timer1
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // pictureBox3
+            // lblUserName
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(386, 151);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(28, 20);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 48;
-            this.pictureBox3.TabStop = false;
+            this.lblUserName.AutoSize = true;
+            this.lblUserName.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserName.Location = new System.Drawing.Point(379, 67);
+            this.lblUserName.Name = "lblUserName";
+            this.lblUserName.Size = new System.Drawing.Size(0, 17);
+            this.lblUserName.TabIndex = 49;
             // 
-            // pictureBox2
+            // lblPassword
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(386, 95);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(28, 20);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 48;
-            this.pictureBox2.TabStop = false;
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassword.Location = new System.Drawing.Point(383, 118);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(0, 17);
+            this.lblPassword.TabIndex = 49;
+            // 
+            // lblReceiverNo
+            // 
+            this.lblReceiverNo.AutoSize = true;
+            this.lblReceiverNo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReceiverNo.Location = new System.Drawing.Point(379, 174);
+            this.lblReceiverNo.Name = "lblReceiverNo";
+            this.lblReceiverNo.Size = new System.Drawing.Size(0, 17);
+            this.lblReceiverNo.TabIndex = 49;
+            // 
+            // lblText
+            // 
+            this.lblText.AutoSize = true;
+            this.lblText.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblText.Location = new System.Drawing.Point(616, 227);
+            this.lblText.Name = "lblText";
+            this.lblText.Size = new System.Drawing.Size(0, 17);
+            this.lblText.TabIndex = 51;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(386, 44);
+            this.pictureBox1.Location = new System.Drawing.Point(616, 204);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(28, 20);
+            this.pictureBox1.Size = new System.Drawing.Size(31, 20);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 48;
+            this.pictureBox1.TabIndex = 52;
             this.pictureBox1.TabStop = false;
+            // 
+            // picReceiver
+            // 
+            this.picReceiver.Location = new System.Drawing.Point(386, 151);
+            this.picReceiver.Name = "picReceiver";
+            this.picReceiver.Size = new System.Drawing.Size(28, 20);
+            this.picReceiver.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picReceiver.TabIndex = 48;
+            this.picReceiver.TabStop = false;
+            // 
+            // picPassword
+            // 
+            this.picPassword.Location = new System.Drawing.Point(386, 95);
+            this.picPassword.Name = "picPassword";
+            this.picPassword.Size = new System.Drawing.Size(28, 20);
+            this.picPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picPassword.TabIndex = 48;
+            this.picPassword.TabStop = false;
+            // 
+            // picUserName
+            // 
+            this.picUserName.Location = new System.Drawing.Point(386, 44);
+            this.picUserName.Name = "picUserName";
+            this.picUserName.Size = new System.Drawing.Size(28, 20);
+            this.picUserName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picUserName.TabIndex = 48;
+            this.picUserName.TabStop = false;
             // 
             // toolStripSplitButton1
             // 
@@ -341,6 +397,7 @@
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
             this.logOutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.logOutToolStripMenuItem.Text = "Log out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // bunifuFlatButton1
             // 
@@ -378,14 +435,20 @@
             this.bunifuFlatButton1.Textcolor = System.Drawing.Color.White;
             this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuFlatButton1.Click += new System.EventHandler(this.bunifuFlatButton1_Click);
+            this.bunifuFlatButton1.MouseEnter += new System.EventHandler(this.bunifuFlatButton1_MouseEnter);
             // 
             // ChatUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.lblText);
+            this.Controls.Add(this.lblReceiverNo);
+            this.Controls.Add(this.lblPassword);
+            this.Controls.Add(this.lblUserName);
+            this.Controls.Add(this.picReceiver);
+            this.Controls.Add(this.picPassword);
+            this.Controls.Add(this.picUserName);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtName);
@@ -401,9 +464,10 @@
             this.Load += new System.EventHandler(this.ChatUC_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picReceiver)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPassword)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUserName)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -426,11 +490,16 @@
         private System.Windows.Forms.ToolStripStatusLabel sysUser;
         private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton3;
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox picUserName;
+        private System.Windows.Forms.PictureBox picPassword;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel4;
         private MetroFramework.Controls.MetroTextBox txtPassword;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox picReceiver;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lblUserName;
+        private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.Label lblReceiverNo;
+        private System.Windows.Forms.Label lblText;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

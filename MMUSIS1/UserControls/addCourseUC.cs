@@ -8,6 +8,10 @@ using System.Configuration;
 using Dapper;
 using System.Text.RegularExpressions;
 using Bunifu.Framework.UI;
+using System.Threading;
+using DGVPrinterHelper;
+using System.Drawing;
+
 namespace MMUSIS1.UserControls
 {
     public partial class addCourseUC : UserControl
@@ -34,7 +38,8 @@ namespace MMUSIS1.UserControls
         }
         private void addCourseUC_Load(object sender, EventArgs e)
         {
-           // MessageBox.Show(MyProperty);
+            // MessageBox.Show(MyProperty);
+            metroGrid1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             filldatagridview();
             AutoCompleteTxtCourseCode();
             AutoCompleteTxtCourseName();
@@ -338,26 +343,25 @@ namespace MMUSIS1.UserControls
             lblDate.Text = date.ToLongDateString();
             lblTime.Text = date.ToLongTimeString();
         }
+        void logout()
+        {
+            for (int i = 0; i <= 100; i++)
+            {
+                Thread.Sleep(100);
 
+                //save data
+            }
+        }
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult dialog = MessageBox.Show("Are you sure you want to log out?", "Log out", MessageBoxButtons.YesNo);
-            if (dialog == DialogResult.Yes)
-            {
-                this.Show();
-            }
-            else if (dialog == DialogResult.No)
-            {
-                this.Hide();
-                AdminLogin adm = new AdminLogin();
-                adm.Show();
-            }
+
         }
 
         private void metroGrid1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
+              
                 DataGridViewRow row = this.metroGrid1.Rows[e.RowIndex];
                 txtCourseCode.Text = row.Cells["CourseCode"].Value.ToString();
                 txtCourseName.Text = row.Cells["CourseName"].Value.ToString();
@@ -369,16 +373,19 @@ namespace MMUSIS1.UserControls
         private void txtCourseCode_Leave_1(object sender, EventArgs e)
         {
             regexp(@"^(\s|\S)*(\S)+(\s|\S)*$", txtCourseCode, picCourseCode, lblCoursecode, "");
+            regexp(@"^[A-Z]+(-[0-9]+)(?![\s\S])$", txtCourseCode, picCourseCode, lblCoursecode, "");
         }
 
         private void txtCourseName_Leave_1(object sender, EventArgs e)
         {
             regexp(@"^(\s|\S)*(\S)+(\s|\S)*$", txtCourseName, picCourseName, lblCoursename, "");
+            regexp(@"[A-Za-z ]+[A-Za-z ]{5}$", txtCourseName, picCourseName, lblCoursename, "");
         }
 
         private void txtFaculty_Leave_1(object sender, EventArgs e)
         {
             regexp(@"^(\s|\S)*(\S)+(\s|\S)*$", txtFaculty, picFaculty, lblFaculty, "");
+            regexp(@"[A-Za-z ]+[A-Za-z ]{3}$", txtFaculty, picFaculty, lblFaculty, "");
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -403,14 +410,42 @@ namespace MMUSIS1.UserControls
         private void txtDepartment_Leave_1(object sender, EventArgs e)
         {
             regexp(@"^(\s|\S)*(\S)+(\s|\S)*$", txtDepartment, picDepartment, lblDepartment, "");
+            regexp(@"[A-Za-z]+[A-Za-z]{5}$", txtDepartment, picDepartment, lblDepartment, "");
         }
 
         private void txtSearch_Leave_1(object sender, EventArgs e)
         {
-            regexp(@"^(\s|\S)*(\S)+(\s|\S)*$", txtSearch, picSearch, lblSearch, "");
+            regexp(@" ^ (\s|\S)*(\S)+(\s|\S)*$", txtSearch, picSearch, lblSearch, "");
+           // regexp(@" ^ (\s|\S)*(\S)+(\s|\S)*$", txtSearch, picSearch, lblSearch, "");
         }
 
         private void txtDepartment_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCourseCode_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void radButton1_Click(object sender, EventArgs e)
+        {
+            metroGrid1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+            DGVPrinter printer = new DGVPrinter();
+            printer.Title = "Courses On Offer";
+            printer.SubTitle = string.Format("Date: {0}", DateTime.Now);
+            printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
+            printer.PageNumbers = true;
+            printer.PageNumberInHeader = false;
+            printer.PorportionalColumns = true;
+            printer.HeaderCellAlignment = StringAlignment.Near;
+            printer.Footer = "Multimedia University Class Attendance System \u00a9 2018";
+            printer.FooterSpacing = 15;
+            printer.PrintDataGridView(metroGrid1);
+        }
+
+        private void toolStripSplitButton3_ButtonClick(object sender, EventArgs e)
         {
 
         }

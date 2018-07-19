@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ExcelDataReader;
 using System.IO;
+using System.Data.SqlClient;
+using System.Configuration;
+using Dapper;
+using System.Threading;
 
 namespace MMUSIS1.UserControls
 {
@@ -21,7 +25,7 @@ namespace MMUSIS1.UserControls
 
         private void ImportCSV_Load(object sender, EventArgs e)
         {
-
+           
         }
         public string MyProperty
         {
@@ -73,12 +77,50 @@ namespace MMUSIS1.UserControls
             }
 
 
-
         }
 
-        private void metroGrid1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
+            DateTime date = DateTime.Now;
+            lblDate.Text = date.ToLongDateString();
+            lblTime.Text = date.ToLongTimeString();
+        }
 
+        private void button1_MouseEnter(object sender, EventArgs e)
+        {
+            FieldChecker.Text = "Import Excel file of student records into system.";
+        }
+
+        void logout()
+        {
+            for (int i = 0; i <= 100; i++)
+            {
+                Thread.Sleep(100);
+                //save data
+            }
+        }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("Are you sure you want to log out?", "Log out", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                using (var waitingForm = new Waitfrm(logout))
+                {
+                    waitingForm.ShowDialog(this);
+                    Form tmp = this.FindForm();
+                    tmp.Close();
+                    tmp.Dispose();
+                    AdminLogin adm = new AdminLogin();
+                    adm.Show();
+                }
+
+            }
+            else if (dialog == DialogResult.No)
+            {
+                this.Show();
+
+            }
         }
     }
 }

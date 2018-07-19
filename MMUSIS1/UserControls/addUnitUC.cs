@@ -8,6 +8,9 @@ using System.Data.SqlClient;
 using Dapper;
 using MetroFramework.Controls;
 using MetroFramework;
+using DGVPrinterHelper;
+using System.Drawing;
+using System.Threading;
 
 namespace MMUSIS1.UserControls
 {
@@ -66,6 +69,7 @@ namespace MMUSIS1.UserControls
         }
         private void addUnitUC_Load(object sender, EventArgs e)
         {
+            autocompleteCourse();
             try
             {
 
@@ -73,6 +77,7 @@ namespace MMUSIS1.UserControls
                 {
                     if (db.State == ConnectionState.Closed)
                         db.Open();
+                    metroGrid1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     unitsBindingSource.DataSource = db.Query<Units>("Select * from Units", commandType: CommandType.Text);
                     pContainer.Enabled = false;
 
@@ -82,6 +87,24 @@ namespace MMUSIS1.UserControls
             {
                 MetroFramework.MetroMessageBox.Show(this, ex.Message, "Message", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
+        }
+        
+        void autocompleteCourse()
+        {
+            AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+            using (SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("Select CourseName from dbo.Courses", db);
+                db.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    coll.Add(reader.GetString(0));
+                }
+                txtCourse.AutoCompleteCustomSource = coll;
+
+            }
+
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -207,18 +230,35 @@ namespace MMUSIS1.UserControls
 
         }
 
+        void logout()
+        {
+            for (int i = 0; i <= 100; i++)
+            {
+                Thread.Sleep(100);
+
+                //save data
+            }
+        }
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
             DialogResult dialog = MessageBox.Show("Are you sure you want to log out?", "Log out", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
-                this.Show();
+                using (var waitingForm = new Waitfrm(logout))
+                {
+                    waitingForm.ShowDialog(this);
+                    Form tmp = this.FindForm();
+                    tmp.Close();
+                    tmp.Dispose();
+                    AdminLogin adm = new AdminLogin();
+                    adm.Show();
+                }
+
             }
             else if (dialog == DialogResult.No)
             {
-                this.Hide();
-                AdminLogin adm = new AdminLogin();
-                adm.Show();
+                this.Show();
             }
         }
 
@@ -240,7 +280,7 @@ namespace MMUSIS1.UserControls
                     {
                         errorForm frm = new errorForm();
                         frm.ShowDialog();
-                        unitsBindingSource.RemoveCurrent(); 
+                       // unitsBindingSource.RemoveCurrent(); 
                         break;
                     }
                 }
@@ -265,7 +305,7 @@ namespace MMUSIS1.UserControls
         {
             if (lblUnitCode.Text == "Invalid" || lblUnitName.Text == "Invalid" || lblCourse.Text == "Invalid")
             {
-                MetroFramework.MetroMessageBox.Show(this, "Cannot submit null fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MetroMessageBox.Show(this, "Cannot submit null fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 btnSave.Enabled = false;
                 
             }
@@ -294,6 +334,22 @@ namespace MMUSIS1.UserControls
         private void metroGrid1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void radButton1_Click(object sender, EventArgs e)
+        {
+            metroGrid1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+            DGVPrinter printer = new DGVPrinter();
+            printer.Title = "Units On Offer";
+            printer.SubTitle = string.Format("Date: {0}", DateTime.Now);
+            printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
+            printer.PageNumbers = true;
+            printer.PageNumberInHeader = false;
+            printer.PorportionalColumns = true;
+            printer.HeaderCellAlignment = StringAlignment.Near;
+            printer.Footer = "Multimedia University Class Attendance System \u00a9 2018";
+            printer.FooterSpacing = 15;
+            printer.PrintDataGridView(metroGrid1);
         }
     }
 }

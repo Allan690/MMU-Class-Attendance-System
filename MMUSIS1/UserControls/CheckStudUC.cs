@@ -7,6 +7,7 @@ using System.Configuration;
 using Dapper;
 using DGVPrinterHelper;
 using System.Text.RegularExpressions;
+using System.Threading;
 
 namespace MMUSIS1.UserControls
 {
@@ -84,7 +85,8 @@ namespace MMUSIS1.UserControls
                 {
                     if (db.State == ConnectionState.Closed)
                         db.Open();
-                    studentAttendanceBindingSource.DataSource = db.Query<StudentAttendance>("Select b.AdmNo, c.FullName, b.StudDate, b.Unit, b.Faculty, b.Course from StudAttendance b inner join Students c on b.AdmNo= c.AdmNo group by b.AdmNo, c.FullName, b.StudDate, b.Unit, b.Faculty, b.Course", commandType: CommandType.Text);
+                     metroGrid1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    studentAttendanceBindingSource.DataSource = db.Query<StudentAttendance>("Select distinct b.AdmNo, c.FullName, b.StudDate, b.Unit, b.Faculty, b.Course from StudAttendance b inner join Students c on b.AdmNo= c.AdmNo group by b.AdmNo, c.FullName, b.StudDate, b.Unit, b.Faculty, b.Course", commandType: CommandType.Text);
                    // metroGrid1_CellValueChanged(sender, e);
 
                 }
@@ -132,7 +134,6 @@ namespace MMUSIS1.UserControls
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
             {
                 string dtFrom = dtFromDate.Value.ToString();
@@ -143,10 +144,14 @@ namespace MMUSIS1.UserControls
                 string query1 = "Select b.AdmNo, c.FullName, b.StudDate, b.Unit, b.Faculty, b.Course from StudAttendance b inner join Students c ON b.AdmNo=c.AdmNo where StudDate >= '" + dtFrom + "' and StudDate <= '" + dtTo + "' group by b.AdmNo, c.FullName, b.StudDate, b.Unit, b.Faculty, b.Course";
                 if (txtAdmNo.Text != "")
                 {
+
+                    metroGrid1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     studentAttendanceBindingSource.DataSource = db.Query<StudentAttendance>(query, commandType: CommandType.Text);
                 }
                 else
                 {
+
+                    metroGrid1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     studentAttendanceBindingSource.DataSource = db.Query<StudentAttendance>(query1, commandType: CommandType.Text);
                 }
              
@@ -168,7 +173,8 @@ namespace MMUSIS1.UserControls
                     if (db.State == ConnectionState.Closed)
                         db.Open();
                     string query = "Select b.AdmNo, c.FullName, b.StudDate, b.Unit, b.Faculty, b.Course from StudAttendance b inner join Students c ON b.AdmNo=c.AdmNo where b.AdmNo = '" + txtAdmNo.Text + "' group by b.AdmNo, c.FullName, b.StudDate, b.Unit, b.Faculty, b.Course";
-                   
+
+                    metroGrid1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     studentAttendanceBindingSource.DataSource = db.Query<StudentAttendance>(query, commandType: CommandType.Text);
 
                 }
@@ -311,6 +317,37 @@ namespace MMUSIS1.UserControls
                 }
             }
         }
+        void logout()
+        {
+            for (int i = 0; i <= 100; i++)
+            {
+                Thread.Sleep(100);
 
+                //save data
+            }
+        }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("Are you sure you want to log out?", "Log out", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                using (var waitingForm = new Waitfrm(logout))
+                {
+                    waitingForm.ShowDialog(this);
+                    Form tmp = this.FindForm();
+                    tmp.Close();
+                    tmp.Dispose();
+                    AdminLogin adm = new AdminLogin();
+                    adm.Show();
+                }
+
+            }
+            else if (dialog == DialogResult.No)
+            {
+                this.Show();
+
+            }
+        }
     }
 }

@@ -48,35 +48,37 @@
             this.txtCourse = new MetroFramework.Controls.MetroTextBox();
             this.txtUnitName = new MetroFramework.Controls.MetroTextBox();
             this.txtUnitCode = new MetroFramework.Controls.MetroTextBox();
+            this.picUnitName = new System.Windows.Forms.PictureBox();
+            this.picSearch = new System.Windows.Forms.PictureBox();
+            this.picUnitCode = new System.Windows.Forms.PictureBox();
+            this.picCourse = new System.Windows.Forms.PictureBox();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblDate = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblTime = new System.Windows.Forms.ToolStripStatusLabel();
-            this.FieldChecker = new System.Windows.Forms.ToolStripStatusLabel();
-            this.sysUser = new System.Windows.Forms.ToolStripStatusLabel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
+            this.FieldChecker = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripSplitButton2 = new System.Windows.Forms.ToolStripSplitButton();
+            this.sysUser = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripSplitButton3 = new System.Windows.Forms.ToolStripSplitButton();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.picUnitName = new System.Windows.Forms.PictureBox();
-            this.picSearch = new System.Windows.Forms.PictureBox();
-            this.picUnitCode = new System.Windows.Forms.PictureBox();
-            this.picCourse = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.unitCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.courseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.radButton1 = new Telerik.WinControls.UI.RadButton();
             this.pContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
-            this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picUnitName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUnitCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCourse)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.unitsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDelete
@@ -258,6 +260,8 @@
             // 
             // txtCourse
             // 
+            this.txtCourse.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtCourse.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             // 
             // 
             // 
@@ -351,6 +355,43 @@
             this.txtUnitCode.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtUnitCode.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.txtUnitCode.Leave += new System.EventHandler(this.txtUnitCode_Leave);
+            // 
+            // picUnitName
+            // 
+            this.picUnitName.Location = new System.Drawing.Point(300, 87);
+            this.picUnitName.Name = "picUnitName";
+            this.picUnitName.Size = new System.Drawing.Size(29, 25);
+            this.picUnitName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picUnitName.TabIndex = 32;
+            this.picUnitName.TabStop = false;
+            // 
+            // picSearch
+            // 
+            this.picSearch.Location = new System.Drawing.Point(611, 92);
+            this.picSearch.Name = "picSearch";
+            this.picSearch.Size = new System.Drawing.Size(29, 25);
+            this.picSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picSearch.TabIndex = 32;
+            this.picSearch.TabStop = false;
+            // 
+            // picUnitCode
+            // 
+            this.picUnitCode.Location = new System.Drawing.Point(300, 28);
+            this.picUnitCode.Name = "picUnitCode";
+            this.picUnitCode.Size = new System.Drawing.Size(29, 25);
+            this.picUnitCode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picUnitCode.TabIndex = 32;
+            this.picUnitCode.TabStop = false;
+            // 
+            // picCourse
+            // 
+            this.picCourse.Location = new System.Drawing.Point(611, 32);
+            this.picCourse.Name = "picCourse";
+            this.picCourse.Size = new System.Drawing.Size(29, 25);
+            this.picCourse.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picCourse.TabIndex = 32;
+            this.picCourse.TabStop = false;
+            this.picCourse.Click += new System.EventHandler(this.picCourse_Click);
             // 
             // btnClear
             // 
@@ -461,25 +502,6 @@
             this.lblTime.Size = new System.Drawing.Size(141, 17);
             this.lblTime.Text = "toolStripStatusLabel1";
             // 
-            // FieldChecker
-            // 
-            this.FieldChecker.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FieldChecker.Name = "FieldChecker";
-            this.FieldChecker.Size = new System.Drawing.Size(129, 17);
-            this.FieldChecker.Text = "No changes made";
-            // 
-            // sysUser
-            // 
-            this.sysUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sysUser.Name = "sysUser";
-            this.sysUser.Size = new System.Drawing.Size(178, 17);
-            this.sysUser.Text = "The Current System User is: ";
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // toolStripSplitButton1
             // 
             this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -489,6 +511,13 @@
             this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 20);
             this.toolStripSplitButton1.Text = "toolStripSplitButton1";
             // 
+            // FieldChecker
+            // 
+            this.FieldChecker.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FieldChecker.Name = "FieldChecker";
+            this.FieldChecker.Size = new System.Drawing.Size(129, 17);
+            this.FieldChecker.Text = "No changes made";
+            // 
             // toolStripSplitButton2
             // 
             this.toolStripSplitButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -497,6 +526,13 @@
             this.toolStripSplitButton2.Name = "toolStripSplitButton2";
             this.toolStripSplitButton2.Size = new System.Drawing.Size(32, 20);
             this.toolStripSplitButton2.Text = "toolStripSplitButton2";
+            // 
+            // sysUser
+            // 
+            this.sysUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sysUser.Name = "sysUser";
+            this.sysUser.Size = new System.Drawing.Size(178, 17);
+            this.sysUser.Text = "The Current System User is: ";
             // 
             // toolStripSplitButton3
             // 
@@ -512,46 +548,14 @@
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.logOutToolStripMenuItem.Text = "Log out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
-            // picUnitName
+            // timer1
             // 
-            this.picUnitName.Location = new System.Drawing.Point(300, 87);
-            this.picUnitName.Name = "picUnitName";
-            this.picUnitName.Size = new System.Drawing.Size(29, 25);
-            this.picUnitName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picUnitName.TabIndex = 32;
-            this.picUnitName.TabStop = false;
-            // 
-            // picSearch
-            // 
-            this.picSearch.Location = new System.Drawing.Point(611, 92);
-            this.picSearch.Name = "picSearch";
-            this.picSearch.Size = new System.Drawing.Size(29, 25);
-            this.picSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picSearch.TabIndex = 32;
-            this.picSearch.TabStop = false;
-            // 
-            // picUnitCode
-            // 
-            this.picUnitCode.Location = new System.Drawing.Point(300, 28);
-            this.picUnitCode.Name = "picUnitCode";
-            this.picUnitCode.Size = new System.Drawing.Size(29, 25);
-            this.picUnitCode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picUnitCode.TabIndex = 32;
-            this.picUnitCode.TabStop = false;
-            // 
-            // picCourse
-            // 
-            this.picCourse.Location = new System.Drawing.Point(611, 32);
-            this.picCourse.Name = "picCourse";
-            this.picCourse.Size = new System.Drawing.Size(29, 25);
-            this.picCourse.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picCourse.TabIndex = 32;
-            this.picCourse.TabStop = false;
-            this.picCourse.Click += new System.EventHandler(this.picCourse_Click);
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // unitCodeDataGridViewTextBoxColumn
             // 
@@ -576,10 +580,23 @@
             this.unitsBindingSource.DataSource = typeof(MMUSIS1.Units);
             this.unitsBindingSource.CurrentChanged += new System.EventHandler(this.unitsBindingSource_CurrentChanged);
             // 
+            // radButton1
+            // 
+            this.radButton1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.radButton1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radButton1.ForeColor = System.Drawing.Color.Black;
+            this.radButton1.Location = new System.Drawing.Point(637, 365);
+            this.radButton1.Name = "radButton1";
+            this.radButton1.Size = new System.Drawing.Size(98, 31);
+            this.radButton1.TabIndex = 53;
+            this.radButton1.Text = "Print";
+            this.radButton1.Click += new System.EventHandler(this.radButton1_Click);
+            // 
             // addUnitUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.radButton1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.metroGrid1);
             this.Controls.Add(this.btnSave);
@@ -593,14 +610,15 @@
             this.Load += new System.EventHandler(this.addUnitUC_Load);
             this.pContainer.ResumeLayout(false);
             this.pContainer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picUnitName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSearch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUnitCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCourse)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.unitsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -645,5 +663,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn unitCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn unitNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn courseDataGridViewTextBoxColumn;
+        private Telerik.WinControls.UI.RadButton radButton1;
     }
 }

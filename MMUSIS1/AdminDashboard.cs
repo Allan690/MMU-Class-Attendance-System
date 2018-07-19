@@ -16,6 +16,11 @@ namespace MMUSIS1
         public AdminDashboard()
         {
             InitializeComponent();
+            if (addStudUC1 != null)
+            {
+                addStudUC1.MyProperty = "The Current System User is: " + this.MyProperty;
+            }
+            addStudUC1.BringToFront();
             addStudUC1.BringToFront();
            
         }

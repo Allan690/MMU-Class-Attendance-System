@@ -223,6 +223,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Defaulters Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Defaulters Report.Designer.cs">
+      <DependentUpon>Defaulters Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Defaulters.cs" />
     <Compile Include="DGVPrinter.cs" />
     <Compile Include="duplicateRecords.cs">
       <SubType>Form</SubType>
@@ -344,12 +351,6 @@
     <Compile Include="UserControls\addUnitUC.Designer.cs">
       <DependentUpon>addUnitUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\AdminAddStud.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\AdminAddStud.Designer.cs">
-      <DependentUpon>AdminAddStud.cs</DependentUpon>
-    </Compile>
     <Compile Include="AdminDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -425,12 +426,6 @@
     <Compile Include="UserControls\SettingsUC.Designer.cs">
       <DependentUpon>SettingsUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\StudCheckinUC.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\StudCheckinUC.Designer.cs">
-      <DependentUpon>StudCheckinUC.cs</DependentUpon>
-    </Compile>
     <None Include="DataClasses1.dbml.layout">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </None>
@@ -439,6 +434,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="custom_dialog.resx">
       <DependentUpon>custom_dialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Defaulters Report.resx">
+      <DependentUpon>Defaulters Report.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="duplicateRecords.resx">
       <DependentUpon>duplicateRecords.cs</DependentUpon>
@@ -494,9 +492,6 @@
     <EmbeddedResource Include="UserControls\addUnitUC.resx">
       <DependentUpon>addUnitUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\AdminAddStud.resx">
-      <DependentUpon>AdminAddStud.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -539,9 +534,6 @@
     <EmbeddedResource Include="UserControls\SettingsUC.resx">
       <DependentUpon>SettingsUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\StudCheckinUC.resx">
-      <DependentUpon>StudCheckinUC.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="DataClasses1.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
@@ -551,6 +543,7 @@
     <None Include="Properties\DataSources\AdminCS.datasource" />
     <None Include="Properties\DataSources\Admins.datasource" />
     <None Include="Properties\DataSources\AttendanceReport.datasource" />
+    <None Include="Properties\DataSources\Defaulters.datasource" />
     <None Include="Properties\DataSources\MMUSIS1.UserControls.addUnitUC.datasource" />
     <None Include="Properties\DataSources\StudAttendance.datasource" />
     <None Include="Properties\DataSources\StudentAttendance.datasource" />
