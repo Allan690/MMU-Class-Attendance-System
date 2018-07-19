@@ -1,0 +1,1 @@
+﻿Select b.AdmNo, c.FullName, b.Geolocation, b.StudDate, b.Unit, b.Faculty, b.Course from StudAttendance b inner join Students c ON b.AdmNo=c.AdmNo where StudDate >= '10/04/2018' and StudDate<= '25/06/2018'  AND Geolocation  NOT like '%C56%' and Unit = 'Cloud Computing' and b.Course ='Computer Science'
