@@ -14,7 +14,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
-
+using MetroFramework.Controls;
+using System.Text.RegularExpressions;
 
 namespace MMUSIS1
 {
@@ -25,17 +26,163 @@ namespace MMUSIS1
             InitializeComponent();
            // double x = str;
         }
+        void AutoFillUnitName()
+        {
+            AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+            using (SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("Select * from Units where UnitCode='" + txtUnitCode.Text + "'", db);
+                db.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    string sName = reader.GetString(1);
+                    txtUnitName.Text = txtUnit.Text= sName;
+                }
+            }
 
+        }
+        void Autofillfaculty()
+        {
+            AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+            using (SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("select s.AdmNo, t.FullName, s.Unit, s.Course, s.Faculty, t.DOB, t.[Year],t.Gender,count(s.AdmNo) AS Total_Attendance from StudAttendance s inner join Students t on s.AdmNo=t.AdmNo where StudDate >= '" + dtFrom.Value.ToString() + "' and StudDate <= '" + dtTo.Value.ToString() + "' and s.AdmNo = '" + txtAdm.Text.ToString() + "' and s.Unit='" + txtUnitName.Text + "' GROUP BY s.AdmNo, t.FullName, s.Unit, s.Course, s.Faculty, t.DOB, t.[Year],t.Gender", db);
+                db.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    string sName = reader.GetString(4);
+                    txtFaculty.Text = sName;
+                }
+            }
+        }
+        void Autofillattendance()
+        {
+            AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+            using (SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("select s.AdmNo, t.FullName, s.Unit, s.Course, s.Faculty, t.DOB, t.[Year],t.Gender,count(s.AdmNo) AS Total_Attendance from StudAttendance s inner join Students t on s.AdmNo=t.AdmNo where StudDate >= '" + dtFrom.Value.ToString() + "' and StudDate <= '" + dtTo.Value.ToString() + "' and s.AdmNo = '" + txtAdm.Text.ToString() + "' and s.Unit='" + txtUnitName.Text + "' GROUP BY s.AdmNo, t.FullName, s.Unit, s.Course, s.Faculty, t.DOB, t.[Year],t.Gender", db);
+                db.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    string sName = reader.GetInt32(8).ToString();
+                    txtTotal.Text = sName;
+                }
+            }
+        }
+        void AutoFillStudName()
+        {
+            try
+            {
+                AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+                using (SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("Select * from Students where AdmNo='" + txtAdm.Text + "'", db);
+                    db.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        string sName = reader.GetString(2);
+                        string course = reader.GetString(4);
+                        string  time1= reader.GetDateTime(3).ToShortDateString();
+                        string gender = reader.GetBoolean(7).ToString();
+
+                        txtName.Text = sName;
+                        txtCourse.Text = course;
+                        txtDOB.Text = time1;
+                        txtGender.Text = gender;
+                        if (txtGender.Text == "true")
+                        {
+                            txtGender.Text = "Male";
+                        }
+                        else { txtGender.Text = "Female"; }
+
+
+
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+        }
+        
+        //Autofills the rest of the student details that were not completed
+        void restAutofill()
+        {
+            AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+            using (SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("SELECT TOP 1 AdmNo, Unit, Course, Faculty from StudAttendance where AdmNo = '"+txtAdm.Text+"'", db);
+                db.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    string sUnit = reader.GetString(1);
+                  //  string sCourse = reader.GetString(2);
+                    string sFaculty = reader.GetString(3);
+                    txtUnit.Text = sUnit;
+                  //  txtCourse.Text = sCourse;
+                    txtFaculty.Text = sFaculty;
+                }
+                txtAdm.AutoCompleteCustomSource = coll;
+
+            }
+            
+        }
+
+        void AutoCompleteTxtAdmin()
+        {
+            AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+            using (SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("Select DISTINCT AdmNo from StudAttendance", db);
+                db.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    coll.Add(reader.GetString(0));
+                }
+                txtAdm.AutoCompleteCustomSource = coll;
+
+            }
+            txtName.Enabled = false;
+            txtCourse.Enabled = false;
+
+
+        }
+        void AutoCompleteUnitCode()
+        {
+            AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+            using (SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("Select UnitCode from Units", db);
+                db.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    coll.Add(reader.GetString(0));
+                    // txtUnitName.Text = reader["UnitName"].ToString();
+                }
+                txtUnitCode.AutoCompleteCustomSource = coll;
+
+            }
+
+        }
         private void studAttendancerpt_Load(object sender, EventArgs e)
         {
-           
             txtUnit.Visible = false;
             txtTotal.Visible = false;
             txtGender.Visible = false;
             txtFaculty.Visible = false;
             txtCourse.Visible = false;
             txtDOB.Visible = false;
-           
+            AutoCompleteTxtAdmin();
 
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
             {
@@ -45,7 +192,42 @@ namespace MMUSIS1
                 attendanceReportBindingSource.DataSource = db.Query<Students>(query, commandType: CommandType.Text);
                 // pContainer.Enabled = false;
             }
+                     
+            AutoCompleteUnitCode();
         }
+        public void regexp(string re, MetroTextBox tb, PictureBox pc, Label lbl, string s)
+        {
+            Regex regex = new Regex(re);
+            if (regex.IsMatch(tb.Text))
+            {
+                pc.Image = Properties.Resources.correctbtn;
+                lbl.ForeColor = System.Drawing.Color.Green;
+                lbl.Text = s + "valid";
+            }
+            else
+            {
+                pc.Image = Properties.Resources.errorbtn;
+                lbl.ForeColor = System.Drawing.Color.Red;
+                lbl.Text = s + "Invalid";
+            }
+        }
+        public void regexp2(string re, MetroDateTime tb, PictureBox pc, Label lbl, string s)
+        {
+            Regex regex = new Regex(re);
+            if (regex.IsMatch(tb.Text))
+            {
+                pc.Image = Properties.Resources.correctbtn;
+                lbl.ForeColor = System.Drawing.Color.Green;
+                lbl.Text = s + "valid";
+            }
+            else
+            {
+                pc.Image = Properties.Resources.errorbtn;
+                lbl.ForeColor = System.Drawing.Color.Red;
+                lbl.Text = s + "Invalid";
+            }
+        }
+
 
         private void metroGrid1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -54,12 +236,21 @@ namespace MMUSIS1
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
-            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+            try
             {
-                if (db.State == ConnectionState.Closed)
-                    db.Open();
-                string query = "select s.AdmNo, t.FullName, s.Unit, s.Course, s.Faculty, t.DOB, t.[Year],t.Gender,count(s.AdmNo) AS Total_Attendance from StudAttendance s inner join Students t on s.AdmNo=t.AdmNo where StudDate >= '" + dtFrom.Value.ToString() + "' and StudDate <= '" + dtTo.Value.ToString() + "' and s.AdmNo = '" + txtAdm.Text.ToString() + "'GROUP BY s.AdmNo, t.FullName, s.Unit, s.Course, s.Faculty, t.DOB, t.[Year],t.Gender";
-                attendanceReportBindingSource.DataSource = db.Query<AttendanceReport>(query, commandType: CommandType.Text);
+                using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+                {
+                    if (db.State == ConnectionState.Closed)
+                        db.Open();
+                    string query = "select s.AdmNo, t.FullName, s.Unit, s.Course, s.Faculty, t.DOB, t.[Year],t.Gender,count(s.AdmNo) AS Total_Attendance from StudAttendance s inner join Students t on s.AdmNo=t.AdmNo where StudDate >= '" + dtFrom.Value.ToString() + "' and StudDate <= '" + dtTo.Value.ToString() + "' and s.AdmNo = '" + txtAdm.Text.ToString() + "' and s.Unit='" + txtUnitName.Text + "' GROUP BY s.AdmNo, t.FullName, s.Unit, s.Course, s.Faculty, t.DOB, t.[Year],t.Gender";
+                    attendanceReportBindingSource.DataSource = db.Query<AttendanceReport>(query, commandType: CommandType.Text);
+                }
+                Autofillattendance();
+                Autofillfaculty();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -74,7 +265,6 @@ namespace MMUSIS1
 
         private void metroButton2_Click(object sender, EventArgs e)
         {
-          
             try
             {
                 SaveFileDialog SavePdfDialog = new SaveFileDialog();
@@ -167,7 +357,7 @@ namespace MMUSIS1
                        
                         doc.Add(par2);
                         
-                        Paragraph ph= new Paragraph(doc.BottomMargin, "\n\n\nMultimedia University Class Attendance System \u00a9 2018 " + dt);
+                        Paragraph ph= new Paragraph(doc.BottomMargin, "\n\n\nMultimedia University Class Attendance System \u00a9 2018.\n" + dt);
                         ph.IndentationLeft = 130f;
                        
                         doc.Add(ph);
@@ -210,28 +400,70 @@ namespace MMUSIS1
                 doc.Close();
             }
         }
+      
+
 
         private void metroGrid1_CellContentClick_2(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = this.metroGrid1.Rows[e.RowIndex];
-                txtAdm.Text = row.Cells[0].Value.ToString();
-                txtName.Text = row.Cells[1].Value.ToString();
-                txtGender.Text = row.Cells[3].Value.ToString();
-                if (txtGender.Text == "true")
-                {
-                    txtGender.Text = "Male";
-                }
-                else { txtGender.Text = "Female"; }
+            //if (e.RowIndex >= 0)
+            //{
+            //    DataGridViewRow row = this.metroGrid1.Rows[e.RowIndex];
+                
+            //    txtTotal.Text = row.Cells[7].Value.ToString();
 
-                txtDOB.Text = row.Cells[2].Value.ToString();
-                txtFaculty.Text = row.Cells[6].Value.ToString();
-                txtCourse.Text = row.Cells[5].Value.ToString();
-                txtUnit.Text = row.Cells[4].Value.ToString();
-                txtTotal.Text = row.Cells[7].Value.ToString();
+            //}
+        }
 
-            }
+        private void txtGender_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFaculty_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAdm_TextChanged(object sender, EventArgs e)
+        {
+            AutoFillStudName();
+            restAutofill();
+        }
+
+        private void txtUnitCode_TextChanged(object sender, EventArgs e)
+        {
+            AutoFillUnitName();
+        }
+
+        private void txtAdm_Leave(object sender, EventArgs e)
+        {
+            regexp(@"^(\s|\S)*(\S)+(\s|\S)*$", txtAdm, picAdm, lblAdmNo, "");
+        }
+
+        private void txtName_Leave(object sender, EventArgs e)
+        {
+            regexp(@"^(\s|\S)*(\S)+(\s|\S)*$", txtName, picName, lblName, "");
+        }
+
+        private void txtUnitCode_Leave(object sender, EventArgs e)
+        {
+            regexp(@"^(\s|\S)*(\S)+(\s|\S)*$",txtUnitCode, picUnitCode, lblUnitCode, "");
+        }
+
+        private void txtUnitName_Leave(object sender, EventArgs e)
+        {
+            regexp(@"^(\s|\S)*(\S)+(\s|\S)*$", txtUnitName, picUnitName, lblUnitName, "");
+        }
+
+        private void txtAdm_TextChanged_1(object sender, EventArgs e)
+        {
+            regexp(@"^(\s|\S)*(\S)+(\s|\S)*$", txtAdm, picAdm, lblAdmNo, "");
+            AutoFillStudName();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+          
         }
     }
 }

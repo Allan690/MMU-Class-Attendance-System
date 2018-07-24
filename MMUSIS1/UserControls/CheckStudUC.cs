@@ -71,6 +71,24 @@ namespace MMUSIS1.UserControls
 
 
         }
+        void AutoFillStudName()
+        {
+            AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+            using (SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("Select * from Students where AdmNo='" + txtAdmNo.Text + "'", db);
+                db.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    string sName = reader.GetString(2);
+                    string course = reader.GetString(4);
+                
+                    txtName.Text = sName;
+                    txtCourse.Text = course;
+                }
+            }
+        }
         public string MyProperty
         {
             get { return sysUser.Text; }
@@ -268,6 +286,7 @@ namespace MMUSIS1.UserControls
 
         private void txtAdmNo_TextChanged(object sender, EventArgs e)
         {
+            AutoFillStudName();
             FieldChecker.Text = "Admission Number text field modified.";
         }
 

@@ -65,7 +65,6 @@
             this.lblTo = new System.Windows.Forms.Label();
             this.txtSearch = new MetroFramework.Controls.MetroTextBox();
             this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
-            this.label8 = new System.Windows.Forms.Label();
             this.admNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.geolocationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,6 +73,8 @@
             this.courseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.facultyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.defaultersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnSaveData = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.picVenue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUnitCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUnitName)).BeginInit();
@@ -328,7 +329,7 @@
             // 
             // metroButton2
             // 
-            this.metroButton2.BackColor = System.Drawing.SystemColors.Highlight;
+            this.metroButton2.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.metroButton2.Location = new System.Drawing.Point(557, 197);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(93, 28);
@@ -613,16 +614,6 @@
             this.metroGrid1.Size = new System.Drawing.Size(708, 191);
             this.metroGrid1.TabIndex = 12;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(440, 243);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(64, 20);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "Search:";
-            // 
             // admNoDataGridViewTextBoxColumn
             // 
             this.admNoDataGridViewTextBoxColumn.DataPropertyName = "AdmNo";
@@ -669,11 +660,32 @@
             // 
             this.defaultersBindingSource.DataSource = typeof(MMUSIS1.Defaulters);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(440, 243);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(64, 20);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "Search:";
+            // 
+            // btnSaveData
+            // 
+            this.btnSaveData.Location = new System.Drawing.Point(630, 484);
+            this.btnSaveData.Name = "btnSaveData";
+            this.btnSaveData.Size = new System.Drawing.Size(119, 26);
+            this.btnSaveData.TabIndex = 14;
+            this.btnSaveData.Text = "Save DGV Values";
+            this.btnSaveData.UseSelectable = true;
+            this.btnSaveData.Click += new System.EventHandler(this.btnSaveData_Click);
+            // 
             // Defaulters_Report
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(783, 529);
+            this.ClientSize = new System.Drawing.Size(792, 521);
+            this.Controls.Add(this.btnSaveData);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lblTo);
@@ -769,5 +781,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn courseDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn facultyDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label label8;
+        private MetroFramework.Controls.MetroButton btnSaveData;
     }
 }

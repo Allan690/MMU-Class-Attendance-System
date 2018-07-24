@@ -18,13 +18,17 @@ namespace MMUSIS1
 {
     public partial class Defaulters_Report : MetroFramework.Forms.MetroForm
     {
+        
         public Defaulters_Report()
         {
             InitializeComponent();
+           
         }
       //  List<Units> _listUnits = new List<Units>();
         private void Defaulters_Report_Load(object sender, EventArgs e)
         {
+            
+            btnSaveData.Enabled = false;
             txtCourseName.Enabled = false;
             txtUnitName.Enabled = false;
             try
@@ -247,7 +251,7 @@ namespace MMUSIS1
         {
             metroGrid1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             DGVPrinter printer = new DGVPrinter();
-            printer.Title = "Defaulters Report";
+            printer.Title = "Defaulters Report: '"+dtFrom.Value.ToShortDateString()+"' - '"+dtTo.Value.ToShortDateString()+"'";
             printer.SubTitle = string.Format("Date: {0}", DateTime.Now);
             printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
             printer.PageNumbers = true;
@@ -273,26 +277,36 @@ namespace MMUSIS1
         {
             regexp2(@"^(\s|\S)*(\S)+(\s|\S)*$", dtTo, picTo, lblTo, "");
         }
-
+        
         private void metroButton1_Click(object sender, EventArgs e)
         {
-            try
+            if (txtUnitName.Text == "" || txtCourseCode.Text == "" || txtCourseName.Text == "" || txtUnitCode.Text == "" || txtVenue.Text == "")
             {
-                using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
-                {
-                    string datFrom = dtFrom.Value.ToShortDateString();
-                    string datTo = dtTo.Value.ToShortDateString();
-                    if (db.State == ConnectionState.Closed)
-                        db.Open();
-                    string query1 = "Select b.AdmNo, c.FullName, b.Geolocation, b.StudDate, b.Unit, b.Faculty, b.Course from StudAttendance b inner join Students c ON b.AdmNo=c.AdmNo where StudDate >= '" + datFrom + "' and StudDate <= '" + datTo + "' and Geolocation NOT like '%" + txtVenue.Text + "%' and Unit='" + txtUnitName.Text + "' and b.Course='" + txtCourseName.Text + "'group by b.AdmNo, c.FullName, b.Geolocation, b.StudDate, b.Unit, b.Faculty, b.Course";
-                    metroGrid1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                    defaultersBindingSource.DataSource = db.Query<Defaulters>(query1, commandType: CommandType.Text);
-
-                }
+                formError err = new formError();
+                err.ShowDialog();
+                return;
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                try
+                {
+                    using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+                    {
+                        string datFrom = dtFrom.Value.ToShortDateString();
+                        string datTo = dtTo.Value.ToShortDateString();
+                        if (db.State == ConnectionState.Closed)
+                            db.Open();
+                        string query1 = "Select b.AdmNo, c.FullName, b.Geolocation, b.StudDate, b.Unit, b.Faculty, b.Course from StudAttendance b inner join Students c ON b.AdmNo=c.AdmNo where StudDate >= '" + datFrom + "' and StudDate <= '" + datTo + "' and Geolocation NOT like '%" + txtVenue.Text + "%' and Unit='" + txtUnitName.Text + "' and b.Course='" + txtCourseName.Text + "'group by b.AdmNo, c.FullName, b.Geolocation, b.StudDate, b.Unit, b.Faculty, b.Course";
+                        metroGrid1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        defaultersBindingSource.DataSource = db.Query<Defaulters>(query1, commandType: CommandType.Text);
+
+                    }
+                    btnSaveData.Enabled = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
@@ -313,6 +327,74 @@ namespace MMUSIS1
         private void txtVenue_TextChanged(object sender, EventArgs e)
         {
             regexp(@"^(\s|\S)*(\S)+(\s|\S)*$", txtVenue, picVenue, lblVenue, "");
+        }
+        void testing()
+        {
+            foreach(DataGridViewRow dr in metroGrid1.Rows)
+            {
+                foreach(DataGridViewCell dc in dr.Cells)
+                {
+                    if (dc.Value == ""||dc.Value.ToString().Trim()=="")
+                    {
+                        MessageBox.Show("There's a null object");
+                        return;
+                    }
+                }
+            }
+        }
+        void newCode()
+        {
+            DialogResult dr = MessageBox.Show("Do you want to save the list of defaulters?", "Save Records?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dr == DialogResult.Yes)
+            {
+                try
+                {
+
+                    for (int i = 0; i < metroGrid1.Rows.Count-1; i++)
+                    {
+                        string AdmNo = metroGrid1.Rows[i].Cells[0].Value.ToString();
+                        string FullName = metroGrid1.Rows[i].Cells[1].Value.ToString();
+                        string Geolocation = metroGrid1.Rows[i].Cells[2].Value.ToString();
+                        string StudDate = metroGrid1.Rows[i].Cells[3].Value.ToString();
+                        string Unit = metroGrid1.Rows[i].Cells[4].Value.ToString();
+                        string Course = metroGrid1.Rows[i].Cells[5].Value.ToString();
+                        string Faculty = metroGrid1.Rows[i].Cells[6].Value.ToString();
+                    
+                        SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString);
+                        db.Open();
+                        string sql = "insert into Defaulterstbl(AdmNo,FullName,Geolocation,StudDate,Unit, Course, Faculty) values(@admno, @fullname, @geolocation, @studdate, @unit, @course, @faculty)";
+                        SqlCommand cmd = new SqlCommand(sql);
+                        cmd.Connection = db;
+                        cmd.Parameters.AddWithValue("@admno", AdmNo);
+                        cmd.Parameters.AddWithValue("@fullname", FullName);
+                        cmd.Parameters.AddWithValue("@geolocation", Geolocation);
+                        cmd.Parameters.AddWithValue("@studdate", StudDate);
+                        cmd.Parameters.AddWithValue("@unit", Unit);
+                        cmd.Parameters.AddWithValue("@course", Course);
+                        cmd.Parameters.AddWithValue("@faculty", Faculty);
+                        cmd.ExecuteNonQuery();
+                        db.Close();
+                    }
+                    UpdateSuccess ups = new UpdateSuccess();
+                    ups.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+        }
+            
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void btnSaveData_Click(object sender, EventArgs e)
+        {
+            newCode();
         }
     }
 

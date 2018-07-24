@@ -45,8 +45,8 @@ namespace MMUSIS1
         {
             ////panelLeft.Height = button2.Height;
             //panelLeft.Top = button2.Top;
-            studCheckinUC1.BringToFront();
-            lblAddStud.Text = "Student Check-in";
+            //studCheckinUC1.BringToFront();
+            //lblAddStud.Text = "Student Check-in";
         }
 
         private void button3_Click(object sender, EventArgs e)

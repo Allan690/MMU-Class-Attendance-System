@@ -1,5 +1,5 @@
-C:\Users\FRED\Documents\Visual Studio 2015\Projects\MMUSIS1\MMUSIS1\bin\Debug\MMUSIS1.exe
 C:\Users\FRED\documents\visual studio 2015\Projects\MMUSIS1\MMUSIS1\bin\Debug\MMUSIS1.exe.config
+C:\Users\FRED\documents\visual studio 2015\Projects\MMUSIS1\MMUSIS1\bin\Debug\MMUSIS1.exe
 C:\Users\FRED\documents\visual studio 2015\Projects\MMUSIS1\MMUSIS1\bin\Debug\MMUSIS1.pdb
 C:\Users\FRED\documents\visual studio 2015\Projects\MMUSIS1\MMUSIS1\bin\Debug\BouncyCastle.Crypto.dll
 C:\Users\FRED\documents\visual studio 2015\Projects\MMUSIS1\MMUSIS1\bin\Debug\Bunifu_UI_v1.5.3.dll
@@ -62,6 +62,7 @@ C:\Users\FRED\documents\visual studio 2015\Projects\MMUSIS1\MMUSIS1\bin\Debug\PC
 C:\Users\FRED\documents\visual studio 2015\Projects\MMUSIS1\MMUSIS1\bin\Debug\System.Net.Http.Formatting.xml
 C:\Users\FRED\documents\visual studio 2015\Projects\MMUSIS1\MMUSIS1\obj\Debug\MMUSIS1.correctForm.resources
 C:\Users\FRED\documents\visual studio 2015\Projects\MMUSIS1\MMUSIS1\obj\Debug\MMUSIS1.custom_dialog.resources
+C:\Users\FRED\documents\visual studio 2015\Projects\MMUSIS1\MMUSIS1\obj\Debug\MMUSIS1.Defaulters_Report.resources
 C:\Users\FRED\documents\visual studio 2015\Projects\MMUSIS1\MMUSIS1\obj\Debug\MMUSIS1.duplicateRecords.resources
 C:\Users\FRED\documents\visual studio 2015\Projects\MMUSIS1\MMUSIS1\obj\Debug\MMUSIS1.emailSent.resources
 C:\Users\FRED\documents\visual studio 2015\Projects\MMUSIS1\MMUSIS1\obj\Debug\MMUSIS1.errForm.resources
@@ -93,10 +94,8 @@ C:\Users\FRED\documents\visual studio 2015\Projects\MMUSIS1\MMUSIS1\obj\Debug\MM
 C:\Users\FRED\documents\visual studio 2015\Projects\MMUSIS1\MMUSIS1\obj\Debug\MMUSIS1.UserControls.ReportsUC.resources
 C:\Users\FRED\documents\visual studio 2015\Projects\MMUSIS1\MMUSIS1\obj\Debug\MMUSIS1.UserControls.SendEmailUC.resources
 C:\Users\FRED\documents\visual studio 2015\Projects\MMUSIS1\MMUSIS1\obj\Debug\MMUSIS1.UserControls.SettingsUC.resources
-C:\Users\FRED\documents\visual studio 2015\Projects\MMUSIS1\MMUSIS1\obj\Debug\MMUSIS1.UserControls.StudCheckinUC.resources
 C:\Users\FRED\documents\visual studio 2015\Projects\MMUSIS1\MMUSIS1\obj\Debug\MMUSIS1.csproj.GenerateResource.Cache
 C:\Users\FRED\documents\visual studio 2015\Projects\MMUSIS1\MMUSIS1\obj\Debug\MMUSIS1.exe.licenses
 C:\Users\FRED\documents\visual studio 2015\Projects\MMUSIS1\MMUSIS1\obj\Debug\MMUSIS1.exe
 C:\Users\FRED\documents\visual studio 2015\Projects\MMUSIS1\MMUSIS1\obj\Debug\MMUSIS1.pdb
 C:\Users\FRED\documents\visual studio 2015\Projects\MMUSIS1\MMUSIS1\obj\Debug\MMUSIS1.csprojResolveAssemblyReference.cache
-C:\Users\FRED\documents\visual studio 2015\Projects\MMUSIS1\MMUSIS1\obj\Debug\MMUSIS1.Defaulters_Report.resources

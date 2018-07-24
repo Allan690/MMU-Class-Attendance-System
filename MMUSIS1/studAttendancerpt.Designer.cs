@@ -33,7 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.txtAdm = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.dtFrom = new MetroFramework.Controls.MetroDateTime();
@@ -48,8 +47,20 @@
             this.txtCourse = new MetroFramework.Controls.MetroTextBox();
             this.txtGender = new MetroFramework.Controls.MetroTextBox();
             this.txtDOB = new MetroFramework.Controls.MetroTextBox();
-            this.attendanceReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.txtUnitCode = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
+            this.txtUnitName = new MetroFramework.Controls.MetroTextBox();
+            this.picAdm = new System.Windows.Forms.PictureBox();
+            this.picName = new System.Windows.Forms.PictureBox();
+            this.picUnitCode = new System.Windows.Forms.PictureBox();
+            this.picUnitName = new System.Windows.Forms.PictureBox();
+            this.lblAdmNo = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblUnitCode = new System.Windows.Forms.Label();
+            this.lblUnitName = new System.Windows.Forms.Label();
+            this.txtAdm = new MetroFramework.Controls.MetroTextBox();
             this.admNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dOBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,51 +69,24 @@
             this.courseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.facultyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalAttendanceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.attendanceReportBindingSource)).BeginInit();
+            this.attendanceReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnSave = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAdm)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUnitCode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUnitName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attendanceReportBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(34, 60);
+            this.metroLabel1.Location = new System.Drawing.Point(23, 60);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(63, 19);
             this.metroLabel1.TabIndex = 0;
             this.metroLabel1.Text = "Adm No:";
-            // 
-            // txtAdm
-            // 
-            // 
-            // 
-            // 
-            this.txtAdm.CustomButton.Image = null;
-            this.txtAdm.CustomButton.Location = new System.Drawing.Point(190, 1);
-            this.txtAdm.CustomButton.Name = "";
-            this.txtAdm.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtAdm.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtAdm.CustomButton.TabIndex = 1;
-            this.txtAdm.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtAdm.CustomButton.UseSelectable = true;
-            this.txtAdm.CustomButton.Visible = false;
-            this.txtAdm.Lines = new string[0];
-            this.txtAdm.Location = new System.Drawing.Point(103, 60);
-            this.txtAdm.MaxLength = 32767;
-            this.txtAdm.Name = "txtAdm";
-            this.txtAdm.PasswordChar = '\0';
-            this.txtAdm.PromptText = "Enter the student admission number";
-            this.txtAdm.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtAdm.SelectedText = "";
-            this.txtAdm.SelectionLength = 0;
-            this.txtAdm.SelectionStart = 0;
-            this.txtAdm.ShortcutsEnabled = true;
-            this.txtAdm.Size = new System.Drawing.Size(212, 23);
-            this.txtAdm.TabIndex = 2;
-            this.txtAdm.UseSelectable = true;
-            this.txtAdm.WaterMark = "Enter the student admission number";
-            this.txtAdm.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtAdm.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.txtAdm.Click += new System.EventHandler(this.metroTextBox1_Click);
             // 
             // metroLabel2
             // 
@@ -150,7 +134,7 @@
             // 
             // metroButton2
             // 
-            this.metroButton2.Location = new System.Drawing.Point(602, 429);
+            this.metroButton2.Location = new System.Drawing.Point(616, 417);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(96, 23);
             this.metroButton2.TabIndex = 6;
@@ -161,7 +145,7 @@
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(34, 96);
+            this.metroLabel4.Location = new System.Drawing.Point(23, 96);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(48, 19);
             this.metroLabel4.TabIndex = 15;
@@ -199,6 +183,7 @@
             this.txtName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.txtName.Click += new System.EventHandler(this.metroTextBox1_Click);
+            this.txtName.Leave += new System.EventHandler(this.txtName_Leave);
             // 
             // txtFaculty
             // 
@@ -215,7 +200,7 @@
             this.txtFaculty.CustomButton.UseSelectable = true;
             this.txtFaculty.CustomButton.Visible = false;
             this.txtFaculty.Lines = new string[0];
-            this.txtFaculty.Location = new System.Drawing.Point(321, 56);
+            this.txtFaculty.Location = new System.Drawing.Point(540, 176);
             this.txtFaculty.MaxLength = 32767;
             this.txtFaculty.Name = "txtFaculty";
             this.txtFaculty.PasswordChar = '\0';
@@ -231,6 +216,7 @@
             this.txtFaculty.WaterMark = "Faculty";
             this.txtFaculty.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtFaculty.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtFaculty.Click += new System.EventHandler(this.txtFaculty_Click);
             // 
             // txtTotal
             // 
@@ -247,7 +233,7 @@
             this.txtTotal.CustomButton.UseSelectable = true;
             this.txtTotal.CustomButton.Visible = false;
             this.txtTotal.Lines = new string[0];
-            this.txtTotal.Location = new System.Drawing.Point(513, -2);
+            this.txtTotal.Location = new System.Drawing.Point(539, 176);
             this.txtTotal.MaxLength = 32767;
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.PasswordChar = '\0';
@@ -279,7 +265,7 @@
             this.txtUnit.CustomButton.UseSelectable = true;
             this.txtUnit.CustomButton.Visible = false;
             this.txtUnit.Lines = new string[0];
-            this.txtUnit.Location = new System.Drawing.Point(301, 37);
+            this.txtUnit.Location = new System.Drawing.Point(539, 176);
             this.txtUnit.MaxLength = 32767;
             this.txtUnit.Name = "txtUnit";
             this.txtUnit.PasswordChar = '\0';
@@ -311,7 +297,7 @@
             this.txtCourse.CustomButton.UseSelectable = true;
             this.txtCourse.CustomButton.Visible = false;
             this.txtCourse.Lines = new string[0];
-            this.txtCourse.Location = new System.Drawing.Point(336, 96);
+            this.txtCourse.Location = new System.Drawing.Point(539, 176);
             this.txtCourse.MaxLength = 32767;
             this.txtCourse.Name = "txtCourse";
             this.txtCourse.PasswordChar = '\0';
@@ -343,7 +329,7 @@
             this.txtGender.CustomButton.UseSelectable = true;
             this.txtGender.CustomButton.Visible = false;
             this.txtGender.Lines = new string[0];
-            this.txtGender.Location = new System.Drawing.Point(301, 11);
+            this.txtGender.Location = new System.Drawing.Point(539, 176);
             this.txtGender.MaxLength = 32767;
             this.txtGender.Name = "txtGender";
             this.txtGender.PasswordChar = '\0';
@@ -359,6 +345,7 @@
             this.txtGender.WaterMark = "Gender";
             this.txtGender.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtGender.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtGender.Click += new System.EventHandler(this.txtGender_Click);
             // 
             // txtDOB
             // 
@@ -375,7 +362,7 @@
             this.txtDOB.CustomButton.UseSelectable = true;
             this.txtDOB.CustomButton.Visible = false;
             this.txtDOB.Lines = new string[0];
-            this.txtDOB.Location = new System.Drawing.Point(321, 124);
+            this.txtDOB.Location = new System.Drawing.Point(539, 176);
             this.txtDOB.MaxLength = 32767;
             this.txtDOB.Name = "txtDOB";
             this.txtDOB.PasswordChar = '\0';
@@ -391,10 +378,6 @@
             this.txtDOB.WaterMark = "DOB";
             this.txtDOB.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtDOB.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // attendanceReportBindingSource
-            // 
-            this.attendanceReportBindingSource.DataSource = typeof(MMUSIS1.AttendanceReport);
             // 
             // metroGrid1
             // 
@@ -434,7 +417,7 @@
             this.metroGrid1.EnableHeadersVisualStyles = false;
             this.metroGrid1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.metroGrid1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.metroGrid1.Location = new System.Drawing.Point(34, 177);
+            this.metroGrid1.Location = new System.Drawing.Point(34, 218);
             this.metroGrid1.Name = "metroGrid1";
             this.metroGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -447,9 +430,204 @@
             this.metroGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.metroGrid1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.metroGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.metroGrid1.Size = new System.Drawing.Size(691, 224);
+            this.metroGrid1.Size = new System.Drawing.Size(691, 193);
             this.metroGrid1.TabIndex = 22;
             this.metroGrid1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGrid1_CellContentClick_2);
+            // 
+            // metroLabel5
+            // 
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.Location = new System.Drawing.Point(26, 133);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(71, 19);
+            this.metroLabel5.TabIndex = 23;
+            this.metroLabel5.Text = "Unit Code:";
+            // 
+            // txtUnitCode
+            // 
+            this.txtUnitCode.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtUnitCode.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            // 
+            // 
+            // 
+            this.txtUnitCode.CustomButton.Image = null;
+            this.txtUnitCode.CustomButton.Location = new System.Drawing.Point(190, 1);
+            this.txtUnitCode.CustomButton.Name = "";
+            this.txtUnitCode.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtUnitCode.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtUnitCode.CustomButton.TabIndex = 1;
+            this.txtUnitCode.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtUnitCode.CustomButton.UseSelectable = true;
+            this.txtUnitCode.CustomButton.Visible = false;
+            this.txtUnitCode.Lines = new string[0];
+            this.txtUnitCode.Location = new System.Drawing.Point(103, 133);
+            this.txtUnitCode.MaxLength = 32767;
+            this.txtUnitCode.Name = "txtUnitCode";
+            this.txtUnitCode.PasswordChar = '\0';
+            this.txtUnitCode.PromptText = "Enter the unit code";
+            this.txtUnitCode.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtUnitCode.SelectedText = "";
+            this.txtUnitCode.SelectionLength = 0;
+            this.txtUnitCode.SelectionStart = 0;
+            this.txtUnitCode.ShortcutsEnabled = true;
+            this.txtUnitCode.Size = new System.Drawing.Size(212, 23);
+            this.txtUnitCode.TabIndex = 24;
+            this.txtUnitCode.UseSelectable = true;
+            this.txtUnitCode.WaterMark = "Enter the unit code";
+            this.txtUnitCode.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtUnitCode.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtUnitCode.TextChanged += new System.EventHandler(this.txtUnitCode_TextChanged);
+            this.txtUnitCode.Leave += new System.EventHandler(this.txtUnitCode_Leave);
+            // 
+            // metroLabel6
+            // 
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.Location = new System.Drawing.Point(26, 176);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(75, 19);
+            this.metroLabel6.TabIndex = 25;
+            this.metroLabel6.Text = "Unit Name:";
+            // 
+            // txtUnitName
+            // 
+            // 
+            // 
+            // 
+            this.txtUnitName.CustomButton.Image = null;
+            this.txtUnitName.CustomButton.Location = new System.Drawing.Point(190, 1);
+            this.txtUnitName.CustomButton.Name = "";
+            this.txtUnitName.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtUnitName.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtUnitName.CustomButton.TabIndex = 1;
+            this.txtUnitName.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtUnitName.CustomButton.UseSelectable = true;
+            this.txtUnitName.CustomButton.Visible = false;
+            this.txtUnitName.Lines = new string[0];
+            this.txtUnitName.Location = new System.Drawing.Point(103, 176);
+            this.txtUnitName.MaxLength = 32767;
+            this.txtUnitName.Name = "txtUnitName";
+            this.txtUnitName.PasswordChar = '\0';
+            this.txtUnitName.PromptText = "The unit name appears here";
+            this.txtUnitName.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtUnitName.SelectedText = "";
+            this.txtUnitName.SelectionLength = 0;
+            this.txtUnitName.SelectionStart = 0;
+            this.txtUnitName.ShortcutsEnabled = true;
+            this.txtUnitName.Size = new System.Drawing.Size(212, 23);
+            this.txtUnitName.TabIndex = 26;
+            this.txtUnitName.UseSelectable = true;
+            this.txtUnitName.WaterMark = "The unit name appears here";
+            this.txtUnitName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtUnitName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtUnitName.Leave += new System.EventHandler(this.txtUnitName_Leave);
+            // 
+            // picAdm
+            // 
+            this.picAdm.Location = new System.Drawing.Point(334, 58);
+            this.picAdm.Name = "picAdm";
+            this.picAdm.Size = new System.Drawing.Size(29, 19);
+            this.picAdm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picAdm.TabIndex = 27;
+            this.picAdm.TabStop = false;
+            // 
+            // picName
+            // 
+            this.picName.Location = new System.Drawing.Point(334, 96);
+            this.picName.Name = "picName";
+            this.picName.Size = new System.Drawing.Size(29, 19);
+            this.picName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picName.TabIndex = 28;
+            this.picName.TabStop = false;
+            // 
+            // picUnitCode
+            // 
+            this.picUnitCode.Location = new System.Drawing.Point(334, 133);
+            this.picUnitCode.Name = "picUnitCode";
+            this.picUnitCode.Size = new System.Drawing.Size(29, 19);
+            this.picUnitCode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picUnitCode.TabIndex = 28;
+            this.picUnitCode.TabStop = false;
+            // 
+            // picUnitName
+            // 
+            this.picUnitName.AccessibleDescription = "d";
+            this.picUnitName.Location = new System.Drawing.Point(334, 176);
+            this.picUnitName.Name = "picUnitName";
+            this.picUnitName.Size = new System.Drawing.Size(29, 19);
+            this.picUnitName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picUnitName.TabIndex = 28;
+            this.picUnitName.TabStop = false;
+            // 
+            // lblAdmNo
+            // 
+            this.lblAdmNo.AutoSize = true;
+            this.lblAdmNo.Font = new System.Drawing.Font("Century Gothic", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdmNo.Location = new System.Drawing.Point(334, 82);
+            this.lblAdmNo.Name = "lblAdmNo";
+            this.lblAdmNo.Size = new System.Drawing.Size(0, 13);
+            this.lblAdmNo.TabIndex = 29;
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Century Gothic", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(331, 118);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(0, 13);
+            this.lblName.TabIndex = 29;
+            // 
+            // lblUnitCode
+            // 
+            this.lblUnitCode.AutoSize = true;
+            this.lblUnitCode.Font = new System.Drawing.Font("Century Gothic", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUnitCode.Location = new System.Drawing.Point(334, 155);
+            this.lblUnitCode.Name = "lblUnitCode";
+            this.lblUnitCode.Size = new System.Drawing.Size(0, 13);
+            this.lblUnitCode.TabIndex = 29;
+            // 
+            // lblUnitName
+            // 
+            this.lblUnitName.AutoSize = true;
+            this.lblUnitName.Font = new System.Drawing.Font("Century Gothic", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUnitName.Location = new System.Drawing.Point(334, 198);
+            this.lblUnitName.Name = "lblUnitName";
+            this.lblUnitName.Size = new System.Drawing.Size(0, 13);
+            this.lblUnitName.TabIndex = 29;
+            // 
+            // txtAdm
+            // 
+            this.txtAdm.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtAdm.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            // 
+            // 
+            // 
+            this.txtAdm.CustomButton.Image = null;
+            this.txtAdm.CustomButton.Location = new System.Drawing.Point(190, 1);
+            this.txtAdm.CustomButton.Name = "";
+            this.txtAdm.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtAdm.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtAdm.CustomButton.TabIndex = 1;
+            this.txtAdm.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtAdm.CustomButton.UseSelectable = true;
+            this.txtAdm.CustomButton.Visible = false;
+            this.txtAdm.Lines = new string[0];
+            this.txtAdm.Location = new System.Drawing.Point(103, 58);
+            this.txtAdm.MaxLength = 32767;
+            this.txtAdm.Name = "txtAdm";
+            this.txtAdm.PasswordChar = '\0';
+            this.txtAdm.PromptText = "Enter the admission number";
+            this.txtAdm.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtAdm.SelectedText = "";
+            this.txtAdm.SelectionLength = 0;
+            this.txtAdm.SelectionStart = 0;
+            this.txtAdm.ShortcutsEnabled = true;
+            this.txtAdm.Size = new System.Drawing.Size(212, 23);
+            this.txtAdm.TabIndex = 30;
+            this.txtAdm.UseSelectable = true;
+            this.txtAdm.WaterMark = "Enter the admission number";
+            this.txtAdm.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtAdm.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtAdm.TextChanged += new System.EventHandler(this.txtAdm_TextChanged_1);
             // 
             // admNoDataGridViewTextBoxColumn
             // 
@@ -499,11 +677,39 @@
             this.totalAttendanceDataGridViewTextBoxColumn.HeaderText = "Total_Attendance";
             this.totalAttendanceDataGridViewTextBoxColumn.Name = "totalAttendanceDataGridViewTextBoxColumn";
             // 
+            // attendanceReportBindingSource
+            // 
+            this.attendanceReportBindingSource.DataSource = typeof(MMUSIS1.AttendanceReport);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(457, 417);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(96, 23);
+            this.btnSave.TabIndex = 31;
+            this.btnSave.Text = "Save DG Values";
+            this.btnSave.UseSelectable = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // studAttendancerpt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(735, 461);
+            this.ClientSize = new System.Drawing.Size(754, 461);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.txtAdm);
+            this.Controls.Add(this.lblUnitName);
+            this.Controls.Add(this.lblUnitCode);
+            this.Controls.Add(this.lblName);
+            this.Controls.Add(this.lblAdmNo);
+            this.Controls.Add(this.picUnitName);
+            this.Controls.Add(this.picUnitCode);
+            this.Controls.Add(this.picName);
+            this.Controls.Add(this.picAdm);
+            this.Controls.Add(this.txtUnitName);
+            this.Controls.Add(this.metroLabel6);
+            this.Controls.Add(this.txtUnitCode);
+            this.Controls.Add(this.metroLabel5);
             this.Controls.Add(this.metroGrid1);
             this.Controls.Add(this.txtGender);
             this.Controls.Add(this.txtCourse);
@@ -517,15 +723,18 @@
             this.Controls.Add(this.dtTo);
             this.Controls.Add(this.dtFrom);
             this.Controls.Add(this.txtName);
-            this.Controls.Add(this.txtAdm);
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.metroLabel1);
             this.Name = "studAttendancerpt";
             this.Text = "Student Attendance Report";
             this.Load += new System.EventHandler(this.studAttendancerpt_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.attendanceReportBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAdm)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUnitCode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUnitName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attendanceReportBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -534,7 +743,6 @@
         #endregion
 
         private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroTextBox txtAdm;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroDateTime dtFrom;
@@ -560,5 +768,19 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn courseDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn facultyDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalAttendanceDataGridViewTextBoxColumn;
+        private MetroFramework.Controls.MetroLabel metroLabel5;
+        private MetroFramework.Controls.MetroTextBox txtUnitCode;
+        private MetroFramework.Controls.MetroLabel metroLabel6;
+        private MetroFramework.Controls.MetroTextBox txtUnitName;
+        private System.Windows.Forms.PictureBox picAdm;
+        private System.Windows.Forms.PictureBox picName;
+        private System.Windows.Forms.PictureBox picUnitCode;
+        private System.Windows.Forms.PictureBox picUnitName;
+        private System.Windows.Forms.Label lblAdmNo;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblUnitCode;
+        private System.Windows.Forms.Label lblUnitName;
+        private MetroFramework.Controls.MetroTextBox txtAdm;
+        private MetroFramework.Controls.MetroButton btnSave;
     }
 }

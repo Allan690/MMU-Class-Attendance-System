@@ -54,7 +54,7 @@
             this.chatUC1 = new MMUSIS1.UserControls.ChatUC();
             this.sendEmailUC1 = new MMUSIS1.UserControls.SendEmailUC();
             this.checkStudUC1 = new MMUSIS1.UserControls.CheckStudUC();
-            this.studCheckinUC1 = new MMUSIS1.UserControls.StudCheckinUC();
+         //   this.studCheckinUC1 = new MMUSIS1.UserControls.StudCheckinUC();
             this.addStudUC1 = new MMUSIS1.UserControls.btnClearForm();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -121,7 +121,7 @@
             this.panel3.Controls.Add(this.chatUC1);
             this.panel3.Controls.Add(this.sendEmailUC1);
             this.panel3.Controls.Add(this.checkStudUC1);
-            this.panel3.Controls.Add(this.studCheckinUC1);
+            //this.panel3.Controls.Add(this.studCheckinUC1);
             this.panel3.Controls.Add(this.addStudUC1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(135, 48);
@@ -368,13 +368,13 @@
             // 
             // studCheckinUC1
             // 
-            this.studCheckinUC1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.studCheckinUC1.Location = new System.Drawing.Point(0, 0);
-            this.studCheckinUC1.Name = "studCheckinUC1";
-            this.studCheckinUC1.Size = new System.Drawing.Size(812, 483);
-            this.studCheckinUC1.TabIndex = 1;
-            // 
-            // addStudUC1
+            //this.studCheckinUC1.Dock = System.Windows.Forms.DockStyle.Fill;
+            //this.studCheckinUC1.Location = new System.Drawing.Point(0, 0);
+            //this.studCheckinUC1.Name = "studCheckinUC1";
+            //this.studCheckinUC1.Size = new System.Drawing.Size(812, 483);
+            //this.studCheckinUC1.TabIndex = 1;
+            //// 
+            //// addStudUC1
             // 
             this.addStudUC1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addStudUC1.Location = new System.Drawing.Point(0, 0);
@@ -426,7 +426,7 @@
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private UserControls.btnClearForm addStudUC1;
         private System.Windows.Forms.Label lblAddStud;
-        private UserControls.StudCheckinUC studCheckinUC1;
+      //  private UserControls.StudCheckinUC studCheckinUC1;
         private UserControls.CheckStudUC checkStudUC1;
         private UserControls.SendEmailUC sendEmailUC1;
         private UserControls.ChatUC chatUC1;
