@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -46,6 +46,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>iyi_jcP_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.1.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
@@ -258,6 +261,12 @@
     <Compile Include="errorForm.Designer.cs">
       <DependentUpon>errorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExamCard Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExamCard Report.Designer.cs">
+      <DependentUpon>ExamCard Report.cs</DependentUpon>
+    </Compile>
     <Compile Include="formError.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -450,6 +459,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="errorForm.resx">
       <DependentUpon>errorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExamCard Report.resx">
+      <DependentUpon>ExamCard Report.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formError.resx">
       <DependentUpon>formError.cs</DependentUpon>
@@ -669,7 +681,11 @@
   <ItemGroup>
     <None Include="Resources\Help_25px_1.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="iyi_jcP_icon.ico" />
+    <Content Include="mmucas_GnS_icon.ico" />
+    <Content Include="Print_2.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

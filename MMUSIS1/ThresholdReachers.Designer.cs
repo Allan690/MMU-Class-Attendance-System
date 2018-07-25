@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThresholdReachers));
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.txtLesson = new MetroFramework.Controls.MetroTextBox();
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
@@ -44,9 +45,6 @@
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
-            this.picLesson = new System.Windows.Forms.PictureBox();
-            this.picAdmNo = new System.Windows.Forms.PictureBox();
-            this.picName = new System.Windows.Forms.PictureBox();
             this.lblLesson = new System.Windows.Forms.Label();
             this.lblAdm = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
@@ -57,6 +55,10 @@
             this.txtFaculty = new MetroFramework.Controls.MetroTextBox();
             this.txtGender = new MetroFramework.Controls.MetroTextBox();
             this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.picName = new System.Windows.Forms.PictureBox();
+            this.picAdmNo = new System.Windows.Forms.PictureBox();
+            this.picLesson = new System.Windows.Forms.PictureBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,11 +68,10 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.attendanceReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
-            ((System.ComponentModel.ISupportInitialize)(this.picLesson)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picAdmNo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAdmNo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLesson)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.attendanceReportBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -254,33 +255,6 @@
             this.metroLabel5.Size = new System.Drawing.Size(63, 19);
             this.metroLabel5.TabIndex = 22;
             this.metroLabel5.Text = "Adm No:";
-            // 
-            // picLesson
-            // 
-            this.picLesson.Location = new System.Drawing.Point(307, 59);
-            this.picLesson.Name = "picLesson";
-            this.picLesson.Size = new System.Drawing.Size(30, 23);
-            this.picLesson.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picLesson.TabIndex = 39;
-            this.picLesson.TabStop = false;
-            // 
-            // picAdmNo
-            // 
-            this.picAdmNo.Location = new System.Drawing.Point(307, 104);
-            this.picAdmNo.Name = "picAdmNo";
-            this.picAdmNo.Size = new System.Drawing.Size(30, 23);
-            this.picAdmNo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picAdmNo.TabIndex = 39;
-            this.picAdmNo.TabStop = false;
-            // 
-            // picName
-            // 
-            this.picName.Location = new System.Drawing.Point(307, 153);
-            this.picName.Name = "picName";
-            this.picName.Size = new System.Drawing.Size(30, 23);
-            this.picName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picName.TabIndex = 39;
-            this.picName.TabStop = false;
             // 
             // lblLesson
             // 
@@ -556,6 +530,43 @@
             this.metroGrid1.TabIndex = 48;
             this.metroGrid1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGrid1_CellContentClick_2);
             // 
+            // metroButton1
+            // 
+            this.metroButton1.Location = new System.Drawing.Point(193, 405);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(103, 23);
+            this.metroButton1.TabIndex = 4;
+            this.metroButton1.Text = "Generate for all";
+            this.metroButton1.UseSelectable = true;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton2_Click);
+            // 
+            // picName
+            // 
+            this.picName.Location = new System.Drawing.Point(307, 153);
+            this.picName.Name = "picName";
+            this.picName.Size = new System.Drawing.Size(30, 23);
+            this.picName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picName.TabIndex = 39;
+            this.picName.TabStop = false;
+            // 
+            // picAdmNo
+            // 
+            this.picAdmNo.Location = new System.Drawing.Point(307, 104);
+            this.picAdmNo.Name = "picAdmNo";
+            this.picAdmNo.Size = new System.Drawing.Size(30, 23);
+            this.picAdmNo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picAdmNo.TabIndex = 39;
+            this.picAdmNo.TabStop = false;
+            // 
+            // picLesson
+            // 
+            this.picLesson.Location = new System.Drawing.Point(307, 59);
+            this.picLesson.Name = "picLesson";
+            this.picLesson.Size = new System.Drawing.Size(30, 23);
+            this.picLesson.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picLesson.TabIndex = 39;
+            this.picLesson.TabStop = false;
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "AdmNo";
@@ -608,16 +619,6 @@
             // 
             this.attendanceReportBindingSource.DataSource = typeof(MMUSIS1.AttendanceReport);
             // 
-            // metroButton1
-            // 
-            this.metroButton1.Location = new System.Drawing.Point(193, 405);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(103, 23);
-            this.metroButton1.TabIndex = 4;
-            this.metroButton1.Text = "Generate for all";
-            this.metroButton1.UseSelectable = true;
-            this.metroButton1.Click += new System.EventHandler(this.metroButton2_Click);
-            // 
             // ThresholdReachers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -649,13 +650,14 @@
             this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.txtLesson);
             this.Controls.Add(this.metroLabel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ThresholdReachers";
             this.Text = "Threshold Reachers";
             this.Load += new System.EventHandler(this.ThresholdReachers_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.picLesson)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picAdmNo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAdmNo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLesson)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.attendanceReportBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

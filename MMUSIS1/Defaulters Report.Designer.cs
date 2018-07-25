@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Defaulters_Report));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,13 +50,6 @@
             this.metroButton3 = new MetroFramework.Controls.MetroButton();
             this.label7 = new System.Windows.Forms.Label();
             this.txtVenue = new MetroFramework.Controls.MetroTextBox();
-            this.picVenue = new System.Windows.Forms.PictureBox();
-            this.picUnitCode = new System.Windows.Forms.PictureBox();
-            this.picUnitName = new System.Windows.Forms.PictureBox();
-            this.picCourseCode = new System.Windows.Forms.PictureBox();
-            this.picTo = new System.Windows.Forms.PictureBox();
-            this.picFrom = new System.Windows.Forms.PictureBox();
-            this.picCourseName = new System.Windows.Forms.PictureBox();
             this.lblVenue = new System.Windows.Forms.Label();
             this.lblUnitCode = new System.Windows.Forms.Label();
             this.lblUnitName = new System.Windows.Forms.Label();
@@ -65,6 +59,15 @@
             this.lblTo = new System.Windows.Forms.Label();
             this.txtSearch = new MetroFramework.Controls.MetroTextBox();
             this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnSaveData = new MetroFramework.Controls.MetroButton();
+            this.picFrom = new System.Windows.Forms.PictureBox();
+            this.picTo = new System.Windows.Forms.PictureBox();
+            this.picCourseName = new System.Windows.Forms.PictureBox();
+            this.picCourseCode = new System.Windows.Forms.PictureBox();
+            this.picUnitName = new System.Windows.Forms.PictureBox();
+            this.picUnitCode = new System.Windows.Forms.PictureBox();
+            this.picVenue = new System.Windows.Forms.PictureBox();
             this.admNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.geolocationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,16 +76,14 @@
             this.courseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.facultyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.defaultersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label8 = new System.Windows.Forms.Label();
-            this.btnSaveData = new MetroFramework.Controls.MetroButton();
-            ((System.ComponentModel.ISupportInitialize)(this.picVenue)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picUnitCode)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picUnitName)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picCourseCode)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picTo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picFrom)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picCourseName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picFrom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picTo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCourseName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCourseCode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUnitName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUnitCode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picVenue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.defaultersBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -401,69 +402,6 @@
             this.txtVenue.Click += new System.EventHandler(this.txtVenue_Click);
             this.txtVenue.Leave += new System.EventHandler(this.txtVenue_Leave);
             // 
-            // picVenue
-            // 
-            this.picVenue.Location = new System.Drawing.Point(359, 84);
-            this.picVenue.Name = "picVenue";
-            this.picVenue.Size = new System.Drawing.Size(28, 21);
-            this.picVenue.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picVenue.TabIndex = 9;
-            this.picVenue.TabStop = false;
-            // 
-            // picUnitCode
-            // 
-            this.picUnitCode.Location = new System.Drawing.Point(359, 123);
-            this.picUnitCode.Name = "picUnitCode";
-            this.picUnitCode.Size = new System.Drawing.Size(28, 21);
-            this.picUnitCode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picUnitCode.TabIndex = 9;
-            this.picUnitCode.TabStop = false;
-            // 
-            // picUnitName
-            // 
-            this.picUnitName.Location = new System.Drawing.Point(359, 162);
-            this.picUnitName.Name = "picUnitName";
-            this.picUnitName.Size = new System.Drawing.Size(28, 21);
-            this.picUnitName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picUnitName.TabIndex = 9;
-            this.picUnitName.TabStop = false;
-            // 
-            // picCourseCode
-            // 
-            this.picCourseCode.Location = new System.Drawing.Point(359, 202);
-            this.picCourseCode.Name = "picCourseCode";
-            this.picCourseCode.Size = new System.Drawing.Size(28, 21);
-            this.picCourseCode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picCourseCode.TabIndex = 9;
-            this.picCourseCode.TabStop = false;
-            // 
-            // picTo
-            // 
-            this.picTo.Location = new System.Drawing.Point(732, 121);
-            this.picTo.Name = "picTo";
-            this.picTo.Size = new System.Drawing.Size(28, 21);
-            this.picTo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picTo.TabIndex = 9;
-            this.picTo.TabStop = false;
-            // 
-            // picFrom
-            // 
-            this.picFrom.Location = new System.Drawing.Point(732, 75);
-            this.picFrom.Name = "picFrom";
-            this.picFrom.Size = new System.Drawing.Size(28, 21);
-            this.picFrom.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picFrom.TabIndex = 9;
-            this.picFrom.TabStop = false;
-            // 
-            // picCourseName
-            // 
-            this.picCourseName.Location = new System.Drawing.Point(359, 243);
-            this.picCourseName.Name = "picCourseName";
-            this.picCourseName.Size = new System.Drawing.Size(28, 21);
-            this.picCourseName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picCourseName.TabIndex = 9;
-            this.picCourseName.TabStop = false;
-            // 
             // lblVenue
             // 
             this.lblVenue.AutoSize = true;
@@ -614,6 +552,89 @@
             this.metroGrid1.Size = new System.Drawing.Size(708, 191);
             this.metroGrid1.TabIndex = 12;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(440, 243);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(64, 20);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "Search:";
+            // 
+            // btnSaveData
+            // 
+            this.btnSaveData.Location = new System.Drawing.Point(630, 484);
+            this.btnSaveData.Name = "btnSaveData";
+            this.btnSaveData.Size = new System.Drawing.Size(119, 26);
+            this.btnSaveData.TabIndex = 14;
+            this.btnSaveData.Text = "Save DGV Values";
+            this.btnSaveData.UseSelectable = true;
+            this.btnSaveData.Click += new System.EventHandler(this.btnSaveData_Click);
+            // 
+            // picFrom
+            // 
+            this.picFrom.Location = new System.Drawing.Point(732, 75);
+            this.picFrom.Name = "picFrom";
+            this.picFrom.Size = new System.Drawing.Size(28, 21);
+            this.picFrom.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picFrom.TabIndex = 9;
+            this.picFrom.TabStop = false;
+            // 
+            // picTo
+            // 
+            this.picTo.Location = new System.Drawing.Point(732, 121);
+            this.picTo.Name = "picTo";
+            this.picTo.Size = new System.Drawing.Size(28, 21);
+            this.picTo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picTo.TabIndex = 9;
+            this.picTo.TabStop = false;
+            // 
+            // picCourseName
+            // 
+            this.picCourseName.Location = new System.Drawing.Point(359, 243);
+            this.picCourseName.Name = "picCourseName";
+            this.picCourseName.Size = new System.Drawing.Size(28, 21);
+            this.picCourseName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picCourseName.TabIndex = 9;
+            this.picCourseName.TabStop = false;
+            // 
+            // picCourseCode
+            // 
+            this.picCourseCode.Location = new System.Drawing.Point(359, 202);
+            this.picCourseCode.Name = "picCourseCode";
+            this.picCourseCode.Size = new System.Drawing.Size(28, 21);
+            this.picCourseCode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picCourseCode.TabIndex = 9;
+            this.picCourseCode.TabStop = false;
+            // 
+            // picUnitName
+            // 
+            this.picUnitName.Location = new System.Drawing.Point(359, 162);
+            this.picUnitName.Name = "picUnitName";
+            this.picUnitName.Size = new System.Drawing.Size(28, 21);
+            this.picUnitName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picUnitName.TabIndex = 9;
+            this.picUnitName.TabStop = false;
+            // 
+            // picUnitCode
+            // 
+            this.picUnitCode.Location = new System.Drawing.Point(359, 123);
+            this.picUnitCode.Name = "picUnitCode";
+            this.picUnitCode.Size = new System.Drawing.Size(28, 21);
+            this.picUnitCode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picUnitCode.TabIndex = 9;
+            this.picUnitCode.TabStop = false;
+            // 
+            // picVenue
+            // 
+            this.picVenue.Location = new System.Drawing.Point(359, 84);
+            this.picVenue.Name = "picVenue";
+            this.picVenue.Size = new System.Drawing.Size(28, 21);
+            this.picVenue.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picVenue.TabIndex = 9;
+            this.picVenue.TabStop = false;
+            // 
             // admNoDataGridViewTextBoxColumn
             // 
             this.admNoDataGridViewTextBoxColumn.DataPropertyName = "AdmNo";
@@ -660,26 +681,6 @@
             // 
             this.defaultersBindingSource.DataSource = typeof(MMUSIS1.Defaulters);
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(440, 243);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(64, 20);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "Search:";
-            // 
-            // btnSaveData
-            // 
-            this.btnSaveData.Location = new System.Drawing.Point(630, 484);
-            this.btnSaveData.Name = "btnSaveData";
-            this.btnSaveData.Size = new System.Drawing.Size(119, 26);
-            this.btnSaveData.TabIndex = 14;
-            this.btnSaveData.Text = "Save DGV Values";
-            this.btnSaveData.UseSelectable = true;
-            this.btnSaveData.Click += new System.EventHandler(this.btnSaveData_Click);
-            // 
             // Defaulters_Report
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -720,17 +721,18 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Defaulters_Report";
             this.Text = "Defaulters Report";
             this.Load += new System.EventHandler(this.Defaulters_Report_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.picVenue)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picUnitCode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picUnitName)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picCourseCode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picTo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picFrom)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picCourseName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picFrom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picTo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCourseName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCourseCode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUnitName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUnitCode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picVenue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.defaultersBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

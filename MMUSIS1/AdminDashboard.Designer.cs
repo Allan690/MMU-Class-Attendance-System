@@ -325,6 +325,7 @@
             this.panelContainer.Controls.Add(this.checkStudUC1);
             this.panelContainer.Controls.Add(this.addCourseUC1);
             this.panelContainer.Controls.Add(this.addUnitUC1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.panelContainer.Controls.Add(this.addStudUC1);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelContainer.Location = new System.Drawing.Point(135, 45);

@@ -119,10 +119,11 @@ namespace MMUSIS1
         {
             if (settingsUC1 != null)
             {
-               settingsUC1.MyProperty = "The Current System User is: " + this.MyProperty;
+                settingsUC1.MyProperty = "The Current System User is: " + this.MyProperty;
             }
             settingsUC1.BringToFront();
             lblAddStud.Text = "Settings";
+
         }
 
         private void button8_Click(object sender, EventArgs e)

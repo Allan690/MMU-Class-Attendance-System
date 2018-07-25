@@ -29,15 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(errForm));
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.icon = new System.Windows.Forms.PictureBox();
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuFormFadeTransition1 = new Bunifu.Framework.UI.BunifuFormFadeTransition(this.components);
             this.icon_delay = new System.Windows.Forms.Timer(this.components);
             this.label2 = new System.Windows.Forms.Label();
+            this.icon = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.icon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,17 +67,6 @@
             this.bunifuCustomLabel1.TabIndex = 4;
             this.bunifuCustomLabel1.Text = "Do you want to exit MMUSAS V 1.0?";
             this.bunifuCustomLabel1.Click += new System.EventHandler(this.bunifuCustomLabel1_Click);
-            // 
-            // icon
-            // 
-            this.icon.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.icon.Image = global::MMUSIS1.Properties.Resources.errorbtn;
-            this.icon.Location = new System.Drawing.Point(127, 25);
-            this.icon.Name = "icon";
-            this.icon.Size = new System.Drawing.Size(223, 126);
-            this.icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.icon.TabIndex = 3;
-            this.icon.TabStop = false;
             // 
             // metroButton2
             // 
@@ -126,6 +116,17 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "MMUSAS V 1.0";
             // 
+            // icon
+            // 
+            this.icon.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.icon.Image = global::MMUSIS1.Properties.Resources.errorbtn;
+            this.icon.Location = new System.Drawing.Point(127, 25);
+            this.icon.Name = "icon";
+            this.icon.Size = new System.Drawing.Size(223, 126);
+            this.icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.icon.TabIndex = 3;
+            this.icon.TabStop = false;
+            // 
             // errForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -138,6 +139,7 @@
             this.Controls.Add(this.bunifuCustomLabel1);
             this.Controls.Add(this.icon);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "errForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "errForm";

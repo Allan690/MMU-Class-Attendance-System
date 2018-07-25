@@ -98,4 +98,5 @@ C:\Users\FRED\documents\visual studio 2015\Projects\MMUSIS1\MMUSIS1\obj\Debug\MM
 C:\Users\FRED\documents\visual studio 2015\Projects\MMUSIS1\MMUSIS1\obj\Debug\MMUSIS1.exe.licenses
 C:\Users\FRED\documents\visual studio 2015\Projects\MMUSIS1\MMUSIS1\obj\Debug\MMUSIS1.exe
 C:\Users\FRED\documents\visual studio 2015\Projects\MMUSIS1\MMUSIS1\obj\Debug\MMUSIS1.pdb
+C:\Users\FRED\documents\visual studio 2015\Projects\MMUSIS1\MMUSIS1\obj\Debug\MMUSIS1.ExamCard_Report.resources
 C:\Users\FRED\documents\visual studio 2015\Projects\MMUSIS1\MMUSIS1\obj\Debug\MMUSIS1.csprojResolveAssemblyReference.cache

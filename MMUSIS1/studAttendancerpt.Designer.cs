@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(studAttendancerpt));
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
@@ -52,15 +53,16 @@
             this.txtUnitCode = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.txtUnitName = new MetroFramework.Controls.MetroTextBox();
-            this.picAdm = new System.Windows.Forms.PictureBox();
-            this.picName = new System.Windows.Forms.PictureBox();
-            this.picUnitCode = new System.Windows.Forms.PictureBox();
-            this.picUnitName = new System.Windows.Forms.PictureBox();
             this.lblAdmNo = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblUnitCode = new System.Windows.Forms.Label();
             this.lblUnitName = new System.Windows.Forms.Label();
             this.txtAdm = new MetroFramework.Controls.MetroTextBox();
+            this.btnSave = new MetroFramework.Controls.MetroButton();
+            this.picUnitName = new System.Windows.Forms.PictureBox();
+            this.picUnitCode = new System.Windows.Forms.PictureBox();
+            this.picName = new System.Windows.Forms.PictureBox();
+            this.picAdm = new System.Windows.Forms.PictureBox();
             this.admNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dOBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,12 +72,11 @@
             this.facultyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalAttendanceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.attendanceReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnSave = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picAdm)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picName)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picUnitCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUnitName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUnitCode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAdm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.attendanceReportBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -521,43 +522,6 @@
             this.txtUnitName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.txtUnitName.Leave += new System.EventHandler(this.txtUnitName_Leave);
             // 
-            // picAdm
-            // 
-            this.picAdm.Location = new System.Drawing.Point(334, 58);
-            this.picAdm.Name = "picAdm";
-            this.picAdm.Size = new System.Drawing.Size(29, 19);
-            this.picAdm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picAdm.TabIndex = 27;
-            this.picAdm.TabStop = false;
-            // 
-            // picName
-            // 
-            this.picName.Location = new System.Drawing.Point(334, 96);
-            this.picName.Name = "picName";
-            this.picName.Size = new System.Drawing.Size(29, 19);
-            this.picName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picName.TabIndex = 28;
-            this.picName.TabStop = false;
-            // 
-            // picUnitCode
-            // 
-            this.picUnitCode.Location = new System.Drawing.Point(334, 133);
-            this.picUnitCode.Name = "picUnitCode";
-            this.picUnitCode.Size = new System.Drawing.Size(29, 19);
-            this.picUnitCode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picUnitCode.TabIndex = 28;
-            this.picUnitCode.TabStop = false;
-            // 
-            // picUnitName
-            // 
-            this.picUnitName.AccessibleDescription = "d";
-            this.picUnitName.Location = new System.Drawing.Point(334, 176);
-            this.picUnitName.Name = "picUnitName";
-            this.picUnitName.Size = new System.Drawing.Size(29, 19);
-            this.picUnitName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picUnitName.TabIndex = 28;
-            this.picUnitName.TabStop = false;
-            // 
             // lblAdmNo
             // 
             this.lblAdmNo.AutoSize = true;
@@ -629,6 +593,53 @@
             this.txtAdm.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.txtAdm.TextChanged += new System.EventHandler(this.txtAdm_TextChanged_1);
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(457, 417);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(96, 23);
+            this.btnSave.TabIndex = 31;
+            this.btnSave.Text = "Save DG Values";
+            this.btnSave.UseSelectable = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // picUnitName
+            // 
+            this.picUnitName.AccessibleDescription = "d";
+            this.picUnitName.Location = new System.Drawing.Point(334, 176);
+            this.picUnitName.Name = "picUnitName";
+            this.picUnitName.Size = new System.Drawing.Size(29, 19);
+            this.picUnitName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picUnitName.TabIndex = 28;
+            this.picUnitName.TabStop = false;
+            // 
+            // picUnitCode
+            // 
+            this.picUnitCode.Location = new System.Drawing.Point(334, 133);
+            this.picUnitCode.Name = "picUnitCode";
+            this.picUnitCode.Size = new System.Drawing.Size(29, 19);
+            this.picUnitCode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picUnitCode.TabIndex = 28;
+            this.picUnitCode.TabStop = false;
+            // 
+            // picName
+            // 
+            this.picName.Location = new System.Drawing.Point(334, 96);
+            this.picName.Name = "picName";
+            this.picName.Size = new System.Drawing.Size(29, 19);
+            this.picName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picName.TabIndex = 28;
+            this.picName.TabStop = false;
+            // 
+            // picAdm
+            // 
+            this.picAdm.Location = new System.Drawing.Point(334, 58);
+            this.picAdm.Name = "picAdm";
+            this.picAdm.Size = new System.Drawing.Size(29, 19);
+            this.picAdm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picAdm.TabIndex = 27;
+            this.picAdm.TabStop = false;
+            // 
             // admNoDataGridViewTextBoxColumn
             // 
             this.admNoDataGridViewTextBoxColumn.DataPropertyName = "AdmNo";
@@ -681,16 +692,6 @@
             // 
             this.attendanceReportBindingSource.DataSource = typeof(MMUSIS1.AttendanceReport);
             // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(457, 417);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(96, 23);
-            this.btnSave.TabIndex = 31;
-            this.btnSave.Text = "Save DG Values";
-            this.btnSave.UseSelectable = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
             // studAttendancerpt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -726,14 +727,15 @@
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.metroLabel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "studAttendancerpt";
             this.Text = "Student Attendance Report";
             this.Load += new System.EventHandler(this.studAttendancerpt_Load);
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picAdm)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picName)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picUnitCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picUnitName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picUnitCode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAdm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.attendanceReportBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
