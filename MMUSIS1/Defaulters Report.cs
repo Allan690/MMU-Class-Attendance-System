@@ -49,13 +49,7 @@ namespace MMUSIS1
             AutoCompleteUnitCode();
             AutoCompleteCourseCode();
         }
-        //private class Units
-        //{
-        //    public int UnitID { get; set; }
-        //    public string UnitCode { get; set; }
-        //    public string UnitName { get; set; }
-        //    public string Course { get; set; }
-        //}
+       
         void AutoCompleteUnitCode()
         {
             AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
@@ -328,20 +322,7 @@ namespace MMUSIS1
         {
             regexp(@"^(\s|\S)*(\S)+(\s|\S)*$", txtVenue, picVenue, lblVenue, "");
         }
-        void testing()
-        {
-            foreach(DataGridViewRow dr in metroGrid1.Rows)
-            {
-                foreach(DataGridViewCell dc in dr.Cells)
-                {
-                    if (dc.Value == ""||dc.Value.ToString().Trim()=="")
-                    {
-                        MessageBox.Show("There's a null object");
-                        return;
-                    }
-                }
-            }
-        }
+       
         void newCode()
         {
             DialogResult dr = MessageBox.Show("Do you want to save the list of defaulters?", "Save Records?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -396,6 +377,7 @@ namespace MMUSIS1
         {
             newCode();
         }
+
     }
 
     }

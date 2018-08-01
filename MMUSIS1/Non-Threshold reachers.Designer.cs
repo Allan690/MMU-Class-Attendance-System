@@ -34,6 +34,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Non_Threshold_reachers));
             this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.attendanceReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtCourse = new MetroFramework.Controls.MetroTextBox();
             this.txtDOB = new MetroFramework.Controls.MetroTextBox();
             this.txtUnit = new MetroFramework.Controls.MetroTextBox();
@@ -58,20 +67,11 @@
             this.picName = new System.Windows.Forms.PictureBox();
             this.picAdmNo = new System.Windows.Forms.PictureBox();
             this.picLesson = new System.Windows.Forms.PictureBox();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.attendanceReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attendanceReportBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAdmNo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLesson)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.attendanceReportBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // metroGrid1
@@ -112,7 +112,7 @@
             this.metroGrid1.EnableHeadersVisualStyles = false;
             this.metroGrid1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.metroGrid1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.metroGrid1.Location = new System.Drawing.Point(-5, 224);
+            this.metroGrid1.Location = new System.Drawing.Point(23, 224);
             this.metroGrid1.Name = "metroGrid1";
             this.metroGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -125,9 +125,61 @@
             this.metroGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.metroGrid1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.metroGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.metroGrid1.Size = new System.Drawing.Size(716, 182);
+            this.metroGrid1.Size = new System.Drawing.Size(681, 182);
             this.metroGrid1.TabIndex = 73;
             this.metroGrid1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGrid1_CellContentClick);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "AdmNo";
+            this.dataGridViewTextBoxColumn1.HeaderText = "AdmNo";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "FullName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "FullName";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "DOB";
+            this.dataGridViewTextBoxColumn3.HeaderText = "DOB";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "Gender";
+            this.dataGridViewCheckBoxColumn1.HeaderText = "Gender";
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Unit";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Unit";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Course";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Course";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Faculty";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Faculty";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Total_Attendance";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Total_Attendance";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // attendanceReportBindingSource
+            // 
+            this.attendanceReportBindingSource.DataSource = typeof(MMUSIS1.AttendanceReport);
             // 
             // txtCourse
             // 
@@ -325,7 +377,7 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(299, 196);
+            this.lblName.Location = new System.Drawing.Point(305, 195);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(0, 17);
             this.lblName.TabIndex = 66;
@@ -334,7 +386,7 @@
             // 
             this.lblAdm.AutoSize = true;
             this.lblAdm.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdm.Location = new System.Drawing.Point(281, 147);
+            this.lblAdm.Location = new System.Drawing.Point(302, 150);
             this.lblAdm.Name = "lblAdm";
             this.lblAdm.Size = new System.Drawing.Size(0, 17);
             this.lblAdm.TabIndex = 65;
@@ -343,7 +395,7 @@
             // 
             this.lblLesson.AutoSize = true;
             this.lblLesson.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLesson.Location = new System.Drawing.Point(299, 101);
+            this.lblLesson.Location = new System.Drawing.Point(302, 101);
             this.lblLesson.Name = "lblLesson";
             this.lblLesson.Size = new System.Drawing.Size(0, 17);
             this.lblLesson.TabIndex = 64;
@@ -476,7 +528,7 @@
             // 
             // metroButton2
             // 
-            this.metroButton2.Location = new System.Drawing.Point(608, 422);
+            this.metroButton2.Location = new System.Drawing.Point(601, 421);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(103, 23);
             this.metroButton2.TabIndex = 51;
@@ -552,63 +604,11 @@
             this.picLesson.TabIndex = 61;
             this.picLesson.TabStop = false;
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "AdmNo";
-            this.dataGridViewTextBoxColumn1.HeaderText = "AdmNo";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "FullName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "FullName";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "DOB";
-            this.dataGridViewTextBoxColumn3.HeaderText = "DOB";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "Gender";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "Gender";
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Unit";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Unit";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Course";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Course";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Faculty";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Faculty";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Total_Attendance";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Total_Attendance";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // attendanceReportBindingSource
-            // 
-            this.attendanceReportBindingSource.DataSource = typeof(MMUSIS1.AttendanceReport);
-            // 
             // Non_Threshold_reachers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(728, 467);
+            this.ClientSize = new System.Drawing.Size(734, 458);
             this.Controls.Add(this.metroGrid1);
             this.Controls.Add(this.txtCourse);
             this.Controls.Add(this.txtDOB);
@@ -639,10 +639,10 @@
             this.Text = "Non-Threshold reachers";
             this.Load += new System.EventHandler(this.Non_Threshold_reachers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attendanceReportBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAdmNo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLesson)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.attendanceReportBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

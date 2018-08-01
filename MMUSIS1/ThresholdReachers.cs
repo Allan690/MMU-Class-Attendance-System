@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using DGVPrinterHelper;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System;
@@ -41,19 +42,23 @@ namespace MMUSIS1
         }
         private void ThresholdReachers_Load(object sender, EventArgs e)
         {
+            AutoCompleteAdmNo();
+            AutoCompleteUnitCode();
             txtName.Enabled = false;
+            txtUnitName.Enabled = false;
             txtTotal.Visible = false;
             txtGender.Visible = false;
             txtDOB.Visible = false;
             txtFaculty.Visible = false;
             txtCourse.Visible = false;
             txtUnit.Visible = false;
+            metroButton2.Enabled = false;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
             {
                 if (db.State == ConnectionState.Closed)
                     db.Open();
-                string query = "select s.AdmNo, t.FullName, s.Unit, s.Course, s.Faculty, t.DOB, t.[Year],t.Gender from StudAttendance s inner join Students t on s.AdmNo=t.AdmNo";
-                attendanceReportBindingSource.DataSource = db.Query<Students>(query, commandType: CommandType.Text);
+                string query = "select s.AdmNo, t.FullName, t.DOB, s.Unit, s.Course, s.Faculty, t.[Year],t.Gender from StudAttendance s inner join Students t on s.AdmNo=t.AdmNo";
+                thresholdBindingSource.DataSource = db.Query<Threshold>(query, commandType: CommandType.Text);
               
             }
 
@@ -66,170 +71,209 @@ namespace MMUSIS1
 
         private void metroGrid1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+           
         }
         Document doc = new iTextSharp.text.Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
         private void metroButton2_Click(object sender, EventArgs e)
         {
-            if (metroGrid1.Rows.Count != 0 && metroGrid1.Rows != null)
-            {
-                try
-                {
-                    SaveFileDialog SavePdfDialog = new SaveFileDialog();
-                    Stream stream;
-                    SavePdfDialog.Filter = "PDF File (*.pdf)|*.pdf|All files(*.*)|*.*";
-                    SavePdfDialog.FilterIndex = 1;
-                    SavePdfDialog.RestoreDirectory = true;
-                    SavePdfDialog.FileName = txtName.Text;
-
-                    if (SavePdfDialog.ShowDialog() == DialogResult.OK)
-                    {
-                        if ((stream = SavePdfDialog.OpenFile()) != null)
-
-                        {
-                            PdfWriter wri = PdfWriter.GetInstance(doc, stream);
-                            DateTime dt = DateTime.Now;
-
-                            doc.Open(); //Open document to write
-                                        //HowManyLessons ls = new HowManyLessons();
-                                        // ls.ShowDialog();
-                            iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(@"C:\Users\FRED\Documents\Visual Studio 2015\WebSites\Testing\Image\mmu1.jpeg");
-                            img.ScalePercent(50f);
-                            img.IndentationLeft = 150f;
-
-                            img.SetAbsolutePosition(doc.PageSize.Width - 500f - 72f, doc.PageSize.Height - -80f - 216.6f);
-                            doc.Add(img);
-                            //Write some content                      
-                            Paragraph par = new Paragraph("MULTIMEDIA UNIVERSITY OF KENYA.", new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL, 18f, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.BLUE));
-                            Paragraph par5 = new Paragraph("P.O. Box 15653 - 00503, Mbagathi, Nairobi Tel: +254 020 2071391, +254 020 724257083, + 254 020 735900008", new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL, 14f, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.BLUE));
-                            Paragraph par6 = new Paragraph("Fax: +254 020 2071243 Email: info@mmu.ac.ke Leader in Innovative Technology", new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL, 14f, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.BLUE));
-                            Paragraph par7 = new Paragraph("\n MMU CLASS ATTENDANCE REPORT\n\n", new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL, 14f, iTextSharp.text.Font.BOLDITALIC, iTextSharp.text.BaseColor.BLACK));
-                            Paragraph par1 = new Paragraph("Name: " + txtName.Text + "\n Admission Number: " + txtAdm.Text);
-                            Paragraph par3 = new Paragraph("\n\n\n");
-                            Paragraph par4 = new Paragraph("\n\n");
-
-                            //Adding a table to the document
-                            PdfPTable table = new PdfPTable(2);
-                            PdfPCell cell = new PdfPCell(new Phrase("THRESHOLD REACHER REPORT FOR:" + txtAdm.Text));
-                            cell.Colspan = 2;
-                            cell.HorizontalAlignment = 1;
-                            table.AddCell(cell);
-
-                            table.AddCell("Name:");
-                            table.AddCell(txtName.Text);
-                            table.AddCell("Admission Number:");
-                            table.AddCell(txtAdm.Text);
-                            table.AddCell("Gender:");
-                            table.AddCell(txtGender.Text);
-                            table.AddCell("Date Of Birth:");
-                            table.AddCell(txtDOB.Text);
-                            table.AddCell("Course:");
-                            table.AddCell(txtCourse.Text);
-                            table.AddCell("Faculty:");
-                            table.AddCell(txtFaculty.Text);
-                            table.AddCell("Unit Name:");
-                            table.AddCell(txtUnit.Text);
-                            table.AddCell("Total Attendance:");
-                            table.AddCell(txtTotal.Text);
-                            table.AddCell("From Date:");
-                            table.AddCell(dtFrom.Value.ToString());
-                            table.AddCell("To Date:");
-                            table.AddCell(dtTo.Value.ToString());
-
-
-                            Paragraph par2 = new Paragraph("\n\n\nSignature .....................");
-                            Paragraph par9 = new Paragraph("This Student Has Attended Enough Classes To Merit The Reception Of An Exam Card");
-
-
-                            //iTextSharp.text.Image img1 = iTextSharp.text.Image.GetInstance(txtName.Text + ".jpg");
-                            //img1.ScalePercent(40f);
-                            //img1.SetAbsolutePosition(doc.PageSize.Width - 50f - 72f, doc.PageSize.Height - 36f - 216.6f);
-                            //doc.Add(img1);
-                            par.IndentationLeft = 200f;
-                            par1.IndentationLeft = 150f;
-                            par2.IndentationLeft = 420f;
-                            par5.IndentationLeft = 150f;
-                            par6.IndentationLeft = 150f;
-                            par7.IndentationLeft = 150f;
-                            par9.IndentationLeft = 130f;
-
-                            // Now add the above created text using different class object to our pdf document
-                            doc.Add(par);
-
-                            doc.Add(par5);
-                            doc.Add(par6);
-                            doc.Add(par4);
-                            doc.Add(par7);
-                            doc.Add(par1);
-                            doc.Add(par3);
-                            doc.Add(table);
-
-                            doc.Add(par2);
-
-                            Paragraph ph = new Paragraph(doc.BottomMargin, "\n\n\nMultimedia University Class Attendance System \u00a9 2018 " + dt);
-                            ph.IndentationLeft = 130f;
-
-                            doc.Add(ph);
-
-                            doc.Close();//close the document
-                            wri.Close();
-                            stream.Close();
-                            System.Diagnostics.Process.Start(SavePdfDialog.FileName);
-                        }
-                    }
-                }
-
-
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-            else
-            {
-                MessageBox.Show("The Student has not reached the required threshold!");
-            }
+            //  thisisit();
+            DGVPrinter printer = new DGVPrinter();
+            printer.Title = "TR REPORT: From "+dtFrom.Value.ToShortDateString()+" To: "+dtTo.Value.ToShortDateString()+"";
+            printer.SubTitle = string.Format("Date: {0}", DateTime.Now);
+            printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
+            printer.PageNumbers = true;
+            printer.PageNumberInHeader = false;
+            printer.PorportionalColumns = true;
+            printer.HeaderCellAlignment = StringAlignment.Near;
+            printer.Footer = "Multimedia University Class Attendance System (c) 2018";
+            printer.FooterSpacing = 15;
+            printer.PrintDataGridView(metroGrid1);
 
         }
 
-        private void metroButton4_Click(object sender, EventArgs e)
-        {
-            if (txtLesson.Text != "")
-            {
 
-                using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+        void AutoCompleteAdmNo()
+        {
+            AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+            using (SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("Select AdmNo from Students", db);
+                db.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
                 {
-                    if (db.State == ConnectionState.Closed)
-                        db.Open();
-                    string query = "select b.AdmNo, c.FullName, b.Unit, b.Course, b.Faculty, c.DOB, c.[Year],c.Gender,count(b.AdmNo) AS Total_Attendance from StudAttendance b inner join Students c on b.AdmNo=c.AdmNo where StudDate >= '" + dtFrom.Value.ToString() + "' and StudDate <= '" + dtTo.Value.ToString() + "' and b.AdmNo = '" + txtAdm.Text.ToString() + "'GROUP BY b.AdmNo, c.FullName, b.Unit, b.Course, b.Faculty, c.DOB, c.[Year],c.Gender having COUNT(b.AdmNo)>=" + txtLesson.Text;
-                    attendanceReportBindingSource.DataSource = db.Query<AttendanceReport>(query, commandType: CommandType.Text);
+                    coll.Add(reader.GetString(0));
+                }
+                txtAdm.AutoCompleteCustomSource = coll;
+            }
+        }
+        void AutoCompleteUnitCode()
+        {
+            AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+            using (SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("Select UnitCode from Units", db);
+                db.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    coll.Add(reader.GetString(0));
+                }
+                txtUnitCode.AutoCompleteCustomSource = coll;
+            }
+        }
+
+        void AutoFillStudName()
+        {
+            AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+            using (SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("Select FullName from Students where AdmNo='" + txtAdm.Text + "'", db);
+                db.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    string sName = reader.GetString(0);
+                    txtName.Text = sName;
                 }
             }
-            else
+        }
+
+        void AutoFillUnitName()
+        {
+            AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+            using (SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
             {
-                MessageBox.Show("Please fill the Lessons field");
-                txtLesson.Focus();
+                SqlCommand cmd = new SqlCommand("Select UnitName from Units where UnitCode='" + txtUnitCode.Text + "'", db);
+                db.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    string sName = reader.GetString(0);
+                    txtUnitName.Text = sName;
+                }
+            }
+        }
+
+        void AutoFillGender()
+        {
+            AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+            using (SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("Select Gender from Students where AdmNo='" + txtAdm.Text + "'", db);
+                db.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    string sName = reader.GetBoolean(0).ToString();
+                    if (sName == "true")
+                    {
+                        txtGender.Text = "Male";
+                    }
+                    else if(sName == "false")
+                    {
+                        txtGender.Text = "Female";
+                    }
+                    else
+                    {
+                        txtGender.Text = "N/A";
+                    }
+                   
+                }
+            }
+        }
+        void NameFiles(string fullPath)
+        {
+            int count = 1;
+            string fileNameOnly = Path.GetFileNameWithoutExtension(fullPath);
+            string extension = Path.GetExtension(fullPath);
+            string path = Path.GetDirectoryName(fullPath);
+            string newfullpath = fullPath;
+            while (File.Exists(newfullpath))
+            {
+                string tempFileName = string.Format("{0}({1})", fileNameOnly, count++);
+                newfullpath = Path.Combine(path, tempFileName + extension);
+              
+            }
+
+        }
+        private void metroButton4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtLesson.Text != "" &&txtAdm.Text==""&& txtUnitCode.Text!="")
+                {
+                    DelFields();
+                    using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+                    {
+                        try
+                        {
+                            if (db.State == ConnectionState.Closed)
+                                db.Open();
+                            
+                            string query = "select s.AdmNo, t.FullName, s.Unit, s.Course, s.Faculty, t.DOB, t.[Year],t.Gender from StudAttendance s inner join Students t on s.AdmNo=t.AdmNo " +
+                               $"where StudDate between '{dtFrom.Value}' and  '{dtTo.Value}' and s.Unit='"+txtUnitName.Text+"' GROUP BY  s.AdmNo, t.FullName, s.Unit, s.Course, s.Faculty, t.DOB, t.[Year],t.Gender having COUNT(s.AdmNo)/ " + txtLesson.Text+"* 100>=67";
+
+                            thresholdBindingSource.DataSource = db.Query<Threshold>(query, commandType: CommandType.Text);
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                    }
+                }
+                else if(txtLesson.Text != "" && txtAdm.Text != "" && txtUnitCode.Text != "")
+                {
+                    try
+                    {
+                        pickTotal();
+                        DeleteFields();
+                        using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+                        {
+                            if (db.State == ConnectionState.Closed)
+                                db.Open();
+                            string query = "select b.AdmNo, c.FullName, b.Unit, b.Course, b.Faculty, c.DOB, c.[Year],c.Gender,count(b.AdmNo) AS Total_Attendance " +
+                                "from StudAttendance b inner join Students c on b.AdmNo=c.AdmNo " +
+                                $"where StudDate between '{dtFrom.Value}' and  '{dtTo.Value}' and b.AdmNo = '" + txtAdm.Text.ToString() + "' and b.Unit='" + txtUnitName.Text.ToString() + "' GROUP BY b.AdmNo, c.FullName, b.Unit, b.Course, b.Faculty, c.DOB, c.[Year],c.Gender having COUNT(b.AdmNo)>=" + txtLesson.Text;
+                            thresholdBindingSource.DataSource = db.Query<Threshold>(query, commandType: CommandType.Text);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+                else if(txtLesson.Text=="")
+                {
+                    MessageBox.Show("Please fill the Lessons field");
+                    txtLesson.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void txtLesson_Leave(object sender, EventArgs e)
         {
-            regexp(@"^(\s|\S)*(\S)+(\s|\S)*$", txtLesson, picLesson, lblLesson, "");
+            regexp(@"^(\s|\S)*(\S)+(\s|\S)*$", txtLesson, picLesson, lblLessons, "");
         }
 
         private void txtAdm_Leave(object sender, EventArgs e)
         {
-            regexp(@"^(\s|\S)*(\S)+(\s|\S)*$", txtAdm, picAdmNo, lblAdm, "");
+            regexp(@"^(\s|\S)*(\S)+(\s|\S)*$", txtAdm, picAdmNo, lblAdmNo, "");
         }
 
         private void txtName_Leave(object sender, EventArgs e)
         {
-            regexp(@"^(\s|\S)*(\S)+(\s|\S)*$", txtName, picName, lblName, "");
+            regexp(@"^(\s|\S)*(\S)+(\s|\S)*$", txtName, picName, lblStudName, "");
         }
 
         private void dtFrom_ValueChanged(object sender, EventArgs e)
         {
-            regexp(@"^(\s|\S)*(\S)+(\s|\S)*$", txtLesson, picLesson, lblLesson, "");
+            regexp(@"^(\s|\S)*(\S)+(\s|\S)*$", txtLesson, picLesson, lblLessons, "");
         }
 
         private void metroGrid1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
@@ -255,9 +299,220 @@ namespace MMUSIS1
                 txtFaculty.Text = row.Cells[6].Value.ToString();
                 txtCourse.Text = row.Cells[5].Value.ToString();
                 txtUnit.Text = row.Cells[4].Value.ToString();
-                txtTotal.Text = row.Cells[7].Value.ToString();
+                //txtTotal.Text = row.Cells[7].Value.ToString();
 
             }
         }
+
+        
+        void DelFields()
+        {
+            using (SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("delete a from StudAttendance a inner join Defaulterstbl b on a.AdmNo= b.AdmNo where a.AdmNo= b.AdmNo and a.Unit = b.Unit and a.StudDate = b.StudDate", db);
+                db.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                //UpdateSuccess ups = new UpdateSuccess();
+                //ups.ShowDialog();
+            }
+        }
+        void DeleteFields()
+        {
+            try
+            {
+                using (SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("delete a from StudAttendance a inner join Defaulterstbl b on a.AdmNo= b.AdmNo where a.AdmNo='"+txtAdm.Text+"' and a.Unit ='"+txtUnitName.Text+"' and a.StudDate = b.StudDate", db);
+                    db.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();                   
+                    //UpdateSuccess ups = new UpdateSuccess();
+                    //ups.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+        void pickTotal()
+        {
+            try
+            {
+                using (SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("select (select count(AdmNo) from StudAttendance where Unit ='"+txtUnitName.Text+"' and AdmNo='"+txtAdm.Text+"')-(select count(AdmNo) from Defaulterstbl where Unit ='"+txtUnitName.Text+"' and AdmNo='"+txtAdm.Text+"') as count1", db);
+                    db.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        string sName = reader.GetInt32(0).ToString();
+                        txtTotal.Text = sName;
+                    }
+                   
+                }
+            }   
+            catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }               
+            
+        }
+        void newCode()
+        {
+            DialogResult dr = MessageBox.Show("Do you want to save the list for preparation of exam card?", "Save Records?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dr == DialogResult.Yes)
+            {
+                try
+                {
+
+                    for (int i = 0; i < metroGrid1.Rows.Count - 1; i++)
+                    {
+                        string AdmNo = metroGrid1.Rows[i].Cells[0].Value.ToString();                        
+                        string Unit = metroGrid1.Rows[i].Cells[3].Value.ToString();
+                        SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString);
+                        db.Open();
+                        string sql = "insert into ExamCardtbl(AdmNo, UnitCode) values(@admno,@unit)";
+                        SqlCommand cmd = new SqlCommand(sql);
+                        cmd.Connection = db;
+                        cmd.Parameters.AddWithValue("@admno", AdmNo);
+                        cmd.Parameters.AddWithValue("@unit", Unit);
+                        cmd.ExecuteNonQuery();
+                        db.Close();
+                    }
+                    UpdateSuccess ups = new UpdateSuccess();
+                    ups.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+
+        }
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            newCode();
+        }
+
+        private void metroGrid1_CellContentClick_3(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        void saveDgvVals()
+        {
+            
+                DialogResult dr = MessageBox.Show("Do you want to save the list of d?", "Save Records?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (dr == DialogResult.Yes)
+                {
+                    try
+                    {
+
+                        for (int i = 0; i < metroGrid1.Rows.Count - 1; i++)
+                        {
+                            string AdmNo = metroGrid1.Rows[i].Cells[0].Value.ToString();
+                            string FullName = metroGrid1.Rows[i].Cells[1].Value.ToString();
+                        string DOB = metroGrid1.Rows[i].Cells[2].Value.ToString();
+                      // // string Geolocation = metroGrid1.Rows[i].Cells[2].Value.ToString();
+                             string Gender = metroGrid1.Rows[i].Cells[3].Value.ToString();
+                             //string StudDate = metroGrid1.Rows[i].Cells[3].Value.ToString();
+                            string Unit = metroGrid1.Rows[i].Cells[4].Value.ToString();
+                            string Course = metroGrid1.Rows[i].Cells[5].Value.ToString();
+                            string Faculty = metroGrid1.Rows[i].Cells[6].Value.ToString();
+                        string fromDate = dtFrom.Value.ToShortDateString();
+                        string toDate = dtTo.Value.ToShortDateString();
+
+                        }
+                       
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+
+            }
+        void AutoFillDOB()
+        {
+            AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+            using (SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("Select DOB from Students where AdmNo='"+txtAdm.Text+"'", db);
+                db.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                { 
+                    string sName = reader.GetDateTime(0).ToShortDateString();
+                    txtDOB.Text = sName;
+                }
+                
+            }
+        }
+        void AutoFillCourse()
+        {
+            AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+            using (SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("Select CourseName from Courses", db);
+                db.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    string sName = reader.GetString(0);
+                    txtCourse.Text = sName;
+                }
+              //  txtCourse.AutoCompleteCustomSource = coll;
+            }
+        }
+        void AutoFillFaculty()
+        {
+            AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+            using (SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("select Faculty from StudAttendance where AdmNo='"+txtAdm.Text+"'", db);
+                db.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    string sName = reader.GetString(0);
+                    txtFaculty.Text = sName;
+                }
+                //  txtCourse.AutoCompleteCustomSource = coll;
+            }
+        }
+
+        private void txtAdm_TextChanged(object sender, EventArgs e)
+        {
+            AutoFillStudName();
+            AutoFillGender();
+            AutoFillDOB();
+            AutoFillFaculty();
+            AutoFillCourse();
+        }
+
+        private void txtUnitCode_TextChanged(object sender, EventArgs e)
+        {
+            regexp(@"^(\s|\S)*(\S)+(\s|\S)*$", txtUnitCode, picUnitCode, lblUnitCode, "");
+            AutoFillUnitName();
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        { 
+            regexp(@"^(\s|\S)*(\S)+(\s|\S)*$", txtName, picName, lblStudName, "");
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime dt = DateTime.Now;
+
+        }
+
+        private void txtUnitCode_Leave(object sender, EventArgs e)
+        {
+            regexp(@"^(\s|\S)*(\S)+(\s|\S)*$", txtUnitCode, picUnitCode, lblUnitCode, "");
+        }
     }
-}
+    }
+

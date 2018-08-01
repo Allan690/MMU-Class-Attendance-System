@@ -267,6 +267,8 @@
     <Compile Include="ExamCard Report.Designer.cs">
       <DependentUpon>ExamCard Report.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExamCard.cs" />
+    <Compile Include="ExamCardrpt.cs" />
     <Compile Include="formError.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -303,6 +305,7 @@
     <Compile Include="studAttendancerpt.Designer.cs">
       <DependentUpon>studAttendancerpt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Threshold.cs" />
     <Compile Include="ThresholdReachers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -557,10 +560,13 @@
     <None Include="Properties\DataSources\Admins.datasource" />
     <None Include="Properties\DataSources\AttendanceReport.datasource" />
     <None Include="Properties\DataSources\Defaulters.datasource" />
+    <None Include="Properties\DataSources\ExamCard.datasource" />
+    <None Include="Properties\DataSources\ExamCardrpt.datasource" />
     <None Include="Properties\DataSources\MMUSIS1.UserControls.addUnitUC.datasource" />
     <None Include="Properties\DataSources\StudAttendance.datasource" />
     <None Include="Properties\DataSources\StudentAttendance.datasource" />
     <None Include="Properties\DataSources\Students.datasource" />
+    <None Include="Properties\DataSources\Threshold.datasource" />
     <None Include="Properties\DataSources\ThresholdReachers.datasource" />
     <None Include="Properties\DataSources\Thresholdreport.datasource" />
     <None Include="Properties\DataSources\Units.datasource" />
