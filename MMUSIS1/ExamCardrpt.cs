@@ -9,7 +9,7 @@ namespace MMUSIS1
     class ExamCardrpt
     {
         public string AdmNo { get; set; }
-        public string Unit { get; set; }
+        public string UnitName { get; set; }
         public string UnitCode { get; set; }
     }
 }

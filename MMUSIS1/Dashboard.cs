@@ -180,18 +180,7 @@ namespace MMUSIS1
         {
             button8.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
         }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            settingsUC1.BringToFront();
-            lblAddStud.Text = "Settings Panel";
-        }
-
-        private void settingsUC1_MouseEnter(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void label1_MouseEnter(object sender, EventArgs e)
         {
             label1.BackColor = System.Drawing.Color.Gold;

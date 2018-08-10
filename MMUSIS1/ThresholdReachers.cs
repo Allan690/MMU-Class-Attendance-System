@@ -107,6 +107,7 @@ namespace MMUSIS1
                 txtAdm.AutoCompleteCustomSource = coll;
             }
         }
+
         void AutoCompleteUnitCode()
         {
             AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
@@ -373,7 +374,7 @@ namespace MMUSIS1
                         string Unit = metroGrid1.Rows[i].Cells[3].Value.ToString();
                         SqlConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString);
                         db.Open();
-                        string sql = "insert into ExamCardtbl(AdmNo, UnitCode) values(@admno,@unit)";
+                        string sql = "insert into ExamCardtbl(AdmNo, UnitName) values(@admno,@unit)";
                         SqlCommand cmd = new SqlCommand(sql);
                         cmd.Connection = db;
                         cmd.Parameters.AddWithValue("@admno", AdmNo);

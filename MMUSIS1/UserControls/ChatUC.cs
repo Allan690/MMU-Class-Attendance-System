@@ -72,7 +72,10 @@ namespace MMUSIS1.UserControls
                 {
                     txtSentSuccess txt = new txtSentSuccess();
                     txt.ShowDialog();
-                   // MessageBox.Show("Message successfully sent!");
+                    txtMessage.Clear();
+                    txtName.Clear();
+                    txtPassword.Clear();
+                    txtReceiverNo.Clear();
                 }
                 else
                 {

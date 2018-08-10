@@ -256,43 +256,52 @@ namespace MMUSIS1.UserControls
             printer.PrintDataGridView(metroGrid1);
 
         }
-
+        
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try
+            if (txtAdmNo.Text == "" || txtCourse.Text == "" || txtName.Text == "" || txtYear.Text == "")
             {
-                studentsBindingSource.EndEdit();
-                Students stud = studentsBindingSource.Current as Students;
-                using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
-                {
-
-                    if (stud != null)
-                    {
-                        if (db.State == ConnectionState.Closed)
-                            db.Open();
-                        if (objstud == EntityStateStud.Added)
-                        {
-                            DynamicParameters p = new DynamicParameters();
-                            p.Add("@StudID", dbType: DbType.Int32, direction: ParameterDirection.Output);
-                            p.AddDynamicParams(new { AdmNo = stud.AdmNo, FullName = stud.FullName, DOB = stud.DOB, Gender = stud.Gender, Course = stud.Course, Year = stud.Year, Imageurl = stud.Imageurl });
-                            db.Execute("StudInsert", p, commandType: CommandType.StoredProcedure);
-                            stud.StudID = p.Get<int>("@StudID");
-                            MetroFramework.MetroMessageBox.Show(this, "Student was successfully added.", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-
-                    }
-                    else if (objstud == EntityStateStud.Changed)
-                    {
-                        db.Execute("StudUpdate", new { StudID = stud.StudID, AdmNo = stud.AdmNo, FullName = stud.FullName, DOB = stud.DOB, Gender = stud.Gender, Course = stud.Course, Year = stud.Year, Imageurl = stud.Imageurl }, commandType: CommandType.StoredProcedure);
-                    }
-                    metroGrid1.Refresh();
-                    pContainer.Enabled = false;
-                    objstud = EntityStateStud.Unchanged;
-                }
+                formError frm = new formError();
+                frm.ShowDialog();
+                return;
             }
-            catch (Exception ex)
+            else
             {
-                MetroFramework.MetroMessageBox.Show(this, ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                try
+                {
+                    studentsBindingSource.EndEdit();
+                    Students stud = studentsBindingSource.Current as Students;
+                    using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+                    {
+
+                        if (stud != null)
+                        {
+                            if (db.State == ConnectionState.Closed)
+                                db.Open();
+                            if (objstud == EntityStateStud.Added)
+                            {
+                                DynamicParameters p = new DynamicParameters();
+                                p.Add("@StudID", dbType: DbType.Int32, direction: ParameterDirection.Output);
+                                p.AddDynamicParams(new { AdmNo = stud.AdmNo, FullName = stud.FullName, DOB = stud.DOB, Gender = stud.Gender, Course = stud.Course, Year = stud.Year, Imageurl = stud.Imageurl });
+                                db.Execute("StudInsert", p, commandType: CommandType.StoredProcedure);
+                                stud.StudID = p.Get<int>("@StudID");
+                                MetroFramework.MetroMessageBox.Show(this, "Student was successfully added.", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+
+                        }
+                        else if (objstud == EntityStateStud.Changed)
+                        {
+                            db.Execute("StudUpdate", new { StudID = stud.StudID, AdmNo = stud.AdmNo, FullName = stud.FullName, DOB = stud.DOB, Gender = stud.Gender, Course = stud.Course, Year = stud.Year, Imageurl = stud.Imageurl }, commandType: CommandType.StoredProcedure);
+                        }
+                        metroGrid1.Refresh();
+                        pContainer.Enabled = false;
+                        objstud = EntityStateStud.Unchanged;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MetroFramework.MetroMessageBox.Show(this, ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

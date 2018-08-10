@@ -170,11 +170,7 @@ namespace MMUSIS1
                 ms.Position = 0;
                 ms.Read(photo_array, 0, photo_array.Length);
                 param.Add("@qrcode", photo_array);
-                //List<Students> list = db.Query<Students>
-                //    ("UpdateQR", param, commandType: CommandType.StoredProcedure).ToList<Students>();
-                db.Execute("UpdateQR", param, commandType: CommandType.StoredProcedure);
-                //db.Execute("UpdateQR", new { AdmNo = obj.AdmNo, Imageurl = obj.Imageurl }, commandType: CommandType.StoredProcedure);
-                // metroGrid1.DataSource = list;
+                db.Execute("UpdateQR", param, commandType: CommandType.StoredProcedure);                
                 filldatagridview();
                 UpdateSuccess up = new UpdateSuccess();
                 up.ShowDialog();

@@ -326,8 +326,7 @@ namespace MMUSIS1
         void newCode()
         {
             DialogResult dr = MessageBox.Show("Do you want to save the list of defaulters?", "Save Records?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (dr == DialogResult.Yes)
+           if (dr == DialogResult.Yes)
             {
                 try
                 {
@@ -338,7 +337,7 @@ namespace MMUSIS1
                         string FullName = metroGrid1.Rows[i].Cells[1].Value.ToString();
                         string Geolocation = metroGrid1.Rows[i].Cells[2].Value.ToString();
                         string StudDate = metroGrid1.Rows[i].Cells[3].Value.ToString();
-                        string Unit = metroGrid1.Rows[i].Cells[4].Value.ToString();
+                        string Unit = metroGrid1.Rows[i].Cells[4].Value.ToString();       
                         string Course = metroGrid1.Rows[i].Cells[5].Value.ToString();
                         string Faculty = metroGrid1.Rows[i].Cells[6].Value.ToString();
                     

@@ -26,7 +26,9 @@ namespace MMUSIS1.UserControls
 
         private void bunifuFlatButton5_Click(object sender, EventArgs e)
         {
-            
+            ExamCard_Report rpt = new ExamCard_Report();
+            rpt.ShowDialog();
+
         }
 
         private void ReportsUC_Load(object sender, EventArgs e)

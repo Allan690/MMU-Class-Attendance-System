@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExamCard_Report));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtName = new MetroFramework.Controls.MetroTextBox();
             this.txtAdmNo = new MetroFramework.Controls.MetroTextBox();
             this.txtCourseCode = new MetroFramework.Controls.MetroTextBox();
@@ -49,22 +49,25 @@
             this.lblName = new System.Windows.Forms.Label();
             this.lblCourseName = new System.Windows.Forms.Label();
             this.lblCourseCode = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnPrintNonReceivers = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnPrintOne = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnClear = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btnGenerateAll = new Bunifu.Framework.UI.BunifuFlatButton();
             this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
-            this.examCardrptBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtYear = new MetroFramework.Controls.MetroTextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblYear = new System.Windows.Forms.Label();
+            this.picYear = new System.Windows.Forms.PictureBox();
+            this.btnLoad = new MetroFramework.Controls.MetroButton();
+            this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.admNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.examCardrptBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picAdmNo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCourseCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCourseName)).BeginInit();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picYear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.examCardrptBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,7 +86,7 @@
             this.txtName.CustomButton.UseSelectable = true;
             this.txtName.CustomButton.Visible = false;
             this.txtName.Lines = new string[0];
-            this.txtName.Location = new System.Drawing.Point(126, 112);
+            this.txtName.Location = new System.Drawing.Point(126, 129);
             this.txtName.MaxLength = 32767;
             this.txtName.Name = "txtName";
             this.txtName.PasswordChar = '\0';
@@ -94,7 +97,7 @@
             this.txtName.SelectionStart = 0;
             this.txtName.ShortcutsEnabled = true;
             this.txtName.Size = new System.Drawing.Size(237, 23);
-            this.txtName.TabIndex = 0;
+            this.txtName.TabIndex = 1;
             this.txtName.UseSelectable = true;
             this.txtName.WaterMark = "Enter the name of the student";
             this.txtName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -103,6 +106,8 @@
             // 
             // txtAdmNo
             // 
+            this.txtAdmNo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtAdmNo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             // 
             // 
             // 
@@ -116,7 +121,7 @@
             this.txtAdmNo.CustomButton.UseSelectable = true;
             this.txtAdmNo.CustomButton.Visible = false;
             this.txtAdmNo.Lines = new string[0];
-            this.txtAdmNo.Location = new System.Drawing.Point(126, 64);
+            this.txtAdmNo.Location = new System.Drawing.Point(126, 81);
             this.txtAdmNo.MaxLength = 32767;
             this.txtAdmNo.Name = "txtAdmNo";
             this.txtAdmNo.PasswordChar = '\0';
@@ -127,7 +132,7 @@
             this.txtAdmNo.SelectionStart = 0;
             this.txtAdmNo.ShortcutsEnabled = true;
             this.txtAdmNo.Size = new System.Drawing.Size(237, 23);
-            this.txtAdmNo.TabIndex = 1;
+            this.txtAdmNo.TabIndex = 0;
             this.txtAdmNo.UseSelectable = true;
             this.txtAdmNo.WaterMark = "Enter the admission number of the student";
             this.txtAdmNo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -150,7 +155,7 @@
             this.txtCourseCode.CustomButton.UseSelectable = true;
             this.txtCourseCode.CustomButton.Visible = false;
             this.txtCourseCode.Lines = new string[0];
-            this.txtCourseCode.Location = new System.Drawing.Point(126, 160);
+            this.txtCourseCode.Location = new System.Drawing.Point(578, 81);
             this.txtCourseCode.MaxLength = 32767;
             this.txtCourseCode.Name = "txtCourseCode";
             this.txtCourseCode.PasswordChar = '\0';
@@ -161,7 +166,7 @@
             this.txtCourseCode.SelectionStart = 0;
             this.txtCourseCode.ShortcutsEnabled = true;
             this.txtCourseCode.Size = new System.Drawing.Size(237, 23);
-            this.txtCourseCode.TabIndex = 2;
+            this.txtCourseCode.TabIndex = 3;
             this.txtCourseCode.UseSelectable = true;
             this.txtCourseCode.WaterMark = "Enter the course code";
             this.txtCourseCode.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -183,7 +188,7 @@
             this.txtCourseName.CustomButton.UseSelectable = true;
             this.txtCourseName.CustomButton.Visible = false;
             this.txtCourseName.Lines = new string[0];
-            this.txtCourseName.Location = new System.Drawing.Point(126, 215);
+            this.txtCourseName.Location = new System.Drawing.Point(578, 128);
             this.txtCourseName.MaxLength = 32767;
             this.txtCourseName.Name = "txtCourseName";
             this.txtCourseName.PasswordChar = '\0';
@@ -194,7 +199,7 @@
             this.txtCourseName.SelectionStart = 0;
             this.txtCourseName.ShortcutsEnabled = true;
             this.txtCourseName.Size = new System.Drawing.Size(237, 23);
-            this.txtCourseName.TabIndex = 3;
+            this.txtCourseName.TabIndex = 4;
             this.txtCourseName.UseSelectable = true;
             this.txtCourseName.WaterMark = "Enter the course name";
             this.txtCourseName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -205,7 +210,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(52, 115);
+            this.label1.Location = new System.Drawing.Point(52, 132);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 20);
             this.label1.TabIndex = 4;
@@ -215,7 +220,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(52, 64);
+            this.label2.Location = new System.Drawing.Point(52, 80);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 20);
             this.label2.TabIndex = 5;
@@ -225,7 +230,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(11, 163);
+            this.label3.Location = new System.Drawing.Point(459, 84);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(111, 20);
             this.label3.TabIndex = 6;
@@ -235,7 +240,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(9, 218);
+            this.label4.Location = new System.Drawing.Point(459, 128);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(113, 20);
             this.label4.TabIndex = 7;
@@ -243,7 +248,7 @@
             // 
             // picAdmNo
             // 
-            this.picAdmNo.Location = new System.Drawing.Point(379, 64);
+            this.picAdmNo.Location = new System.Drawing.Point(379, 80);
             this.picAdmNo.Name = "picAdmNo";
             this.picAdmNo.Size = new System.Drawing.Size(34, 24);
             this.picAdmNo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -252,7 +257,7 @@
             // 
             // picName
             // 
-            this.picName.Location = new System.Drawing.Point(379, 111);
+            this.picName.Location = new System.Drawing.Point(379, 128);
             this.picName.Name = "picName";
             this.picName.Size = new System.Drawing.Size(34, 24);
             this.picName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -261,7 +266,7 @@
             // 
             // picCourseCode
             // 
-            this.picCourseCode.Location = new System.Drawing.Point(379, 159);
+            this.picCourseCode.Location = new System.Drawing.Point(824, 80);
             this.picCourseCode.Name = "picCourseCode";
             this.picCourseCode.Size = new System.Drawing.Size(34, 24);
             this.picCourseCode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -270,7 +275,7 @@
             // 
             // picCourseName
             // 
-            this.picCourseName.Location = new System.Drawing.Point(379, 214);
+            this.picCourseName.Location = new System.Drawing.Point(824, 127);
             this.picCourseName.Name = "picCourseName";
             this.picCourseName.Size = new System.Drawing.Size(34, 24);
             this.picCourseName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -281,7 +286,7 @@
             // 
             this.lblAdmNo.AutoSize = true;
             this.lblAdmNo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdmNo.Location = new System.Drawing.Point(376, 91);
+            this.lblAdmNo.Location = new System.Drawing.Point(376, 107);
             this.lblAdmNo.Name = "lblAdmNo";
             this.lblAdmNo.Size = new System.Drawing.Size(0, 17);
             this.lblAdmNo.TabIndex = 9;
@@ -290,7 +295,7 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(378, 138);
+            this.lblName.Location = new System.Drawing.Point(378, 154);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(0, 17);
             this.lblName.TabIndex = 10;
@@ -299,7 +304,7 @@
             // 
             this.lblCourseName.AutoSize = true;
             this.lblCourseName.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCourseName.Location = new System.Drawing.Point(376, 241);
+            this.lblCourseName.Location = new System.Drawing.Point(821, 154);
             this.lblCourseName.Name = "lblCourseName";
             this.lblCourseName.Size = new System.Drawing.Size(0, 17);
             this.lblCourseName.TabIndex = 12;
@@ -308,59 +313,10 @@
             // 
             this.lblCourseCode.AutoSize = true;
             this.lblCourseCode.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCourseCode.Location = new System.Drawing.Point(376, 186);
+            this.lblCourseCode.Location = new System.Drawing.Point(821, 107);
             this.lblCourseCode.Name = "lblCourseCode";
             this.lblCourseCode.Size = new System.Drawing.Size(0, 17);
             this.lblCourseCode.TabIndex = 11;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.btnPrintNonReceivers);
-            this.groupBox1.Controls.Add(this.btnPrintOne);
-            this.groupBox1.Controls.Add(this.btnClear);
-            this.groupBox1.Controls.Add(this.btnGenerateAll);
-            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(435, 53);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(428, 174);
-            this.groupBox1.TabIndex = 25;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Print report";
-            // 
-            // btnPrintNonReceivers
-            // 
-            this.btnPrintNonReceivers.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btnPrintNonReceivers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnPrintNonReceivers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnPrintNonReceivers.BorderRadius = 0;
-            this.btnPrintNonReceivers.ButtonText = "Print Non-Receivers";
-            this.btnPrintNonReceivers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPrintNonReceivers.DisabledColor = System.Drawing.Color.Gray;
-            this.btnPrintNonReceivers.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnPrintNonReceivers.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnPrintNonReceivers.Iconimage")));
-            this.btnPrintNonReceivers.Iconimage_right = null;
-            this.btnPrintNonReceivers.Iconimage_right_Selected = null;
-            this.btnPrintNonReceivers.Iconimage_Selected = null;
-            this.btnPrintNonReceivers.IconMarginLeft = 0;
-            this.btnPrintNonReceivers.IconMarginRight = 0;
-            this.btnPrintNonReceivers.IconRightVisible = true;
-            this.btnPrintNonReceivers.IconRightZoom = 0D;
-            this.btnPrintNonReceivers.IconVisible = true;
-            this.btnPrintNonReceivers.IconZoom = 90D;
-            this.btnPrintNonReceivers.IsTab = false;
-            this.btnPrintNonReceivers.Location = new System.Drawing.Point(16, 107);
-            this.btnPrintNonReceivers.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.btnPrintNonReceivers.Name = "btnPrintNonReceivers";
-            this.btnPrintNonReceivers.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnPrintNonReceivers.OnHovercolor = System.Drawing.Color.Olive;
-            this.btnPrintNonReceivers.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnPrintNonReceivers.selected = false;
-            this.btnPrintNonReceivers.Size = new System.Drawing.Size(202, 54);
-            this.btnPrintNonReceivers.TabIndex = 28;
-            this.btnPrintNonReceivers.Text = "Print Non-Receivers";
-            this.btnPrintNonReceivers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPrintNonReceivers.Textcolor = System.Drawing.Color.White;
-            this.btnPrintNonReceivers.TextFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // btnPrintOne
             // 
@@ -383,15 +339,14 @@
             this.btnPrintOne.IconVisible = true;
             this.btnPrintOne.IconZoom = 90D;
             this.btnPrintOne.IsTab = false;
-            this.btnPrintOne.Location = new System.Drawing.Point(19, 39);
-            this.btnPrintOne.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnPrintOne.Location = new System.Drawing.Point(98, 440);
             this.btnPrintOne.Name = "btnPrintOne";
             this.btnPrintOne.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
             this.btnPrintOne.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
             this.btnPrintOne.OnHoverTextColor = System.Drawing.Color.White;
             this.btnPrintOne.selected = false;
-            this.btnPrintOne.Size = new System.Drawing.Size(199, 51);
-            this.btnPrintOne.TabIndex = 27;
+            this.btnPrintOne.Size = new System.Drawing.Size(184, 51);
+            this.btnPrintOne.TabIndex = 6;
             this.btnPrintOne.Text = "Print One";
             this.btnPrintOne.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPrintOne.Textcolor = System.Drawing.Color.White;
@@ -401,7 +356,7 @@
             // btnClear
             // 
             this.btnClear.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnClear.BackColor = System.Drawing.Color.DarkSlateGray;
             this.btnClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnClear.BorderRadius = 0;
             this.btnClear.ButtonText = "Clear Form";
@@ -419,107 +374,175 @@
             this.btnClear.IconVisible = true;
             this.btnClear.IconZoom = 90D;
             this.btnClear.IsTab = false;
-            this.btnClear.Location = new System.Drawing.Point(226, 107);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnClear.Location = new System.Drawing.Point(564, 440);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnClear.Normalcolor = System.Drawing.Color.DarkSlateGray;
             this.btnClear.OnHovercolor = System.Drawing.Color.Olive;
             this.btnClear.OnHoverTextColor = System.Drawing.Color.White;
             this.btnClear.selected = false;
-            this.btnClear.Size = new System.Drawing.Size(199, 50);
-            this.btnClear.TabIndex = 26;
+            this.btnClear.Size = new System.Drawing.Size(179, 51);
+            this.btnClear.TabIndex = 9;
             this.btnClear.Text = "Clear Form";
             this.btnClear.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClear.Textcolor = System.Drawing.Color.White;
             this.btnClear.TextFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // btnGenerateAll
-            // 
-            this.btnGenerateAll.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btnGenerateAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnGenerateAll.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnGenerateAll.BorderRadius = 0;
-            this.btnGenerateAll.ButtonText = "Generate All";
-            this.btnGenerateAll.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGenerateAll.DisabledColor = System.Drawing.Color.Gray;
-            this.btnGenerateAll.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnGenerateAll.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnGenerateAll.Iconimage")));
-            this.btnGenerateAll.Iconimage_right = null;
-            this.btnGenerateAll.Iconimage_right_Selected = null;
-            this.btnGenerateAll.Iconimage_Selected = null;
-            this.btnGenerateAll.IconMarginLeft = 0;
-            this.btnGenerateAll.IconMarginRight = 0;
-            this.btnGenerateAll.IconRightVisible = true;
-            this.btnGenerateAll.IconRightZoom = 0D;
-            this.btnGenerateAll.IconVisible = true;
-            this.btnGenerateAll.IconZoom = 90D;
-            this.btnGenerateAll.IsTab = false;
-            this.btnGenerateAll.Location = new System.Drawing.Point(224, 39);
-            this.btnGenerateAll.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnGenerateAll.Name = "btnGenerateAll";
-            this.btnGenerateAll.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnGenerateAll.OnHovercolor = System.Drawing.Color.Olive;
-            this.btnGenerateAll.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnGenerateAll.selected = false;
-            this.btnGenerateAll.Size = new System.Drawing.Size(201, 51);
-            this.btnGenerateAll.TabIndex = 25;
-            this.btnGenerateAll.Text = "Generate All";
-            this.btnGenerateAll.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGenerateAll.Textcolor = System.Drawing.Color.White;
-            this.btnGenerateAll.TextFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // metroGrid1
             // 
+            this.metroGrid1.AllowUserToAddRows = false;
             this.metroGrid1.AllowUserToResizeRows = false;
             this.metroGrid1.AutoGenerateColumns = false;
             this.metroGrid1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.metroGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.metroGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.metroGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.metroGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.metroGrid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.admNoDataGridViewTextBoxColumn,
-            this.unitDataGridViewTextBoxColumn,
+            this.unitNameDataGridViewTextBoxColumn,
             this.unitCodeDataGridViewTextBoxColumn});
             this.metroGrid1.DataSource = this.examCardrptBindingSource;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.metroGrid1.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.metroGrid1.DefaultCellStyle = dataGridViewCellStyle2;
             this.metroGrid1.EnableHeadersVisualStyles = false;
             this.metroGrid1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.metroGrid1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.metroGrid1.Location = new System.Drawing.Point(37, 273);
+            this.metroGrid1.Location = new System.Drawing.Point(56, 240);
             this.metroGrid1.Name = "metroGrid1";
             this.metroGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.metroGrid1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.metroGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.metroGrid1.Size = new System.Drawing.Size(798, 189);
+            this.metroGrid1.Size = new System.Drawing.Size(802, 182);
             this.metroGrid1.TabIndex = 27;
+            this.metroGrid1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGrid1_CellContentClick_1);
             // 
-            // examCardrptBindingSource
+            // txtYear
             // 
-            this.examCardrptBindingSource.DataSource = typeof(MMUSIS1.ExamCardrpt);
+            // 
+            // 
+            // 
+            this.txtYear.CustomButton.Image = null;
+            this.txtYear.CustomButton.Location = new System.Drawing.Point(215, 1);
+            this.txtYear.CustomButton.Name = "";
+            this.txtYear.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtYear.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtYear.CustomButton.TabIndex = 1;
+            this.txtYear.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtYear.CustomButton.UseSelectable = true;
+            this.txtYear.CustomButton.Visible = false;
+            this.txtYear.Lines = new string[0];
+            this.txtYear.Location = new System.Drawing.Point(126, 179);
+            this.txtYear.MaxLength = 32767;
+            this.txtYear.Name = "txtYear";
+            this.txtYear.PasswordChar = '\0';
+            this.txtYear.PromptText = "Year of Study";
+            this.txtYear.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtYear.SelectedText = "";
+            this.txtYear.SelectionLength = 0;
+            this.txtYear.SelectionStart = 0;
+            this.txtYear.ShortcutsEnabled = true;
+            this.txtYear.Size = new System.Drawing.Size(237, 23);
+            this.txtYear.TabIndex = 2;
+            this.txtYear.UseSelectable = true;
+            this.txtYear.WaterMark = "Year of Study";
+            this.txtYear.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtYear.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(52, 182);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(45, 20);
+            this.label5.TabIndex = 30;
+            this.label5.Text = "Year:";
+            // 
+            // lblYear
+            // 
+            this.lblYear.AutoSize = true;
+            this.lblYear.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblYear.Location = new System.Drawing.Point(378, 206);
+            this.lblYear.Name = "lblYear";
+            this.lblYear.Size = new System.Drawing.Size(0, 17);
+            this.lblYear.TabIndex = 32;
+            // 
+            // picYear
+            // 
+            this.picYear.Location = new System.Drawing.Point(379, 179);
+            this.picYear.Name = "picYear";
+            this.picYear.Size = new System.Drawing.Size(34, 24);
+            this.picYear.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picYear.TabIndex = 31;
+            this.picYear.TabStop = false;
+            // 
+            // btnLoad
+            // 
+            this.btnLoad.Location = new System.Drawing.Point(677, 180);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(96, 23);
+            this.btnLoad.TabIndex = 5;
+            this.btnLoad.Text = "Load";
+            this.btnLoad.UseSelectable = true;
+            this.btnLoad.Click += new System.EventHandler(this.metroButton4_Click);
+            // 
+            // bunifuFlatButton1
+            // 
+            this.bunifuFlatButton1.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.bunifuFlatButton1.BackColor = System.Drawing.Color.Teal;
+            this.bunifuFlatButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuFlatButton1.BorderRadius = 0;
+            this.bunifuFlatButton1.ButtonText = "Print All";
+            this.bunifuFlatButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuFlatButton1.DisabledColor = System.Drawing.Color.Gray;
+            this.bunifuFlatButton1.Iconcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton1.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton1.Iconimage")));
+            this.bunifuFlatButton1.Iconimage_right = null;
+            this.bunifuFlatButton1.Iconimage_right_Selected = null;
+            this.bunifuFlatButton1.Iconimage_Selected = null;
+            this.bunifuFlatButton1.IconMarginLeft = 0;
+            this.bunifuFlatButton1.IconMarginRight = 0;
+            this.bunifuFlatButton1.IconRightVisible = true;
+            this.bunifuFlatButton1.IconRightZoom = 0D;
+            this.bunifuFlatButton1.IconVisible = true;
+            this.bunifuFlatButton1.IconZoom = 90D;
+            this.bunifuFlatButton1.IsTab = false;
+            this.bunifuFlatButton1.Location = new System.Drawing.Point(339, 440);
+            this.bunifuFlatButton1.Name = "bunifuFlatButton1";
+            this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.Teal;
+            this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.bunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.White;
+            this.bunifuFlatButton1.selected = false;
+            this.bunifuFlatButton1.Size = new System.Drawing.Size(184, 51);
+            this.bunifuFlatButton1.TabIndex = 33;
+            this.bunifuFlatButton1.Text = "Print All";
+            this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bunifuFlatButton1.Textcolor = System.Drawing.Color.White;
+            this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButton1.Click += new System.EventHandler(this.bunifuFlatButton1_Click);
             // 
             // admNoDataGridViewTextBoxColumn
             // 
@@ -527,11 +550,11 @@
             this.admNoDataGridViewTextBoxColumn.HeaderText = "AdmNo";
             this.admNoDataGridViewTextBoxColumn.Name = "admNoDataGridViewTextBoxColumn";
             // 
-            // unitDataGridViewTextBoxColumn
+            // unitNameDataGridViewTextBoxColumn
             // 
-            this.unitDataGridViewTextBoxColumn.DataPropertyName = "Unit";
-            this.unitDataGridViewTextBoxColumn.HeaderText = "Unit";
-            this.unitDataGridViewTextBoxColumn.Name = "unitDataGridViewTextBoxColumn";
+            this.unitNameDataGridViewTextBoxColumn.DataPropertyName = "UnitName";
+            this.unitNameDataGridViewTextBoxColumn.HeaderText = "UnitName";
+            this.unitNameDataGridViewTextBoxColumn.Name = "unitNameDataGridViewTextBoxColumn";
             // 
             // unitCodeDataGridViewTextBoxColumn
             // 
@@ -539,13 +562,24 @@
             this.unitCodeDataGridViewTextBoxColumn.HeaderText = "UnitCode";
             this.unitCodeDataGridViewTextBoxColumn.Name = "unitCodeDataGridViewTextBoxColumn";
             // 
+            // examCardrptBindingSource
+            // 
+            this.examCardrptBindingSource.DataSource = typeof(MMUSIS1.ExamCardrpt);
+            // 
             // ExamCard_Report
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(886, 545);
+            this.ClientSize = new System.Drawing.Size(886, 523);
+            this.Controls.Add(this.bunifuFlatButton1);
+            this.Controls.Add(this.btnLoad);
+            this.Controls.Add(this.lblYear);
+            this.Controls.Add(this.picYear);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtYear);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.metroGrid1);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btnPrintOne);
             this.Controls.Add(this.lblCourseName);
             this.Controls.Add(this.lblCourseCode);
             this.Controls.Add(this.lblName);
@@ -571,8 +605,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCourseCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCourseName)).EndInit();
-            this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picYear)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.examCardrptBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -597,15 +631,18 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblCourseName;
         private System.Windows.Forms.Label lblCourseCode;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private Bunifu.Framework.UI.BunifuFlatButton btnPrintNonReceivers;
         private Bunifu.Framework.UI.BunifuFlatButton btnPrintOne;
         private Bunifu.Framework.UI.BunifuFlatButton btnClear;
-        private Bunifu.Framework.UI.BunifuFlatButton btnGenerateAll;
         private MetroFramework.Controls.MetroGrid metroGrid1;
+        private MetroFramework.Controls.MetroTextBox txtYear;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblYear;
+        private System.Windows.Forms.PictureBox picYear;
+        private MetroFramework.Controls.MetroButton btnLoad;
         private System.Windows.Forms.DataGridViewTextBoxColumn admNoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unitDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn unitCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource examCardrptBindingSource;
+        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
     }
 }

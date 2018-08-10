@@ -453,7 +453,7 @@
             // 
             // dtTo
             // 
-            this.dtTo.Location = new System.Drawing.Point(545, 115);
+            this.dtTo.Location = new System.Drawing.Point(523, 119);
             this.dtTo.MinimumSize = new System.Drawing.Size(0, 29);
             this.dtTo.Name = "dtTo";
             this.dtTo.Size = new System.Drawing.Size(159, 29);
@@ -461,7 +461,7 @@
             // 
             // dtFrom
             // 
-            this.dtFrom.Location = new System.Drawing.Point(545, 63);
+            this.dtFrom.Location = new System.Drawing.Point(523, 67);
             this.dtFrom.MinimumSize = new System.Drawing.Size(0, 29);
             this.dtFrom.Name = "dtFrom";
             this.dtFrom.Size = new System.Drawing.Size(159, 29);
@@ -502,7 +502,7 @@
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(431, 121);
+            this.metroLabel3.Location = new System.Drawing.Point(409, 125);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(56, 19);
             this.metroLabel3.TabIndex = 54;
@@ -511,7 +511,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(431, 73);
+            this.metroLabel2.Location = new System.Drawing.Point(409, 77);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(75, 19);
             this.metroLabel2.TabIndex = 53;

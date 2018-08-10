@@ -195,26 +195,7 @@
             this.button8.MouseEnter += new System.EventHandler(this.button8_MouseEnter);
             this.button8.MouseLeave += new System.EventHandler(this.button8_MouseLeave);
             // 
-            // button7
-            // 
-            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Century Schoolbook", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
-            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(3, 361);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(139, 38);
-            this.button7.TabIndex = 7;
-            this.button7.Text = "Settings";
-            this.button7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            this.button7.MouseEnter += new System.EventHandler(this.button7_MouseEnter);
-            this.button7.MouseLeave += new System.EventHandler(this.button7_MouseLeave);
-            // 
+            
             // button6
             // 
             this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -330,7 +311,7 @@
             this.settingsUC1.Name = "settingsUC1";
             this.settingsUC1.Size = new System.Drawing.Size(812, 483);
             this.settingsUC1.TabIndex = 6;
-            this.settingsUC1.MouseEnter += new System.EventHandler(this.settingsUC1_MouseEnter);
+           // this.settingsUC1.MouseEnter += new System.EventHandler(this.settingsUC1_MouseEnter);
             // 
             // reportsUC1
             // 

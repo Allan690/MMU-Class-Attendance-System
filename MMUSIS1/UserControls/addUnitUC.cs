@@ -102,7 +102,6 @@ namespace MMUSIS1.UserControls
                     coll.Add(reader.GetString(0));
                 }
                 txtCourse.AutoCompleteCustomSource = coll;
-
             }
 
         }

@@ -1,1 +1,1 @@
-﻿insert into dbo.EmailAddress(EmailAddr,[Name]) values ('allannelly690@gmail.com', 'Allan Mogusu'),('allannelly@rocketmail.com' , 'Allan Mogusu')
+﻿

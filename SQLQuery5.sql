@@ -1,1 +1,1 @@
-﻿select distinct * from Students
+﻿delete from ExamCardtbl 

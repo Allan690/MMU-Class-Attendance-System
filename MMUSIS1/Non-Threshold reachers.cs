@@ -82,9 +82,7 @@ namespace MMUSIS1
                             PdfWriter wri = PdfWriter.GetInstance(doc, stream);
                             DateTime dt = DateTime.Now;
 
-                            doc.Open(); //Open document to write
-                                        //HowManyLessons ls = new HowManyLessons();
-                                        // ls.ShowDialog();
+                            doc.Open(); 
                             iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(@"C:\Users\FRED\Documents\Visual Studio 2015\WebSites\Testing\Image\mmu1.jpeg");
                             img.ScalePercent(50f);
                             img.IndentationLeft = 150f;

@@ -1,1 +1,1 @@
-﻿Select AdmNo from Students
+﻿SELECT * FROM STUDENTS

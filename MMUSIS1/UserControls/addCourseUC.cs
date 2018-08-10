@@ -354,7 +354,25 @@ namespace MMUSIS1.UserControls
         }
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DialogResult dialog = MessageBox.Show("Are you sure you want to log out?", "Log out", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                using (var waitingForm = new Waitfrm(logout))
+                {
+                    waitingForm.ShowDialog(this);
+                    Form tmp = this.FindForm();
+                    tmp.Close();
+                    tmp.Dispose();
+                    AdminLogin adm = new AdminLogin();
+                    adm.Show();
+                }
 
+            }
+            else if (dialog == DialogResult.No)
+            {
+                this.Show();
+
+            }
         }
 
         private void metroGrid1_CellContentClick(object sender, DataGridViewCellEventArgs e)

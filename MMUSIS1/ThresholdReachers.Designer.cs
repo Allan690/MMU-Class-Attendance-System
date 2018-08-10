@@ -73,7 +73,6 @@
             this.lblTo = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
-            this.thresholdBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,6 +80,7 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.thresholdBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picLesson)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAdmNo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picName)).BeginInit();
@@ -761,10 +761,6 @@
             this.metroGrid1.TabIndex = 69;
             this.metroGrid1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGrid1_CellContentClick_3);
             // 
-            // thresholdBindingSource
-            // 
-            this.thresholdBindingSource.DataSource = typeof(MMUSIS1.Threshold);
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "AdmNo";
@@ -806,6 +802,10 @@
             this.dataGridViewCheckBoxColumn1.DataPropertyName = "Gender";
             this.dataGridViewCheckBoxColumn1.HeaderText = "Gender";
             this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            // 
+            // thresholdBindingSource
+            // 
+            this.thresholdBindingSource.DataSource = typeof(MMUSIS1.Threshold);
             // 
             // ThresholdReachers
             // 
